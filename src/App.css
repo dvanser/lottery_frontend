@@ -1,0 +1,38 @@
+/*body {*/
+/*  background: url("./assets/img/background-mob.jpg") no-repeat 100% 100% fixed;*/
+/*  -webkit-background-size: contain;*/
+/*  -moz-background-size: contain;*/
+/*  -o-background-size: contain;*/
+/*  background-size: contain;*/
+/*}*/
+
+.pols-mob-background {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pols-web-background {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .pols-mob-background {
+    display: none;
+  }
+
+  .pols-web-background {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /*body {*/
+  /*  background-image:url("./assets/img/background-web.jpg");*/
+  /*  background-repeat: no-repeat;*/
+  /*  background-size: 100% 100%;*/
+  /*}*/
+  /*html {*/
+  /*  height: 100%*/
+  /*}*/
+}
