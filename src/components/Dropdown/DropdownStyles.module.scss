@@ -1,0 +1,82 @@
+.customSelect {
+  position: relative;
+  border: 1px solid #B4B4BB;
+  border-radius: 10px;
+  max-width: 224px;
+  width: 100%;
+  cursor: pointer;
+  & .arrow {
+    position: absolute;
+    top: 22px;
+    right: 21px;
+  }
+  & .selectContainer {
+    background-color: white;
+    position: absolute;
+    border-bottom: 1px solid #B4B4BB;
+    border-left: 1px solid #B4B4BB;
+    border-right: 1px solid #B4B4BB;
+    top: 85%;
+    left: -1px;
+    width: 100.9%;
+    z-index: 1;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    & .select {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 10px;
+      &:hover {
+        background: #EBF2FF;
+      }
+    }
+  }
+  & .label {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    align-items: center;
+    letter-spacing: 0.1px;
+    color: #9696A0;
+    position: absolute;
+    left: 16px;
+    top: 4px;
+  }
+  & .firstSelect {
+    margin-top: 22px;
+    padding: 0 16px 10px 16px;
+  }
+}
+
+.disabled {
+  background-color: #F0F0F1;
+  color: #787885;
+  cursor: not-allowed;
+  & .disabledIcon {
+    position: absolute;
+    top: 11px;
+    right: 14px;
+  }
+}
+
+.arrowOpen {
+  transform: rotate(0deg);
+  transition: 0.3s;
+}
+
+.arrowClose {
+  transform: rotate(180deg);
+  transition: 0.3s;
+}
+
+.open {
+  max-height: 300px;
+  opacity: 1;
+  transition: max-height 0.5s ease-out;
+}
+
+.close {
+  max-height: 16.9%;
+  opacity: 0;
+  transition: max-height 0.5s , opacity 0s 0.4s ease;
+}
