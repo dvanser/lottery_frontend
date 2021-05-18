@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import './index.css';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { IntlProvider } from './_library/connectedIntlProvider';

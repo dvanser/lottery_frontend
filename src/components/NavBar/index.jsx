@@ -5,6 +5,7 @@ import {
     NavbarToggler,
     Nav,
 } from 'reactstrap';
+import { ReactComponent as PolsLogo } from '../../assets/PolsLogo.svg'
 import { Link } from '../';
 import { authActions } from '../../_actions';
 import { connect } from 'react-redux';
@@ -18,6 +19,7 @@ const NavBar = () => {
     return (
         <Navbar fixed="top" expand="md">
             <Link className="navbar-brand" to="/">
+                <PolsLogo />
                 <div className="position-absolute" />
             </Link>
             <NavbarToggler onClick={toggle} />
