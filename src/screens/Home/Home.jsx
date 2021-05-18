@@ -3,6 +3,7 @@ import { i18nActions } from '../../_actions'
 import { connect } from 'react-redux';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { BrowserRouter } from 'react-router-dom';
+import { NavBar } from '../../components/NavBar';
 
 
 const Home = props => {
@@ -16,6 +17,7 @@ const Home = props => {
 
     return (
         <BrowserRouter>
+        <NavBar />
             <div>Main</div>
         </BrowserRouter>
     );
