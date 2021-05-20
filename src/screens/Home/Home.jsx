@@ -38,7 +38,6 @@ function mapDispatchToProps(dispatch) {
             dispatch(i18nActions.changeLanguage(lang))
         }
     })
-
 }
 const connectedHome = connect(mapStateToProps, mapDispatchToProps)(Home);
 

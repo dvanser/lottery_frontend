@@ -1,0 +1,21 @@
+@import './pols_variables.scss';
+
+@font-face {
+  font-family: 'UKIER-Bold';
+  src: local('UKIER-Bold'), url(../fonts/CUKIER-Bold.otf) format('otf');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
+body, html {
+  text-align: left;
+  font-family: "Cukier-bold" !important;
+  font-size: 28px !important;
+  letter-spacing: 0.09px;
+  color: $pols-white;
+  opacity: 1;
+  background-color: $pols-blue-background;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 32px;
+}
