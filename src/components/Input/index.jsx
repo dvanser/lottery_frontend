@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import InputStyles from './InputDesktopStyle.module.scss';
+import InputStyles from './InputStyle.module.scss';
 
 
-export const InputDesktop = ({className,placeholder,label,onChange,successful,value,type,name, ...classes}) => {
+export const Input = ({className,placeholder,label,onChange,successful,value,type,name, ...classes}) => {
 
     const inputClass = Object.entries(classes).map(([key]) =>
     InputStyles[key] !== undefined ? InputStyles[key] : '').join(' ') + ' ' + (className ? className : '');
