@@ -1,3 +1,65 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .bg-1AA0E1 {
+        background-color: #1AA0E1;
+    }
+    .inset-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    .PolsBold {
+        font-family: Arial;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .Polsbody {
+        font-family: Arial;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        text-align: center;
+        line-height: 18px;
+    }
+    .ToyCounterLeft {
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 11.7894px;
+        line-height: 14px;
+        text-align: center;
+        color: #10316C;
+    }
+    .ToyCounter {
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 17px;
+        text-align: center;
+        color: #10316C;
+    }
+    .bottom-53 {
+        bottom: 209px;
+    }
+    .left-33 {
+        left: 125px;
+    }
+    .top-720 {
+        top: 720px;
+    }
+    .NavBarText {
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 29px;
+        color: #164290;
+    }
+}
