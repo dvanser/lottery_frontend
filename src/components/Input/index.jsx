@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import InputStyles from './InputStyle.module.scss';
+import { Text } from '../Text';
 
 
 export const Input = ({className,placeholder,label,onChange,successful,value,type,name, ...classes}) => {
@@ -23,19 +24,10 @@ export const Input = ({className,placeholder,label,onChange,successful,value,typ
         }
     }
 
-    const clearButton = (event) => {
-        event.preventDefault();
-        setText('');
-        setDivDisplay(!divDisplay);
-        event.target.blur()
-        if(onChange !== undefined) {
-            onChange('')
-        }
-    }
-
     return (
-        <div className={`${InputStyles['container']} ${inputClass} ${successful && InputStyles['successful']} ${divDisplay ? InputStyles['show'] : InputStyles['hide']}`} >
-            <label className={`${InputStyles['label']} ${successful && InputStyles['successful']}`}  >{ label } </label>
+        <div >
+            <label className={`${InputStyles['label']} ${successful && InputStyles['successful']}`}>
+                <Text label={label} /></label>
             <input className={ `${InputStyles['input']}` }
                 placeholder={placeholder}
                 value={text}
@@ -45,7 +37,6 @@ export const Input = ({className,placeholder,label,onChange,successful,value,typ
                 type={type}
                 name={name}
                 />
-            <button onClick={clearButton} className={`${InputStyles['clearButton']} ${successful && InputStyles['successful']}`} />
         </div>
     );
 }

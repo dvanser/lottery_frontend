@@ -1,13 +1,14 @@
 @import "./src/assets/scss/pols_variables";
 
 .input {
-    border: $pols-white 6px;
+    border: $pols-white solid 6px;
     border-radius: 3px;
     background: transparent;
     padding: 19px 13px;
     height: 80px;
     font-weight: normal;
-    color: $pols-text-blue-color;
+    color: $pols-white;
+    width: 100%;
     &:focus {
        outline: none;
    }
@@ -33,9 +34,8 @@
 }
 
 .label {
-    padding-top: 6px;
-    padding-left: 8px;
-    padding-right: 16px;
+    padding-top: 20px;
+    margin-bottom: 11px;
     font-style: normal;
     display: flex;
     color: $pols-white;

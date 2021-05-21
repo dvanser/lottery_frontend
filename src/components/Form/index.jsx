@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useFormik } from 'formik';
+import { useFormik, ErrorMessage } from 'formik';
 import { Button, Input } from '../../components';
 import formStyle from './FormStyles.module.scss';
+import {Text} from "../Text";
 
 export const Form = props => {
 
@@ -23,10 +24,14 @@ export const Form = props => {
                 type={key.type}
                 className={formStyle.input}
             />
-                {formik.touched[key.name] && formik.errors[key.name] && <div>{formik.errors[key.name]}</div>}
+            {formik.touched[key.name] && formik.errors[key.name] && <Text error>{formik.errors[key.name]}</Text>}
             </>))
             }
-            <Button small blue type='submit' className={formStyle.button}><div>{props.buttonText}</div></Button>
+            {props.formFooter &&
+                <>{props.formFooter}</>
+            }
+            <Button type='submit' className={formStyle.button}><div>{props.buttonText}</div></Button>
+
         </form>
     );
 }

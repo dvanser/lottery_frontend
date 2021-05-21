@@ -9,7 +9,8 @@
 }
 
 .h1 {
-   @include txtmixin(bold,96px,118px,-1.75px);
+   @include txtmixin(bold, 50px, 60px, 0.02em);
+    margin-bottom: 40px;
 }
 
 .h2 {
@@ -72,4 +73,9 @@
 
 .justify {
     text-align: justify;
+}
+
+.error {
+    color: rgb(249, 56,34);
+    font-size: 18px;
 }
