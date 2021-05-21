@@ -17,6 +17,7 @@ export const CheckBox = (props) => {
         <label className={checkBoxStyle.container}>
             <input type="checkbox" checked={check} onChange={handleChange}/>
             <span className={checkBoxStyle.checkmark} />
+            <div className={checkBoxStyle.text}>{props.text}</div>
         </label>
     )
 

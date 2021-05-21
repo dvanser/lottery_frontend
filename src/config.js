@@ -6,7 +6,12 @@ let config = {
         'user': 1,
         'admin': 2
     },
-    supportedLangs: ['lv', 'ru']
+    supportedLangs: ['lv', 'ru'],
+    codesRequiredForPrize: {
+        'small':  25,
+        'medium': 30,
+        'big':  50
+    }
 };
 
 export default Object.freeze(Object.assign({}, config));

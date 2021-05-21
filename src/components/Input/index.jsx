@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import InputStyles from './InputDesktopStyle.module.scss';
+import InputStyles from './InputStyle.module.scss';
+import { Text } from '../Text';
 
 
-export const InputDesktop = ({className,placeholder,label,onChange,successful,value,type,name, ...classes}) => {
+export const Input = ({className,placeholder,label,onChange,successful,value,type,name, ...classes}) => {
 
     const inputClass = Object.entries(classes).map(([key]) =>
     InputStyles[key] !== undefined ? InputStyles[key] : '').join(' ') + ' ' + (className ? className : '');
@@ -23,19 +24,10 @@ export const InputDesktop = ({className,placeholder,label,onChange,successful,va
         }
     }
 
-    const clearButton = (event) => {
-        event.preventDefault();
-        setText('');
-        setDivDisplay(!divDisplay);
-        event.target.blur()
-        if(onChange !== undefined) {
-            onChange('')
-        }
-    }
-
     return (
-        <div className={`${InputStyles['container']} ${inputClass} ${successful && InputStyles['successful']} ${divDisplay ? InputStyles['show'] : InputStyles['hide']}`} >
-            <label className={`${InputStyles['label']} ${successful && InputStyles['successful']}`}  >{ label } </label>
+        <div >
+            <label className={`${InputStyles['label']} ${successful && InputStyles['successful']}`}>
+                <Text label={label} /></label>
             <input className={ `${InputStyles['input']}` }
                 placeholder={placeholder}
                 value={text}
@@ -45,7 +37,6 @@ export const InputDesktop = ({className,placeholder,label,onChange,successful,va
                 type={type}
                 name={name}
                 />
-            <button onClick={clearButton} className={`${InputStyles['clearButton']} ${successful && InputStyles['successful']}`} />
         </div>
     );
 }

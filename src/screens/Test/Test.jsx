@@ -1,6 +1,6 @@
 import React , { useState } from 'react';
 import {
-    Button, Block, CheckBox, Text, RadioButton, InputDesktop, InputSearch, Icon, Dropdown, Modal
+    Button, Block, CheckBox, Text, RadioButton, Input, InputSearch, Icon, Dropdown, Modal
 } from '../../components';
 import testStyle from './testScreenStyle.module.scss';
 import { BrowserRouter } from 'react-router-dom';
@@ -116,8 +116,8 @@ export const TestScreen = () => {
                             <Icon />
                         </div>
                         <div>
-                            <InputDesktop  placeholder = 'Empty Input' label = 'Cardholder Name' onChange = {(value) => {console.log(value)}}/>
-                            <InputDesktop placeholder = 'Empty Input' label = 'Confirmed input' successful onChange = {(value) => {console.log(value)}} />
+                            <Input placeholder = 'Empty Input' label = 'Cardholder Name' onChange = {(value) => {console.log(value)}}/>
+                            <Input placeholder = 'Empty Input' label = 'Confirmed input' successful onChange = {(value) => {console.log(value)}} />
                         </div>
                         <div>
                             <InputSearch small onChange = {(value) => {console.log(value)}} />
