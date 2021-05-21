@@ -1,3 +1,5 @@
+@import "./src/assets/scss/pols_variables";
+
 /* Customize the label (the container) */
 .container {
   display: block;
@@ -24,9 +26,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 18.5px;
-  width: 18.5px;
-  border: 1.5px solid #6D5BD0;
+  height: 34px;
+  width: 34px;
+  border: 3px solid $pols-blue;
   box-sizing: border-box;
   border-radius: 3px;
   background-color: #FFFFFF;
@@ -34,8 +36,10 @@
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background: url("checkMark.svg") no-repeat center #6D5BD0;
+  background: url("checkMark.svg") no-repeat center $pols-white;
 }
 
-
-
+.text {
+  margin-left: 40px;
+  margin-top: -10px;
+}

@@ -8,19 +8,23 @@ button {
   padding: 19px 13px;
   position: static;
   height: 80px;
-  background: $pols-white;
+  background-color: $pols-white-background;
+  color: $pols-blue;
   border-radius: 3px;
   flex: none;
   order: 0;
   align-self: stretch;
   flex-grow: 0;
+  width: 100%;
+}
 
-  &:hover {
-    transform: scale(1.1);
-    transition: 0.3s;
-    cursor: pointer;
-  }
-  &:focus {
-    outline: 0;
-  }
+.blue {
+  background-color: $pols-blue-background;
+  border: $pols-white solid 4px;
+  color: $pols-white;
+}
+
+.white {
+  background-color: $pols-white-background;
+  color: $pols-blue;
 }

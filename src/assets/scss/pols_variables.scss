@@ -5,7 +5,8 @@ $pols-blue: #199DDF;
 
 /* backgrounds */
 $pols-white-background: $pols-white;
-$pols-blue-background: linear-gradient(180deg, #1791D5 0%, #1BA7E7 100%);
+$pols-blue-background-gradient: linear-gradient(180deg, #1791D5 0%, #1BA7E7 100%);
+$pols-blue-background: $pols-blue;
 
 
 /* texts */
