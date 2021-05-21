@@ -3,7 +3,7 @@ import  SmallToy  from '../../assets/smallToy.svg'
 import  MediumToy  from '../../assets/mediumToy.svg'
 import  BigToy  from '../../assets/bigToy.svg'
 import { FormattedMessage } from 'react-intl';
-import { getRequest } from '../../_library/request';
+import { getRequest } from '../../_library';
 import toyReviewStyle from './ToyReview.module.scss'
 export const ToyReview = () => {
 

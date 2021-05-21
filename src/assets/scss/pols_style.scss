@@ -2,10 +2,8 @@
 @import './bootstrap.scss';
 
 @font-face {
-  font-family: 'UKIER-Bold';
-  src: local('UKIER-Bold'), url(../fonts/CUKIER-Bold.otf) format('otf');
-  /* other formats include: 'woff2', 'truetype, 'opentype',
-                            'embedded-opentype', and 'svg' */
+  font-family: 'CUKIER-Bold';
+  src: url("../fonts/CUKIER-Bold.otf") format('opentype');
 }
 
 body, html {
