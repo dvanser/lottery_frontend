@@ -4,7 +4,7 @@ import  MediumToy  from '../../assets/mediumToy.svg'
 import  BigToy  from '../../assets/bigToy.svg'
 import { FormattedMessage } from 'react-intl';
 import { getRequest } from '../../_library/request';
-
+import toyReviewStyle from './ToyReview.module.scss'
 export const ToyReview = () => {
 
     const [synchronized,setSynchronized] = useState(false);
@@ -25,21 +25,21 @@ export const ToyReview = () => {
 
     return (
         !synchronized ? <div> Loading. Please wait</div> : data === undefined ? <div>{error}</div> :
-        <div class='grid grid-cols-2 gap-4 grid-rows-2 w-max relative'>
+        <div className={toyReviewStyle['wrapper']}>
                 {/*Toys Descriptions */}
-                <div class='absolute bg-1AA0E1 text-white left-6 -top-4'><div class='PolsBold'><FormattedMessage id='pols.small.kocini' /></div><div class='Polsbody' ><FormattedMessage id='pols.small.description' /></div></div>
-                <div class='absolute bg-1AA0E1 text-white right-12 -top-4'><div class='PolsBold'><FormattedMessage id='pols.medium.kocini' /></div><div class='Polsbody' ><FormattedMessage id='pols.medium.description' /></div></div>
-                <div class='absolute bg-1AA0E1 text-white -left-8 bottom-36'><div class='PolsBold'><FormattedMessage id='pols.big.kocini' /></div><div class='Polsbody' ><FormattedMessage id='pols.big.description' /></div></div>
+                <div className={toyReviewStyle['smallSticks']}><div className={toyReviewStyle['PolsBold']}><FormattedMessage id='pols.small.kocini' /></div><div className={toyReviewStyle['PolsBody']} ><FormattedMessage id='pols.small.description' /></div></div>
+                <div className={toyReviewStyle['mediumSticks']}><div className={toyReviewStyle['PolsBold']}><FormattedMessage id='pols.medium.kocini' /></div><div className={toyReviewStyle['PolsBody']} ><FormattedMessage id='pols.medium.description' /></div></div>
+                <div className={toyReviewStyle['bigSticks']}><div className={toyReviewStyle['PolsBold']}><FormattedMessage id='pols.big.kocini' /></div><div className={toyReviewStyle['PolsBody']} ><FormattedMessage id='pols.big.description' /></div></div>
 
                 {/* Toys Counter info */}
-                <div class='absolute bg-white text-black right-0 bottom-0 z-40'><div class='font-sans ToyCounterLeft p-1.5'><FormattedMessage id='pols.toy.left' /><div class='font-sans-Roboto ToyCounter' >{data.smallToysCount}</div></div></div>
-                <div class='absolute bg-white text-black right-0 bottom-53 z-40'><div class='font-sans ToyCounterLeft p-1.5'><FormattedMessage id='pols.toy.left' /><div class='font-sans-Roboto ToyCounter' >{data.mediumToysCount}</div></div></div>
-                <div class='absolute bg-white text-black left-33 bottom-53 z-40'><div class='font-sans ToyCounterLeft p-1.5'><FormattedMessage id='pols.toy.left' /><div class='font-sans-Roboto ToyCounter' >{data.bigToysCount}</div></div></div>
+                <div className={toyReviewStyle['bigCounter']}><div className={toyReviewStyle['ToyCounterLeft']}><FormattedMessage id='pols.toy.left' /><div className={toyReviewStyle['ToyCounter']} >{data.bigToysCount}</div></div></div>
+                <div className={toyReviewStyle['mediumCounter']}><div className={toyReviewStyle['ToyCounterLeft']}><FormattedMessage id='pols.toy.left' /><div className={toyReviewStyle['ToyCounter']} >{data.mediumToysCount}</div></div></div>
+                <div className={toyReviewStyle['smallCounter']}><div className={toyReviewStyle['ToyCounterLeft']}><FormattedMessage id='pols.toy.left' /><div className={toyReviewStyle['ToyCounter']} >{data.smallToysCount}</div></div></div>
 
                 {/*Toys images and borders */}
-                <div class='col-start-1 border-4 border-white'><img class='hidden' src={SmallToy} alt='small toy' /></div><img class='absolute origin-center bottom-38 -left-16 transform rotate-225' src={SmallToy} alt='small toy' />
-                <div class='col-start-2 border-4 border-white'><img class='hidden' src={MediumToy} alt='medium toy' /></div><img class='absolute left-52' src={MediumToy} alt='small toy' />
-                <div class='col-start-1 col-span-2 border-4 border-white'><img class='invisible' src={BigToy} alt='big toy' /></div><img class='absolute -bottom-12 -left-8' src={BigToy} alt='big toy' />
+                <div className={toyReviewStyle['smallToy']}><img className={toyReviewStyle['hidden']} src={SmallToy} alt='' /></div><img className={toyReviewStyle['smallToyImg']} src={SmallToy} alt='' />
+                <div className={toyReviewStyle['mediumToy']}><img className={toyReviewStyle['hidden']} src={MediumToy} alt='' /></div><img className={toyReviewStyle['mediumToyImg']} src={MediumToy} alt='' />
+                <div className={toyReviewStyle['bigToy']}><img className={toyReviewStyle['invisible']} src={BigToy} alt='' /></div><img className={toyReviewStyle['bigToyImg']} src={BigToy} alt='' />
         </div>
     );
 }

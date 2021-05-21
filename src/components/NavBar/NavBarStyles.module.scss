@@ -1,0 +1,32 @@
+.wrapper {
+    background-image: url(../../assets/navBar.svg);
+    background-repeat: no-repeat no-repeat;
+    background-size: 100%;
+    z-index: 10;
+    position: relative; 
+}
+
+.navBarContainer {
+    display: inline-flex;
+}
+
+.navBarLogo {
+    padding-left: 128px;
+    padding-right: 384px;
+    flex: 1 1 0%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.navBarItem {
+    padding-left: 56px;
+    flex: 1 1 0%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.navBarText {
+    font-size: 25px;
+    line-height: 30px;
+    color: #164290;
+}

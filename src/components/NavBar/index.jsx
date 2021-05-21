@@ -10,6 +10,7 @@ import { Link } from '../';
 import { authActions } from '../../_actions';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
+import navBarStyle from './NavBarStyles.module.scss'
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -17,32 +18,32 @@ const NavBar = () => {
     const toggle = () => setIsOpen(!isOpen);
 
     return (
-        <div class='bg-white'>
-        <div class='inline-flex'>
+        <div className={navBarStyle['wrapper']}>
+        <div className={navBarStyle['navBarContainer']}>
         <Navbar fixed="top" expand="md">
-            <div class='pl-32 pr-96 flex-1 inline-block align-middle'>
+            <div className={navBarStyle['navBarLogo']}>
             <Link className="navbar-brand" to="/">
                 <PolsLogo />
             </Link>
             </div>
-            <div class='inline-block pl-14 flex-1 inline-block align-middle' >
+            <div className={navBarStyle['navBarItem']} >
                <Link className="navbar-brand" to="/BUJ">
-                <div class='NavBarText'><FormattedMessage id='pols.navbar.maq'/></div>
+                <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.maq'/></div>
             </Link> 
             </div>
-            <div class='inline-block pl-14 flex-1 inline-block align-middle' >
+            <div className={navBarStyle['navBarItem']} >
                <Link className="navbar-brand" to="/rules">
-                <div class='NavBarText'><FormattedMessage id='pols.navbar.rules'/></div>
+                <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.rules'/></div>
             </Link> 
             </div>
-            <div class='inline-block pl-14 flex-1 inline-block align-middle' >
+            <div className={navBarStyle['navBarItem']} >
                <Link className="navbar-brand" to="/profile">
-                <div class='NavBarText'><FormattedMessage id='pols.navbar.myProfile' /></div>
+                <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.myProfile' /></div>
             </Link> 
             </div>
-            <div class='inline-block pl-14 flex-1 inline-block align-middle' >
+            <div className={navBarStyle['navBarItem']} >
                <Link className="navbar-brand" to="/contacts">
-                <div class='NavBarText'><FormattedMessage id='pols.navbar.contacts' /></div>
+                <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.contacts' /></div>
             </Link> 
             </div>
             

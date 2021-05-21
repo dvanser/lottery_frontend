@@ -11,7 +11,9 @@
     "pols.navbar.rules" : "Noteikumi",
     "pols.navbar.myProfile" : "Mans Profils",
     "pols.navbar.contacts" : "Kontakti",
-    "pols.navbar.maq" : "BUJ"
+    "pols.navbar.maq" : "BUJ",
+    "pols.register.button" : "Reģistrējies loterijai",
+    "pols.home.h3" : "Kod salčukam, sakrāj lāčukam"
   },
   "ru": {
     "pols.small.kocini" : "25 палочек",
@@ -25,7 +27,10 @@
     "pols.navbar.rules" : "Правила",
     "pols.navbar.myProfile" : "Мой Профиль",
     "pols.navbar.contacts" : "Контакты",
-    "pols.navbar.maq" : "ЧЗВ"
+    "pols.navbar.maq" : "ЧЗВ",
+    "pols.register.button" : "Зарегистрируйся в лотерее",
+
+    "pols.home.h3" : "Kod salčukam, sakrāj lāčukam"
     
   }
 }
