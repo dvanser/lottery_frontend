@@ -54,6 +54,7 @@ const Home = props => {
                 <div className={HomePageStyle['stepDesc']}>Krāj pols saldējuma kociņus, saglabājot čeku</div>
             </div>
             <div className={HomePageStyle['step2']} >
+                <Sticks />
                 <div className={HomePageStyle['stepNo']}>2</div> 
                 <div className={HomePageStyle['stepDesc']}>Reģistrējies pols.lv</div>
             </div>
@@ -61,8 +62,8 @@ const Home = props => {
                 <div className={HomePageStyle['stepNo']}>3</div> 
                 <div className={HomePageStyle['stepDesc']}>Reģistrē kociņus un apmaini tos pret balvām</div>
             </div>
-            <Sticks />
             </div>
+
 
             <div className={HomePageStyle['products']}>
                 <div className={HomePageStyle['productsHeader']}>Produkti, kas piedalās loterijā</div>
@@ -70,21 +71,23 @@ const Home = props => {
                     <div>
                         <img src={polsClassic} alt='polsClassic' className={HomePageStyle['lotteryProd']} />
                         <img src={polsChoco} alt='polsChoco' className={HomePageStyle['lotteryProd']} />
+                    </div>
+                    <div>
                         <img src={polsGlazura} alt='polsGlazura' className={HomePageStyle['lotteryProd']} />
                         <img src={polsCips} alt='polsCips' className={HomePageStyle['lotteryProd']} />
                     </div>
                     <div>
                         <img src={polsRaspberry} alt='polsRaspberry' className={HomePageStyle['lotteryProd']} />
                         <img src={polsBlackcurrants} alt='polsBlackcurrants' className={HomePageStyle['lotteryProd']} />
+                    </div>
+                    <div>
                         <img src={polsMango} alt='polsMango' className={HomePageStyle['lotteryProd']} />
                         <img src={polsPopcorn} alt='polsPopcorn' className={HomePageStyle['lotteryProd']} /> 
-                    </div>
+                   </div>
                     </div>
             </div>
             {/* Block with all images with absolute position */}
             <img src={headerIceCream} alt='Ice Cream' className={HomePageStyle['headerIceCream']} />
-            <img src={splitHomeScreen} alt='splitHomeScreen' className={HomePageStyle['splitHomeScreen']} />
-            <img src={splitHomeScreen} alt='splitHomeScreen' className={HomePageStyle['splitHomeScreen2']} />
             <img src={footerWhiteArea} alt='footerWhiteArea' className={HomePageStyle['footerWhiteArea']} />
          </div>
         </BrowserRouter>
