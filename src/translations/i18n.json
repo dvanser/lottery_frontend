@@ -1,5 +1,21 @@
 {
   "lv": {
+<<<<<<< HEAD
+    "pols.small.kocini" : "25 kociņi",
+    "pols.small.description" : "Atslēgas piekariņš",
+    "pols.medium.kocini" : "30 kociņi",
+    "pols.medium.description" : "Soma",
+    "pols.big.kocini" : "50 kociņi",
+    "pols.big.description" : "Spilvens",
+    "pols.toy.left" : "Palika: ",
+
+    "pols.navbar.rules" : "Noteikumi",
+    "pols.navbar.myProfile" : "Mans Profils",
+    "pols.navbar.contacts" : "Kontakti",
+    "pols.navbar.maq" : "BUJ",
+    "pols.register.button" : "Reģistrējies loterijai",
+    "pols.home.h3" : "Kod salčukam, sakrāj lāčukam"
+=======
     "pols.signup.name": "Vārds*",
     "pols.signup.surname": "Uzvārds*",
     "pols.signup.age": "Vecums*",
@@ -45,7 +61,24 @@
     "pols.profile.code_count": "Tev ir sakāti {count} kociņi",
     "pols.profile.btn.edit": "Rediģēt kontu",
     "pols.profile.btn.register_codes": "Reģistēt vēl"
+>>>>>>> origin/master
   },
   "ru": {
+    "pols.small.kocini" : "25 палочек",
+    "pols.small.description" : "Брелок на ключи",
+    "pols.medium.kocini" : "30 палочек",
+    "pols.medium.description" : "Сумка",
+    "pols.big.kocini" : "50 палочек",
+    "pols.big.description" : "Подушка",
+    "pols.toy.left" : "Осталось: ",
+
+    "pols.navbar.rules" : "Правила",
+    "pols.navbar.myProfile" : "Мой Профиль",
+    "pols.navbar.contacts" : "Контакты",
+    "pols.navbar.maq" : "ЧЗВ",
+    "pols.register.button" : "Зарегистрируйся в лотерее",
+
+    "pols.home.h3" : "Kod salčukam, sakrāj lāčukam"
+    
   }
 }
