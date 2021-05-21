@@ -3,7 +3,6 @@ import { Text, Button} from '../../components';
 import { Col, Container, Row } from 'reactstrap';
 import { history } from '../../_library';
 import { connect } from 'react-redux';
-import { FormattedMessage } from "react-intl";
 import config from '../../config';
 
 

@@ -3,7 +3,7 @@ import { Text, Button} from '../../components';
 import { Col, Container, Row } from 'reactstrap';
 import { history } from '../../_library';
 import { connect } from 'react-redux';
-import {FormattedMessage} from "react-intl";
+import { FormattedMessage } from 'react-intl';
 
 
 const ProfileStep1 = props => {

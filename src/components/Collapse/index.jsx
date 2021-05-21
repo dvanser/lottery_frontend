@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './index.scss';
 import { Text } from '../Text';
-import { Icon } from '../Icon';
+import { Icon } from '../Icons';
 import { Col, Row } from 'reactstrap';
 import { useIntl } from 'react-intl';
 

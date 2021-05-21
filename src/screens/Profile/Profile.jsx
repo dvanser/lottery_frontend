@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { ProfileStep0 } from './ProfileStep0';
 import { ProfileStep1 } from './ProfileStep1';
+import config from '../../config';
 
 
 const Profile = props => {
