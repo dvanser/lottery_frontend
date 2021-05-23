@@ -1,21 +1,48 @@
-import React, { useState } from "react";
-import "./style.css";
+import React, { useState } from 'react';
+import { Col, Row } from 'reactstrap';
+import styles from './RegisterCode.module.scss';
+import { NavBar, Text, Input, Button } from '../../components';
+import { FormattedMessage, useIntl } from 'react-intl';
+import Select from 'react-select';
+import { postFileRequest, postRequest } from '../../_library';
 
 
 export const FileFrom = props => {
 
-
     return (
-        <div style={{marginTop: "20px"}}>
-            FileFrom
+        <div>
             <div>
                 {props.data.error &&
-                <>{props.data.error}</>
+                    <>{props.data.error}</>
                 }
             </div>
             <div>
-                number <input value={props.data.cheque} onChange={e => props.onChange(e, 'chequeNumber')} name="chequeNumber" type="text" />
-                file <input onChange={e => props.onChange(e, 'chequeFile')} name="chequeFile" type="file" />
+                <Row>
+                    <Col xs={6}>
+                        <Input label="pols.profile.register_code.file_from.cheque_number" value={props.data.cheque} onChange={e => props.onChange(props.id, e, 'chequeNumber')} name="chequeNumber" type="text" />
+                    </Col>
+                    <Col xs={6}>
+                        {!props.data.selected &&
+                            <div className={'mt-3 ' + styles.fileUploadInputWrapper}>
+                                <label className={styles.fileUploadInput} htmlFor={'chequeFile_' + props.id}>
+                                    <Text small label="pols.profile.register_code.file_from.upload"/>
+                                </label>
+                                <input hidden onChange={e => props.onChange(props.id, e, 'chequeFile')}
+                                       id={'chequeFile_' + props.id} name="chequeFile" type="file"/>
+                            </div>
+                        }
+                        {props.data.selected &&
+                            <div className={'mt-3 pt-4 ' + styles.fileUploadInputWrapper}>
+                                <Text small>
+                                    <div>
+                                        <Text small label="pols.profile.register_code.file_from.upload.selected_file" />
+                                    </div>
+                                    {props.data.files[0].name}
+                                </Text>
+                            </div>
+                        }
+                    </Col>
+                </Row>
             </div>
         </div>
     );
@@ -27,25 +54,24 @@ export const CodeFrom = props => {
     const [codes, setCodes] = useState({});
 
 
-    const handleOnChange = (id, e) => {
+    const handleOnChange = (id, value) => {
         const newCodes = Object.assign(codes);
-        newCodes[id] = e.target.value;
+        newCodes[id] = value;
         setCodes(newCodes);
         props.onChange(newCodes);
     };
 
     return (
-        <div style={{marginTop: "50px"}}>
-            CodeFrom
-            <div>
+        <div>
+            <div className="mt-3">
                 {props.error &&
-                <>{props.error}</>
+                    <>{props.error}</>
                 }
             </div>
-            {[...Array(props.count).keys()].map((id, idx) => (
-                    <div key={idx}>
-                        code
-                        <input name="code" value={codes[id]} onChange={e => handleOnChange(id, e)} type="text" />
+            {[...Array(parseInt(props.count))].map((id, idx) => (
+                    <div key={idx} className="mt-3">
+                        <Input label="pols.profile.register_code.code_from.code"
+                               name="code" value={codes[idx]} onChange={e => handleOnChange(idx, e)} type="text" />
                     </div>
                 )
             )}
@@ -55,99 +81,135 @@ export const CodeFrom = props => {
 };
 
 
-export const Test = () => {
+export const RegisterCode = () => {
 
+    const [step, setStep] = useState(0);
     const [requestsData, setRequestsData] = useState([
-        {type: 'file', files: [], filename: '', cheque: ''}
+        {files: [], cheque: '', selected: false}
     ]);
     const [codesData, setCodesData] = useState({});
     const [codesError, setCodesError] = useState('');
     const [codesCount, setCodesCount] = useState(1);
 
-    const handleFilesCountChange = e => {
-        setRequestsData([...Array(parseInt(e.target.value)).keys()].map(() => (
-                {files: [], filename: '', cheque: ''}
+    const intl = useIntl();
+
+    const handleFilesCountChange = count => {
+        setRequestsData([...Array(parseInt(count.value)).keys()].map(() => (
+                {files: [], cheque: '', selected: false}
             )
         ));
+
+        setStep(step + 1);
+    };
+
+    const handleCodesCountChange = count => {
+        setCodesCount(count.value);
+        if (step < 2) {
+            setStep(step + 1);
+        }
     };
 
     const handleFileFormChange = (id, e, type) => {
-
         let newRequestsData = [...requestsData];
 
         if (type === 'chequeNumber') {
-            newRequestsData[id].cheque = e.target.value;
+            newRequestsData[id].cheque = e;
         } else {
             newRequestsData[id].files = e.target.files;
+            newRequestsData[id].selected = true;
         }
 
         setRequestsData(newRequestsData);
     };
 
     const handleCodeFormChange = codes => {
-        console.log('codes', codes);
         setCodesData(codes);
     };
 
     const handleSubmit = () => {
-        //post request codesData
-        //success for requestsData - file
 
-        requestsData.forEach((file, idx) => {
-            //post request requestsData - file
-            //success
-            // requestsData - file - status = success
-            //setRequestsData()
-            //catch
-            let newRequestsData = [...requestsData];
-            newRequestsData[idx]['error'] = 'error_' + idx.toString();
-            // requestsData - file - status = error
-            //setRequestsData()
-        });
+        postRequest('/codes', {codes: Object.values(codesData)})
+            .then(response => {
+                requestsData.forEach((file, idx) => {
 
+                    const filesData = new FormData();
 
-        //catch
-        setCodesError('error occurred');
+                    if (file.files[0].selected) {
+                        filesData.append('cheque', file.files[0]);
+                    }
 
+                    filesData.append('number', file.cheque);
 
+                    postFileRequest(`/cheque`, filesData)
+                        .then(response => {
+                            console.log(idx, response);
+                        }).catch(response => {
+
+                            let newRequestsData = [...requestsData];
+
+                            if (response.error) {
+                                newRequestsData[idx]['error'] = response.error
+                            } else {
+                                newRequestsData[idx]['error'] = response.error
+                            }
+
+                            setRequestsData(newRequestsData);
+                        });
+                });
+            }).catch(response => {
+
+                if (response.error) {
+                    setCodesError(response.error);
+                }
+            });
     };
+
+    const renderSelect = (labelId, count, onChange) => (
+        <Select className={'mt-3 ' } classNamePrefix="pols-select" placeholder={intl.formatMessage({id: labelId})} isSearchable={false}
+                options={[...[...Array(count)].map((_, idx) => ({value: idx + 1, label: idx + 1}))]}
+                onChange={onChange} />
+    );
 
     return(
         <>
-
-            <div>Select files count</div>
-            <select onChange={handleFilesCountChange}>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-            </select>
-
-            <div>
-                {requestsData.map((data, idx) => (
-                        <FileFrom key={idx} data={data} onChange={handleFileFormChange} />
-                    )
-                )}
+            <NavBar/>
+            <div className={styles.wrapper}>
+                <Row>
+                    <Col md={6}/>
+                    <Col md={6} className="pb-3">
+                        <div className="text-center">
+                            <Text h1 label="pols.profile.register_code.register_code" />
+                        </div>
+                        {step === 0 &&
+                            <div>
+                                {renderSelect('pols.profile.register_code.cheque_amount', 10, handleFilesCountChange)}
+                            </div>
+                        }
+                        {(step === 1 || step === 2) &&
+                            <>
+                                <div>
+                                    {requestsData.map((data, idx) => (
+                                            <FileFrom key={idx} id={idx} data={data} onChange={handleFileFormChange} />
+                                        )
+                                    )}
+                                </div>
+                                {renderSelect('pols.profile.register_code.select_codes_amount', 100, handleCodesCountChange)}
+                                {step === 2 &&
+                                    <>
+                                        <div>
+                                            <CodeFrom error={codesError} count={codesCount} data={codesData} onChange={handleCodeFormChange} />
+                                        </div>
+                                        <Button className="mt-3" onClick={handleSubmit}>
+                                            <FormattedMessage id="pols.profile.register_code.btn.submit" />
+                                        </Button>
+                                    </>
+                                }
+                            </>
+                        }
+                    </Col>
+                </Row>
             </div>
-            <div onClick={() => handleFilesCountChange(2)}>select files count</div>
-
-
-            <div>
-                <CodeFrom error={codesError} count={codesCount} data={codesData} onChange={handleCodeFormChange} />
-            </div>
-
-            <button onClick={handleSubmit}>submit</button>
         </>
     );
 
 };
-
-
-
-export default function App() {
-    return (
-        <Test />
-    );
-}

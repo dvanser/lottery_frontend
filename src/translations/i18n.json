@@ -57,7 +57,15 @@
     "pols.profile.welcome": "Sveiki, {name}",
     "pols.profile.code_count": "Tev ir sakāti {count} kociņi",
     "pols.profile.btn.edit": "Rediģēt kontu",
-    "pols.profile.btn.register_codes": "Reģistēt vēl"
+    "pols.profile.btn.register_codes": "Reģistēt vēl",
+    "pols.profile.register_code.register_code": "Reģistrēt kodu",
+    "pols.profile.register_code.select_codes_amount": "Kociņu daudzums",
+    "pols.profile.register_code.cheque_amount": "Pirkuma čeku daudzums",
+    "pols.profile.register_code.btn.submit": "Iesniegt",
+    "pols.profile.register_code.file_from.upload": "Augšupielādē čeka attēlu",
+    "pols.profile.register_code.file_from.cheque_number": "Pirkuma čeka nr.",
+    "pols.profile.register_code.code_from.code": "Ievadi kociņa kodu",
+    "pols.profile.register_code.file_from.upload.selected_file": "Izvēlēts attēls:"
   },
   "ru": {
     "pols.small.kocini" : "25 палочек",
@@ -72,7 +80,15 @@
     "pols.navbar.contacts" : "Контакты",
     "pols.navbar.maq" : "ЧЗВ",
     "pols.register.button" : "Зарегистрируйся в лотерее",
-    "pols.home.h3" : "Kod salčukam, sakrāj lāčukam"
+    "pols.home.h3" : "Kod salčukam, sakrāj lāčukam",
+    "pols.profile.register_code.register_code": "Reģistrēt kodu",
+    "pols.profile.register_code.select_codes_amount": "Kociņu daudzums",
+    "pols.profile.register_code.cheque_amount": "Pirkuma čeku daudzums",
+    "pols.profile.register_code.btn.submit": "Iesniegt",
+    "pols.profile.register_code.file_from.upload": "Augšupielādē čeka attēlu",
+    "pols.profile.register_code.file_from.cheque_number": "Pirkuma čeka nr.",
+    "pols.profile.register_code.code_from.code": "Ievadi kociņa kodu",
+    "pols.profile.register_code.file_from.upload.selected_file": "Izvēlēts attēls:"
     
   }
 }

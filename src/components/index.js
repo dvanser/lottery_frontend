@@ -15,3 +15,4 @@ export * from './Link';
 export * from './Footer';
 export * from './SocialLinks';
 export * from './Collapse';
+export * from './NavBar';

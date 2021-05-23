@@ -75,7 +75,14 @@
     text-align: justify;
 }
 
+.small {
+    font-size: 18px;
+}
+
 .error {
     color: rgb(249, 56,34);
-    font-size: 18px;
+}
+
+.caps {
+    text-transform: uppercase;
 }
