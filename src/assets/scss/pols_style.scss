@@ -23,3 +23,30 @@ body, html {
   margin-bottom: 50px;
   margin-top: 200px;
 }
+
+.pols-select__control {
+  border: $pols-white solid 6px;
+  border-radius: 3px;
+  background: transparent;
+  padding: 19px 13px;
+  height: 80px;
+  font-weight: normal;
+  color: $pols-white;
+  width: 100%;
+  &:focus {
+    outline: none;
+  }
+  ::placeholder {
+    padding: 19px 13px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.pols-select__option {
+  color: $pols-dark-blue !important;
+}
+
+*:focus {
+  outline: none
+}

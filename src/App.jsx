@@ -13,6 +13,7 @@ const Test = React.lazy(() => import(/* webpackChunkName: "test" */ './screens/T
 const Home = React.lazy(() => import(/* webpackChunkName: "home" */ './screens/Home/Home').then(module => ({default: module.Home})));
 const Signup = React.lazy(() => import(/* webpackChunkName: "signup" */ './screens/Signup/Signup').then(module => ({default: module.Signup})));
 const Profile = React.lazy(() => import(/* webpackChunkName: "profile" */ './screens/Profile/Profile').then(module => ({default: module.Profile})));
+const RegisterCode = React.lazy(() => import(/* webpackChunkName: "register_code" */ './screens/Profile/RegisterCode').then(module => ({default: module.RegisterCode})));
 const PasswordChange = React.lazy(() => import(/* webpackChunkName: "password_change" */ './screens/PasswordChange/PasswordChange').then(module => ({default: module.PasswordChange})));
 const PageNotFound = React.lazy(() => import(/* webpackChunkName: "page_not_found" */ './screens/PageNotFound/PageNotFound').then(module => ({default: module.PageNotFound})));
 const FAQ = React.lazy(() => import(/* webpackChunkName: "faq" */ './screens/FAQ/FAQ').then(module => ({default: module.FAQ})));
@@ -46,6 +47,8 @@ class App extends Component {
                                   exactRole={config.userRoles['user']} />
                     <PrivateRoute exact path="/profile/edit" render={(props) => LoadingWithSuspense(ProfileEdit, props)}
                                   exactRole={config.userRoles['user']} />
+                    <Route exact path="/register/code" render={(props) => LoadingWithSuspense(RegisterCode, props)}
+                           exactRole={config.userRoles['user']} />
                     <PrivateRoute exact path="/password/change" render={(props) => LoadingWithSuspense(PasswordChange, props)}
                                   exactRole={config.userRoles['user']} />
                     <PrivateRoute exact path="/profile/codes" render={(props) => LoadingWithSuspense(ProfileCodes, props)}

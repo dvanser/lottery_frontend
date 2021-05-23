@@ -1,0 +1,34 @@
+@import "./src/assets/scss/pols_variables";
+
+.wrapper {
+  background-color: $pols-blue;
+  padding-right: 10%;
+  padding-left: 10%;
+  min-height: 100vh;
+}
+
+.fileUploadInputWrapper {
+  padding-top: 1px;
+}
+
+.fileUploadInput {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 13px;
+  height: 80px;
+  background-color: $pols-white-background;
+  color: $pols-blue;
+  border-radius: 3px !important;
+  flex: none;
+  cursor: pointer;
+  margin-top: 34px;
+}
+
+.fileUploadInput:hover,
+.fileUploadInput:active,
+.fileUploadInput:focus {
+  color: $pols-white;
+  background-color: $pols-dark-blue;
+}

@@ -1,18 +1,12 @@
 .wrapper {
     background-color: #1AA0E1;
     display: grid;
+    padding-right: 10%;
+    padding-left: 10%;
 }
 
 .navBar {
     z-index: 10;
-}
-
-.langChange {
-    position: absolute;
-    color: black;
-    top: 0%;
-    right: 5%;
-    z-index: 40;
 }
 
 .toyReview {
@@ -21,34 +15,34 @@
     z-index: 10;
 }
 
-.buttonText {
-    font-family: "Cukier-bold" !important;
-    font-size: 35px !important;
-    letter-spacing: 0.09px;
-    color: #199DDF;
-    opacity: 1;
-    background-color: linear-gradient(180deg, #1791D5 0%, #1BA7E7 100%);
-    font-style: normal;
-    font-weight: bold;
-    line-height: 42px;
-    letter-spacing: 0.02em;
-}
+//.buttonText {
+//    font-family: "Cukier-bold" !important;
+//    font-size: 35px !important;
+//    letter-spacing: 0.09px;
+//    color: #199DDF;
+//    opacity: 1;
+//    background-color: linear-gradient(180deg, #1791D5 0%, #1BA7E7 100%);
+//    font-style: normal;
+//    font-weight: bold;
+//    line-height: 42px;
+//    letter-spacing: 0.02em;
+//}
 
-.registerBtn {
-    width: 421px;
-    margin-right: 120px;
-    justify-self: right;
-    height: 80px;
-    z-index: 10;
-}
+//.registerBtn {
+//    width: 421px;
+//    margin-right: 120px;
+//    justify-self: right;
+//    height: 80px;
+//    z-index: 10;
+//}
 
 .h3 {
-    padding-top: 100px;
-    padding-left: 134px;
-    width: 392px;
-    display: flex;
-    align-items: center;
-    z-index: 10;
+    //padding-top: 100px;
+    //padding-left: 134px;
+    //width: 392px;
+    //display: flex;
+    //align-items: center;
+    //z-index: 10;
 }
 
 .h4 {
@@ -62,13 +56,12 @@
 
 .headerIceCream {
     position: absolute;
-    top: 5%;
-    right: 0%;
+    top: 0;
+    right: 0;
     transform-origin: 0 0;
     zoom: reset;
-    width:100vh;
-    height:100vh;
-    float:left;
+    width: 72%;
+    float: left;
 }
 
 .splitHomeScreen {

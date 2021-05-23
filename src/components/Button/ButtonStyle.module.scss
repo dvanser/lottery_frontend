@@ -6,16 +6,25 @@ button {
   justify-content: center;
   align-items: center;
   padding: 19px 13px;
-  position: static;
   height: 80px;
   background-color: $pols-white-background;
   color: $pols-blue;
-  border-radius: 3px;
+  border-radius: 3px !important;
   flex: none;
   order: 0;
   align-self: stretch;
   flex-grow: 0;
   width: 100%;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+button:hover,
+button:active,
+button:focus {
+  color: $pols-white;
+  background-color: $pols-dark-blue;
 }
 
 .blue {
