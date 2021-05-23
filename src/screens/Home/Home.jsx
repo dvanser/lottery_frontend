@@ -20,31 +20,26 @@ import polsBlackcurrants from '../../assets/polsBlackcurrants.svg'
 import polsMango from '../../assets/polsMango.svg'
 import polsPopcorn from '../../assets/polsPopcorn.svg'
 import { Sticks } from '../../components/Sticks';
+import { Row, Col } from 'reactstrap';
 
-const Home = props => {
-    const renderLangItem = (lang, reverse = false, onClick = false) => (
-        <span {...(onClick ? {onClick} : undefined)}>
-            {lang === props.lang ? <h4>{lang}</h4> : <>{lang}</>}
-        </span>
-    );
+
+export const Home = () => {
 
     const intl = useIntl();
 
     return (
-        <BrowserRouter>
+        <>
+        <NavBar className={HomePageStyle['navBar']}/>
         <div className={HomePageStyle['wrapper']}>
-          <NavBar className={HomePageStyle['navBar']}/>  
-        <div className={HomePageStyle['langChange']}>
-            {config.supportedLangs.map((lang, idx) =>
-                <div key={idx}>
-                    {renderLangItem(lang, true, () => props.changeLanguage(lang))}
-                </div>
-                )
-            }
-        </div>
-            <Text h3 className={HomePageStyle['h3']}>Kod salčukam, sakrāj lāčukam</Text>
+            <Row>
+                <Col xs={5}>
+                    <Text h3 className={HomePageStyle['h3']}>Kod salčukam, sakrāj lāčukam</Text>
+                </Col>
+            </Row>
             <Text h4 className={HomePageStyle['h4']}>Krāj Pols saldējuma kociņus, reģistrējies pols.lv un apmaini tos pret lieliskām balvām! </Text>
-            <Button className={HomePageStyle['registerBtn']} children={<div className={HomePageStyle['buttonText']}><FormattedMessage id='pols.register.button' /></div>} />
+            <Button className={HomePageStyle['registerBtn']}>
+                <Text label="pols.register.button" />
+            </Button>
             <div className={HomePageStyle['toyReview']}>
                 <ToyReview />
             </div>
@@ -90,26 +85,6 @@ const Home = props => {
             <img src={headerIceCream} alt='Ice Cream' className={HomePageStyle['headerIceCream']} />
             <img src={footerWhiteArea} alt='footerWhiteArea' className={HomePageStyle['footerWhiteArea']} />
          </div>
-        </BrowserRouter>
+    </>
     );
 }
-
-function mapStateToProps(state) {
-
-    const { lang } = state.i18n;
-
-    return {
-        lang
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return({
-        changeLanguage: lang => {
-            dispatch(i18nActions.changeLanguage(lang))
-        }
-    })
-}
-const connectedHome = connect(mapStateToProps, mapDispatchToProps)(Home);
-
-export { connectedHome as Home };
