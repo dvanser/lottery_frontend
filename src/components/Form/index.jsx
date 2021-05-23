@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useFormik, ErrorMessage } from 'formik';
+import { useFormik } from 'formik';
 import { Button, Input } from '../../components';
 import formStyle from './FormStyles.module.scss';
-import {Text} from "../Text";
+import { Text } from '../Text';
 
 export const Form = props => {
 
     const formik = useFormik({
         initialValues: props.initialValues,
-        onSubmit: props.onSubmit,
+        onSubmit: props.handleSubmit,
         validationSchema: props.validationSchema
     });
 
@@ -23,8 +23,9 @@ export const Form = props => {
                 name={key.name}
                 type={key.type}
                 className={formStyle.input}
+                disabled={key.disabled}
             />
-            {formik.touched[key.name] && formik.errors[key.name] && <Text error>{formik.errors[key.name]}</Text>}
+            {formik.touched[key.name] && formik.errors[key.name] && <Text error small>{formik.errors[key.name]}</Text>}
             </>))
             }
             {props.formFooter &&

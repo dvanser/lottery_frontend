@@ -8,14 +8,18 @@ export const authActions = {
     logout
 };
 
-function login(data) {
+function login(redirectLink) {
     return dispatch => {
-        getRequest('/admins/profile')
+        getRequest('/users/profile')
             .then(data => {
                 dispatch(success(data));
                 dispatch(loggedInData(data));
 
-                history.push('/');
+                if (redirectLink) {
+                    history.push(redirectLink);
+                } else {
+                    history.push('/profile');
+                }
             }).catch(error => {
 
                 if (error.error) {

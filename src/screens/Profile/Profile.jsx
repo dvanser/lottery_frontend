@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { connect } from 'react-redux';
 import { ProfileStep0 } from './ProfileStep0';
 import { ProfileStep1 } from './ProfileStep1';
@@ -6,6 +6,10 @@ import config from '../../config';
 
 
 const Profile = props => {
+    useEffect(() => {
+        console.log("asd");
+    }, []);
+
     return (
         <>
             {props.user === undefined && !localStorage.getItem(config.accessTokenName)  && <ProfileStep0 />}

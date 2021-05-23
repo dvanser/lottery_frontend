@@ -16,6 +16,10 @@ const Profile = React.lazy(() => import(/* webpackChunkName: "profile" */ './scr
 const PasswordChange = React.lazy(() => import(/* webpackChunkName: "password_change" */ './screens/PasswordChange/PasswordChange').then(module => ({default: module.PasswordChange})));
 const PageNotFound = React.lazy(() => import(/* webpackChunkName: "page_not_found" */ './screens/PageNotFound/PageNotFound').then(module => ({default: module.PageNotFound})));
 const FAQ = React.lazy(() => import(/* webpackChunkName: "faq" */ './screens/FAQ/FAQ').then(module => ({default: module.FAQ})));
+const ConfirmEmail = React.lazy(() => import(/* webpackChunkName: "confirm_email" */ './screens/ConfirmEmail/ConfirmEmail').then(module => ({default: module.ConfirmEmail})));
+const ProfileStep1 = React.lazy(() => import(/* webpackChunkName: "profile_step_1" */ './screens/Profile/ProfileStep1').then(module => ({default: module.ProfileStep1})));
+const ProfileEdit = React.lazy(() => import(/* webpackChunkName: "profile_edit" */ './screens/Profile/ProfileEdit').then(module => ({default: module.ProfileEdit})));
+const ProfileCodes = React.lazy(() => import(/* webpackChunkName: "profile_codes" */ './screens/Profile/ProfileCodes').then(module => ({default: module.ProfileCodes})));
 
 
 class App extends Component {
@@ -36,9 +40,15 @@ class App extends Component {
                     <Route exact path="/signup" render={(props) => LoadingWithSuspense(Signup, props)} />
                     <Route exact path="/" render={(props) => LoadingWithSuspense(Home, props)} />
                     <Route exact path="/faq" render={(props) => LoadingWithSuspense(FAQ, props)} />
-                    <PrivateRoute exact path="/profile" render={(props) => LoadingWithSuspense(Profile, props)}
+                    <Route exact path="/profile" render={(props) => LoadingWithSuspense(Profile, props)} />
+                    <Route exact path="/users/email/confirm/:token" render={(props) => LoadingWithSuspense(ConfirmEmail, props)} />
+                    <PrivateRoute exact path="/profile/welcome" render={(props) => LoadingWithSuspense(ProfileStep1, props)}
+                                  exactRole={config.userRoles['user']} />
+                    <PrivateRoute exact path="/profile/edit" render={(props) => LoadingWithSuspense(ProfileEdit, props)}
                                   exactRole={config.userRoles['user']} />
                     <PrivateRoute exact path="/password/change" render={(props) => LoadingWithSuspense(PasswordChange, props)}
+                                  exactRole={config.userRoles['user']} />
+                    <PrivateRoute exact path="/profile/codes" render={(props) => LoadingWithSuspense(ProfileCodes, props)}
                                   exactRole={config.userRoles['user']} />
                     <Route render={(props) => LoadingWithSuspense(PageNotFound, props)} />
                 </Switch>

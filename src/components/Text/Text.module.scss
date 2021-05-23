@@ -14,7 +14,7 @@
 }
 
 .h2 {
-    @include txtmixin(bold,60px,80px,-1.5px);
+    @include txtmixin(bold, 35px, 60px, 0.02em);
     
 }
 
@@ -75,7 +75,26 @@
     text-align: justify;
 }
 
+.small {
+    font-size: 18px;
+}
+
 .error {
     color: rgb(249, 56,34);
-    font-size: 18px;
+}
+
+.huge {
+    font-size: 140px;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.center {
+    text-align: center;
+}
+
+.cursorPointer {
+    cursor: pointer;
 }
