@@ -29,11 +29,18 @@ button:focus {
 
 .blue {
   background-color: $pols-blue-background;
-  border: $pols-white solid 4px;
+  border: $pols-white solid 4px !important;
   color: $pols-white;
 }
 
 .white {
   background-color: $pols-white-background;
   color: $pols-blue;
+}
+
+.blue:hover,
+.blue:active,
+.blue:focus {
+  color: $pols-blue;
+  background-color: $pols-white-background;
 }

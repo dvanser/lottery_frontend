@@ -60,6 +60,7 @@ export const ProfileEdit = props => {
             .then(() => {
                 actions.setSubmitting(false);
                 setSuccess(true);
+                history.push('/profile/codes');
             }).catch(response => {
             actions.setSubmitting(false);
             if (response.error) {

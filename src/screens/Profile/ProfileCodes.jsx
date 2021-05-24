@@ -11,9 +11,7 @@ import profileCodesStyle from './ProfileCodesStyle.module.scss';
 
 const ProfileCodes = props => {
 
-    useEffect(() => {
-        console.log(props.user);
-    }, []);
+    if (!props.user.synchronized) return;
 
     return (
         <>
@@ -37,7 +35,7 @@ const ProfileCodes = props => {
                         {props.user.sticksCount >= config.codesRequiredForPrize.big &&
                             <Text center className="mt-2" small label="pols.profile_codes.text_big_prize" />
                         }
-                        <Button className="mt-3" small onClick={() => history.push('/profile/register/code')} >
+                        <Button className="mt-3" small onClick={() => history.push('/register/code')} >
                             <Text label="pols.profile_codes.btn.continue" />
                         </Button>
                         {props.user.sticksCount >= config.codesRequiredForPrize.small &&

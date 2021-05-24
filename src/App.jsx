@@ -4,7 +4,7 @@ import { history } from './_library';
 import { LoadingWithSuspense } from './components';
 import { connect } from 'react-redux';
 import { PrivateRoute } from './components';
-import { userActions } from './_actions/';
+import { userActions, prizeActions } from './_actions/';
 import config from './config';
 
 
@@ -21,6 +21,7 @@ const ConfirmEmail = React.lazy(() => import(/* webpackChunkName: "confirm_email
 const ProfileStep1 = React.lazy(() => import(/* webpackChunkName: "profile_step_1" */ './screens/Profile/ProfileStep1').then(module => ({default: module.ProfileStep1})));
 const ProfileEdit = React.lazy(() => import(/* webpackChunkName: "profile_edit" */ './screens/Profile/ProfileEdit').then(module => ({default: module.ProfileEdit})));
 const ProfileCodes = React.lazy(() => import(/* webpackChunkName: "profile_codes" */ './screens/Profile/ProfileCodes').then(module => ({default: module.ProfileCodes})));
+const RequestPrize = React.lazy(() => import(/* webpackChunkName: "request_prize" */ './screens/Profile/RequestPrize').then(module => ({default: module.RequestPrize})));
 
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
     componentDidMount() {
         if (!this.props.user.synchronized) {
             this.props.loadSettings();
+            this.props.getPrizes();
         }
     }
 
@@ -53,6 +55,8 @@ class App extends Component {
                                   exactRole={config.userRoles['user']} />
                     <PrivateRoute exact path="/profile/codes" render={(props) => LoadingWithSuspense(ProfileCodes, props)}
                                   exactRole={config.userRoles['user']} />
+                    <PrivateRoute exact path="/request/prize" render={(props) => LoadingWithSuspense(RequestPrize, props)}
+                                  exactRole={config.userRoles['user']} />
                     <Route render={(props) => LoadingWithSuspense(PageNotFound, props)} />
                 </Switch>
             </Router>
@@ -62,9 +66,10 @@ class App extends Component {
 
 
 function mapStateToProps(state) {
-    const { user } = state;
+    const { user, prize } = state;
     return {
-        user
+        user,
+        prize
     };
 }
 
@@ -72,6 +77,9 @@ function mapDispatchToProps(dispatch) {
     return({
         loadSettings: () => {
             dispatch(userActions.loadSettings())
+        },
+        getPrizes: () => {
+            dispatch(prizeActions.getPrizes())
         }
     })
 }

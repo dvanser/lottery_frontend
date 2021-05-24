@@ -62,7 +62,7 @@ const NavBar = props => {
                     <Nav navbar className="w-100">
                         <div className="d-flex w-100">
                             <div className={'flex-grow-1 ' + navBarStyle.navBarMenu }>
-                                <Link className={'navbar-brand ml-5 ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin} to="/BUJ">
+                                <Link className={'navbar-brand ml-5 ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin} to="/faq">
                                     <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.maq'/></div>
                                 </Link>
                                 <Link className={'navbar-brand ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin} to="/rules">

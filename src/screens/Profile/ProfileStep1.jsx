@@ -1,18 +1,15 @@
 import React, { useEffect } from 'react';
 import { Text, Button} from '../../components';
 import { Col, Container, Row } from 'reactstrap';
-import { history } from '../../_library';
+import {history, postRequest} from '../../_library';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import {NavBar} from "../../components/NavBar";
 import {ToyReview} from "../../components/ToyReview";
+import config from "../../config";
 
 
 const ProfileStep1 = props => {
-
-    useEffect(() => {
-
-    }, []);
 
     return (
         <>
@@ -41,7 +38,7 @@ const ProfileStep1 = props => {
 
 function mapStateToProps(state) {
 
-    const { user } = state.authentication;
+    const { user } = state;
 
     return {
         user

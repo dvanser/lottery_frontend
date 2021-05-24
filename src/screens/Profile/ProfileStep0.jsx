@@ -21,7 +21,7 @@ export const ProfileStep0 = props => {
                     <Col md={6}>
                         <Text left  h1 label="pols.profile.title" />
                         <Button onClick={() => history.push('/login')}><Text label="pols.profile.login" /> </Button>
-                        <Button blue className="mt-3" onClick={() => history.push('/register/code')}><Text label="pols.profile.register_code" /> </Button>
+                        <Button blue className="mt-3" onClick={() => history.push('/signup')}><Text label="pols.profile.signup" /> </Button>
                     </Col>
                 </Row>
             </Container>
