@@ -7,6 +7,12 @@ export function prepareRequestOptions(data, method = 'GET', headers) {
         headers['Authorization'] = 'Bearer ' + localStorage.getItem(config.accessTokenName);
     }
 
+    if (localStorage.getItem(config.language)) {
+        headers['Accept-Language'] = localStorage.getItem(config.language);
+    } else {
+        headers['Accept-Language'] = 'lv';
+    }
+
     let options = {
         method: method,
         headers: headers

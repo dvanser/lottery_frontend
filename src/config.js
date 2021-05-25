@@ -8,6 +8,7 @@ let config = {
         'admin': 2
     },
     supportedLangs: ['lv', 'ru'],
+    language: 'language',
     codesRequiredForPrize: {
         'small':  25,
         'medium': 30,
