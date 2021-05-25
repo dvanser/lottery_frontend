@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import { Text, Button} from '../../components';
+import {Text, Button, Footer} from '../../components';
 import { Col, Container, Row } from 'reactstrap';
 import { history } from '../../_library';
 import {ToyReview} from "../../components/ToyReview";
 import {NavBar} from "../../components/NavBar";
+import styles from "./ProfilePageStyle.module.scss";
 
 
 export const ProfileStep0 = props => {
@@ -14,17 +15,20 @@ export const ProfileStep0 = props => {
 
     return (
         <>
-            <NavBar />
-            <Container>
+            <NavBar/>
+            <div className={styles.wrapper}>
                 <Row>
-                    <Col md={6}><ToyReview /></Col>
+                    <Col md={6} className="mb-5 pr-5">
+                        <ToyReview />
+                    </Col>
                     <Col md={6}>
                         <Text left  h1 label="pols.profile.title" />
                         <Button onClick={() => history.push('/login')}><Text label="pols.profile.login" /> </Button>
                         <Button blue className="mt-3" onClick={() => history.push('/signup')}><Text label="pols.profile.signup" /> </Button>
                     </Col>
                 </Row>
-            </Container>
+            </div>
+            <Footer background="blue" />
         </>
     );
 };

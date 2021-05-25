@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Row, Col, Container } from 'reactstrap';
-import { Text, Form } from '../../components';
+import {Text, Form, Footer} from '../../components';
 import { history, postRequest } from '../../_library';
 import * as Yup from 'yup';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { NavBar } from '../../components/NavBar';
 import { ToyReview } from '../../components/ToyReview';
+import styles from "./PasswordChangeStyle.module.scss";
 
 
 export const PasswordChange = props => {
@@ -51,10 +52,10 @@ export const PasswordChange = props => {
 
     return(
         <>
-            <NavBar />
-            <Container>
+            <NavBar/>
+            <div className={styles.wrapper}>
                 <Row>
-                    <Col md={6}>
+                    <Col md={6} className="mb-5 pr-5">
                         <ToyReview />
                     </Col>
                     <Col md={6}>
@@ -90,7 +91,8 @@ export const PasswordChange = props => {
                         />
                     </Col>
                 </Row>
-            </Container>
+            </div>
+            <Footer background="blue" />
         </>
     );
 };

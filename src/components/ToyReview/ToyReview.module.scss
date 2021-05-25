@@ -1,158 +1,82 @@
 @import "./src/assets/scss/pols_variables.scss";
 
-.wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-    width: max-content;
-    position: relative;
-    font-size: 0 !important;
-}
-
-.smallSticks {
-    position: absolute;
-    background-color: $pols-blue;
-    --tw-text-opacity: 1;
-    color: rgba(255, 255, 255, var(--tw-text-opacity));
-    left: 4%;
-    top: -4%;
-}
-
-.mediumSticks {
-    position: absolute;
-    background-color: $pols-blue;
-    --tw-text-opacity: 1;
-    color: rgba(255, 255, 255, var(--tw-text-opacity));
-    right: 15%;
-    top: -4%;
-}
-
-.bigSticks {
-    position: absolute;
-    background-color: #1AA0E1;
-    --tw-text-opacity: 1;
-    color: rgba(255, 255, 255, var(--tw-text-opacity));
-    left: -10%;
-    bottom: 37%;
-}
-
-.bigCounter {
-    position: absolute;
-    background-color: #FFFFFF;
-    --tw-text-opacity: 1;
-    color: #10316C;
-    right: 0%;
-    bottom: 0%;
-    z-index: 40;
-}
-
-.mediumCounter {
-    position: absolute;
-    background-color: #FFFFFF;
-    --tw-text-opacity: 1;
-    color: #10316C;
-    right: 0%;
-    top: 34%;
-    z-index: 40;
-}
-
-.smallCounter {
-    position: absolute;
-    background-color: #FFFFFF;
-    --tw-text-opacity: 1;
-    color: #10316C;
-    left: 30%;
-    top: 35%;
-    z-index: 40;
-}
-
-.smallToy {
-    grid-column-start: 1;
-    border: #FFFFFF 4px solid;
-    font-size: 0;
-}
-
-.mediumToy {
-    grid-column-start: 2;
-    border: #FFFFFF 4px solid;
-    font-size: 0;
-}
-
-.bigToy {
-    grid-column-start: 1;
-    grid-column: span 2 / span 2;
-    border: #FFFFFF 4px solid;
-    font-size: 0;
-}
-
-.PolsBody {
-    font-family: Arial;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    text-align: center;
-    line-height: 18px;
-}
-
-.PolsBold {
-    font-family: Arial;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 18px;
-}
-
-.ToyCounterLeft {
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 11.7894px;
-    line-height: 14px;
-    text-align: center;
-    color: #10316C;
-    padding: 0.375rem;
-}
-
-.ToyCounter {
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 17px;
-    text-align: center;
-    color: #10316C;
-}
-
-.hidden {
-    display: none;
-}
-
-.invisible {
-    visibility: hidden;
-}
-
-.smallToyImg > svg {
-    width: 174px;
-    height: 303px;
-}
-
 .smallToyImg {
-    position: absolute;
-    transform-origin: center;
-    bottom: 45%;
-    left: -17%;
+    width:100%;
+    height: auto;
 }
 
 .mediumToyImg {
-    position: absolute;
-    transform: scale(1.05);
-    right: -10%;
+    height: auto;
+    width: 97%;
 }
 
 .bigToyImg {
-    position: absolute;
-    transform: scale(1.05);
-    bottom: -10%;
-    left: -11%;
+    height: auto;
+    width: 95%;
+    margin-left: -5%;
 }
+
+.smallToy {
+    background: url("../../assets/smallToy.svg") no-repeat;;
+    background-size: 100%;
+    width: 250px;
+    height: 230px
+}
+
+.smallToyTopText {
+    text-align: center;
+    position: absolute;
+    top: -20px;
+    left: 21%;
+    font-size: 18px;
+}
+
+.mediumToyTopText {
+    text-align: center;
+    position: absolute;
+    top: -20px;
+    left: 26%;
+    font-size: 18px;
+}
+
+.bigToyTopText {
+    text-align: center;
+    position: absolute;
+    top: 20px;
+    left: -3%;
+    font-size: 18px;
+}
+
+.wrapper  {
+    position: relative;
+}
+
+.extraSmallText {
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    font-style: italic !important;
+    line-height: 0 !important;
+    font-family: Arial;
+}
+
+.rightSmallBottomText, .rightBigBottomText {
+    position: absolute;
+    left: 5%;
+    padding: 10px;
+    background: $pols-white-background;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 14px;
+    color: #10316C;
+    text-align: center;
+    bottom: 7%;
+}
+
+
+.rightBigBottomText {
+    left: 81% !important;
+    bottom: 7% !important;
+}
+

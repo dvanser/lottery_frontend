@@ -1,45 +1,116 @@
 import React from 'react';
-import  SmallToy  from '../../assets/smallToy.svg'
-import  MediumToy  from '../../assets/mediumToy.svg'
-import  BigToy  from '../../assets/bigToy.svg'
-import { FormattedMessage } from 'react-intl';
+import  SmallToy  from '../../assets/smallToy.png'
+import  MediumToy  from '../../assets/mediumToy.png'
+import  BigToy  from '../../assets/bigToy.png'
 import toyReviewStyle from './ToyReview.module.scss'
 import { connect } from 'react-redux';
 import {Text} from "../Text";
+import { Row, Col } from "reactstrap";
 
 
 const ToyReview = props => {
 
     return (
-        <div className={toyReviewStyle['wrapper']}>
-            {/*Toys Descriptions */}
-            <div className={toyReviewStyle['smallSticks']}><div className={toyReviewStyle['PolsBold']}><FormattedMessage id='pols.small.kocini' /></div><div className={toyReviewStyle['PolsBody']} ><FormattedMessage id='pols.small.description' /></div></div>
-            <div className={toyReviewStyle['mediumSticks']}><div className={toyReviewStyle['PolsBold']}><FormattedMessage id='pols.medium.kocini' /></div><div className={toyReviewStyle['PolsBody']} ><FormattedMessage id='pols.medium.description' /></div></div>
-            <div className={toyReviewStyle['bigSticks']}><div className={toyReviewStyle['PolsBold']}><FormattedMessage id='pols.big.kocini' /></div><div className={toyReviewStyle['PolsBody']} ><FormattedMessage id='pols.big.description' /></div></div>
-
-            {/* Toys Counter info */}
-            <div className={toyReviewStyle['bigCounter']}><div className={toyReviewStyle['ToyCounterLeft']}><FormattedMessage id='pols.toy.left' /><div className={toyReviewStyle['ToyCounter']} >{props.prize.big.prizesCount}</div></div></div>
-            <div className={toyReviewStyle['mediumCounter']}><div className={toyReviewStyle['ToyCounterLeft']}><FormattedMessage id='pols.toy.left' /><div className={toyReviewStyle['ToyCounter']} >{props.prize.medium.prizesCount}</div></div></div>
-            <div className={toyReviewStyle['smallCounter']}><div className={toyReviewStyle['ToyCounterLeft']}><FormattedMessage id='pols.toy.left' /><div className={toyReviewStyle['ToyCounter']} >{props.prize.small.prizesCount}</div></div></div>
-
-            {/*Toys images and borders */}
-            <div className={toyReviewStyle['smallToy']}><img className={toyReviewStyle['hidden']} src={SmallToy} alt='' /></div><img className={toyReviewStyle['smallToyImg']} src={SmallToy} alt='' />
-            <div className={toyReviewStyle['mediumToy']}><img className={toyReviewStyle['hidden']} src={MediumToy} alt='' /></div><img className={toyReviewStyle['mediumToyImg']} src={MediumToy} alt='' />
-            <div className={toyReviewStyle['bigToy']}><img className={toyReviewStyle['invisible']} src={BigToy} alt='' /></div><img className={toyReviewStyle['bigToyImg']} src={BigToy} alt='' />
-        </div>
-
-        // <div className={toyReviewStyle['wrapper']}>
-        //     <div className={toyReviewStyle['smallToy']}>
-        //         <div className={toyReviewStyle['topText']}>
-        //             {props.prize.small.prizesCount} <Text id='pols.toy.sticks' />
-        //             <Text center id='pols.toy.name.small' />
-        //         </div>
-        //         <div className={toyReviewStyle['rightBottomText']}>
-        //             <Text left id='pols.toy.left' />
-        //             {props.prize.small.prizesCount}
-        //         </div>
+        // <>
+        //     <Text left h1 label="pols.toy.title" />
+        //     <Text left className="mt-3" label="pols.toy.text" />
+        //     <div className={"mt-5 " + toyReviewStyle['wrapper']}>
+        //         <Row>
+        //             <Col>
+        //                 <div className={toyReviewStyle['smallSticks']}><div className={toyReviewStyle['PolsBold']}>{props.prize.small.sticksNeeded} <FormattedMessage id='pols.toy.kocini' /></div><div className={toyReviewStyle['PolsBody']} ><FormattedMessage id='pols.small.description' /></div></div>
+        //                 <div className={toyReviewStyle['bigCounter']}><div className={toyReviewStyle['ToyCounterLeft']}><FormattedMessage id='pols.toy.left' /><div className={toyReviewStyle['ToyCounter']} >{props.prize.big.prizesCount}</div></div></div>
+        //                 <div className={toyReviewStyle['smallToy']}>
+        //                     {/*<img className={toyReviewStyle['smallToyImg']} src={SmallToy} alt='' />*/}
+        //                 </div>
+        //             </Col>
+        //             <Col>
+        //                 <div className={toyReviewStyle['mediumSticks']}><div className={toyReviewStyle['PolsBold']}>{props.prize.medium.sticksNeeded} <FormattedMessage id='pols.toy.kocini' /></div><div className={toyReviewStyle['PolsBody']} ><FormattedMessage id='pols.medium.description' /></div></div>
+        //                 <div className={toyReviewStyle['mediumToy']}>
+        //                     <img className={toyReviewStyle['hidden']} src={MediumToy} alt='' />
+        //                 </div>
+        //                 <img className={toyReviewStyle['mediumToyImg']} src={MediumToy} alt='' />
+        //                 <div className={toyReviewStyle['mediumCounter']}><div className={toyReviewStyle['ToyCounterLeft']}><FormattedMessage id='pols.toy.left' /><div className={toyReviewStyle['ToyCounter']} >{props.prize.medium.prizesCount}</div></div></div>
+        //             </Col>
+        //         </Row>
+        //         <Row>
+        //             <Col>
+        //                 <div className={toyReviewStyle['bigSticks']}><div className={toyReviewStyle['PolsBold']}>{props.prize.big.sticksNeeded} <FormattedMessage id='pols.toy.kocini' /></div><div className={toyReviewStyle['PolsBody']} ><FormattedMessage id='pols.big.description' /></div></div>
+        //                 <div className={toyReviewStyle['bigToy']}>
+        //                     <img className={toyReviewStyle['invisible']} src={BigToy} alt='' />
+        //                 </div>
+        //                 <img className={toyReviewStyle['bigToyImg']} src={BigToy} alt='' />
+        //                 <div className={toyReviewStyle['smallCounter']}><div className={toyReviewStyle['ToyCounterLeft']}><FormattedMessage id='pols.toy.left' /><div className={toyReviewStyle['ToyCounter']} >{props.prize.small.prizesCount}</div></div></div>
+        //             </Col>
+        //         </Row>
         //     </div>
-        // </div>
+        // </>
+        // <>
+        //     <Row>
+        //         <Col>
+        //             <div className={toyReviewStyle['wrapper']}>
+        //                 <div className={toyReviewStyle['smallToy']}>
+        //                     <div className={toyReviewStyle['topText']}>
+        //                         {props.prize.small.prizesCount} <Text id='pols.toy.sticks' />
+        //                         <Text center id='pols.toy.name.small' />
+        //                     </div>
+        //                     <div className={toyReviewStyle['rightBottomText']}>
+        //                         <Text left id='pols.toy.left' />
+        //                         {props.prize.small.prizesCount}
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //         </Col>
+        //         <Col></Col>
+        //     </Row>
+        //     <Row>
+        //         <Col>
+        //
+        //         </Col>
+        //     </Row>
+        // </>
+
+    <div className="mb-5">
+        <Text left h1 label="pols.toy.title" />
+        <Text left className="mt-3 mb-5" label="pols.toy.text" />
+        <Row>
+            <Col xs={6} className={toyReviewStyle['wrapper']}>
+                <img className={toyReviewStyle['smallToyImg']} src={SmallToy} />
+                <div className={toyReviewStyle['smallToyTopText']}>
+                    <Text small>{props.prize.small.sticksNeeded} <Text label='pols.toy.sticks' /></Text>
+                    <Text center  className={toyReviewStyle['extraSmallText']} label='pols.small.description' />
+                </div>
+                <div className={toyReviewStyle['rightSmallBottomText']}>
+                    <Text left label='pols.toy.left' />
+                    {props.prize.small.prizesCount}
+                </div>
+            </Col>
+            <Col xs={6}>
+                <img  className={toyReviewStyle['mediumToyImg']} src={MediumToy} />
+                <div className={toyReviewStyle['mediumToyTopText']}>
+                    <Text small>{props.prize.medium.sticksNeeded} <Text label='pols.toy.sticks' /></Text>
+                    <Text center  className={toyReviewStyle['extraSmallText']} label='pols.medium.description' />
+                </div>
+                <div className={toyReviewStyle['rightSmallBottomText']}>
+                    <Text left label='pols.toy.left' />
+                    {props.prize.medium.prizesCount}
+                </div>
+            </Col>
+        </Row>
+        <Row>
+            <Col>
+                <img  className={toyReviewStyle['bigToyImg']} src={BigToy} />
+                <div className={toyReviewStyle['bigToyTopText']}>
+                    <Text small>{props.prize.medium.sticksNeeded} <Text label='pols.toy.sticks' /></Text>
+                    <Text center  className={toyReviewStyle['extraSmallText']} label='pols.medium.description' />
+                </div>
+                <div className={toyReviewStyle['rightBigBottomText']}>
+                    <Text left label='pols.toy.left' />
+                    {props.prize.medium.prizesCount}
+                </div>
+            </Col>
+        </Row>
+    </div>
+
     );
 }
 

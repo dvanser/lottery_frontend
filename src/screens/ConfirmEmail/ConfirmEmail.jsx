@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { history, postRequest } from '../../_library';
-import {Button, Text} from '../../components';
+import {Button, Footer, Text} from '../../components';
 import config from '../../config';
 import { authActions } from '../../_actions';
 import { connect } from 'react-redux';
 import { Col, Container, Row } from 'reactstrap';
 import { NavBar } from '../../components/NavBar';
 import { ToyReview } from '../../components/ToyReview';
+import styles from "./ConfirmEmailStyle.module.scss";
 
 
 const ConfirmEmail = props => {
@@ -36,10 +37,10 @@ const ConfirmEmail = props => {
 
     return (
         <>
-            <NavBar />
-            <Container>
+            <NavBar/>
+            <div className={styles.wrapper}>
                 <Row>
-                    <Col md={6}>
+                    <Col md={6} className="mb-5 pr-5">
                         <ToyReview />
                     </Col>
                     <Col xs={6}>
@@ -61,8 +62,10 @@ const ConfirmEmail = props => {
                         }
                     </Col>
                 </Row>
-            </Container>
+            </div>
+            <Footer background="blue" />
         </>
+
     );
 };
 

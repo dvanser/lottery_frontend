@@ -11,6 +11,7 @@ import Select from 'react-select';
 import { useIntl } from 'react-intl';
 import { Footer } from '../../components/Footer';
 import { Input } from '../../components/Input';
+import styles from "./RegisterCode.module.scss";
 
 
 const RequestPrize = props => {
@@ -129,71 +130,70 @@ const RequestPrize = props => {
 
     return (
         <>
-            <NavBar />
-
-                <Container>
-                    <Row>
-                        <Col md={6}>
-                            <ToyReview/>
-                        </Col>
-                        <Col md={6}>
-                            <Text left h1 label="pols.request_prize.title"/>
-                            {!showParcelsShops && !showContacts && !showSuccessMessage &&
+            <NavBar/>
+            <div className={styles.wrapper}>
+                <Row>
+                    <Col md={6} className="mb-5 pr-5">
+                        <ToyReview />
+                    </Col>
+                    <Col md={6}>
+                        <Text left h1 label="pols.request_prize.title"/>
+                        {!showParcelsShops && !showContacts && !showSuccessMessage &&
+                            <>
+                                <div className={profileCodesStyle['codesCountContainers'] + " mt-2 w-100 text-center"}>
+                                    <Text huge>{userSticks}</Text>
+                                </div>
+                                <Text center className="mt-2 mb-4" label="pols.request_prize.text"/>
+                                {Object.keys(prizes).length > 0 &&
                                 <>
-                                    <div className={profileCodesStyle['codesCountContainers'] + " mt-2 w-100 text-center"}>
-                                        <Text huge>{userSticks}</Text>
-                                    </div>
-                                    <Text center className="mt-2 mb-4" label="pols.request_prize.text"/>
-                                    {Object.keys(prizes).length > 0 &&
-                                    <>
-                                        {renderPrizeList('pols.request_prize.title.small_prize', 'pols.request_prize.choose_count', smallPrizeAvailableCount, handleSmallPrizeCountChange)}
-                                        {renderPrizeList('pols.request_prize.title.medium_prize', 'pols.request_prize.choose_count', mediumPrizeAvailableCount, handleMediumPrizeCountChange)}
-                                        {renderPrizeList('pols.request_prize.title.big_prize', 'pols.request_prize.choose_count', bigPrizeAvailableCount, handleBigPrizeCountChange)}
-                                        <Button blue className="mt-2" onClick={handleShowDpdBlock}>
-                                            <Text label="pols.profile.btn.request"/>
-                                        </Button>
-                                    </>
-                                    }
-                                </>
-                            }
-                            {showParcelsShops && !showContacts &&
-                                <>
-                                    <Text center className="mt-2 mb-4" label="pols.request_prize.parcels_select"/>
-                                    <Select
-                                        placeholder={intl.formatMessage({id: 'pols.request_prize.select_pcode'})}
-                                        classNamePrefix="pols-select"
-                                        isSearchable={true}
-                                        name="company"
-                                        onChange={(val) => {setSelectedParcelShop(parcelsShops.find(p => p.parcelshop_id === val.value))}}
-                                        options={parcelsShops.map((shop, idx) => ({value: shop.parcelshop_id, label:shop.company + ' LV' + shop.pcode}))}
-                                    />
-                                    <Button blue className="mt-2" onClick={() => {setShowContacts(true); setShowParcelsShops(false)}}>
+                                    {renderPrizeList('pols.request_prize.title.small_prize', 'pols.request_prize.choose_count', smallPrizeAvailableCount, handleSmallPrizeCountChange)}
+                                    {renderPrizeList('pols.request_prize.title.medium_prize', 'pols.request_prize.choose_count', mediumPrizeAvailableCount, handleMediumPrizeCountChange)}
+                                    {renderPrizeList('pols.request_prize.title.big_prize', 'pols.request_prize.choose_count', bigPrizeAvailableCount, handleBigPrizeCountChange)}
+                                    <Button blue className="mt-2" onClick={handleShowDpdBlock}>
                                         <Text label="pols.profile.btn.request"/>
                                     </Button>
                                 </>
-                            }
-                            {showContacts && !showParcelsShops &&
-                                <>
-                                    <Input disabled={true} label="pols.profile.request_prize.name" placeholder={props.user.name + ' ' + props.user.surname} />
-                                    <Input className="mt-2" disabled={true} label="pols.profile.request_prize.phone" placeholder={props.user.phone} />
-                                    <Input className="mt-2" disabled={true} label="pols.profile.request_prize.parcels" placeholder={selectedParcelsShop.street + ' ' + selectedParcelsShop.city} />
-                                    <Button blue className="mt-3" onClick={handleSubmit}>
-                                        <Text label="pols.profile.btn.approve"/>
-                                    </Button>
-                                </>
-                            }
-                            {showSuccessMessage &&
-                                <>
-                                    <Text h1 center className="mt-5 mb-5" label="pols.request_prize.success"/>
-                                    <Button white onClick={() => history.push('/')}>
-                                        <Text label="pols.profile.btn.main"/>
-                                    </Button>
-                                </>
-                            }
-                        </Col>
-                    </Row>
-                </Container>
-            <Footer />
+                                }
+                            </>
+                        }
+                        {showParcelsShops && !showContacts &&
+                            <>
+                                <Text center className="mt-2 mb-4" label="pols.request_prize.parcels_select"/>
+                                <Select
+                                    placeholder={intl.formatMessage({id: 'pols.request_prize.select_pcode'})}
+                                    classNamePrefix="pols-select"
+                                    isSearchable={true}
+                                    name="company"
+                                    onChange={(val) => {setSelectedParcelShop(parcelsShops.find(p => p.parcelshop_id === val.value))}}
+                                    options={parcelsShops.map((shop, idx) => ({value: shop.parcelshop_id, label:shop.company + ' LV' + shop.pcode}))}
+                                />
+                                <Button blue className="mt-2" onClick={() => {setShowContacts(true); setShowParcelsShops(false)}}>
+                                    <Text label="pols.profile.btn.request"/>
+                                </Button>
+                            </>
+                        }
+                        {showContacts && !showParcelsShops &&
+                            <>
+                                <Input disabled={true} label="pols.profile.request_prize.name" placeholder={props.user.name + ' ' + props.user.surname} />
+                                <Input className="mt-2" disabled={true} label="pols.profile.request_prize.phone" placeholder={props.user.phone} />
+                                <Input className="mt-2" disabled={true} label="pols.profile.request_prize.parcels" placeholder={selectedParcelsShop.street + ' ' + selectedParcelsShop.city} />
+                                <Button blue className="mt-3" onClick={handleSubmit}>
+                                    <Text label="pols.profile.btn.approve"/>
+                                </Button>
+                            </>
+                        }
+                        {showSuccessMessage &&
+                            <>
+                                <Text h1 center className="mt-5 mb-5" label="pols.request_prize.success"/>
+                                <Button white onClick={() => history.push('/')}>
+                                    <Text label="pols.profile.btn.main"/>
+                                </Button>
+                            </>
+                        }
+                    </Col>
+                </Row>
+            </div>
+            <Footer background="blue" />
         </>
     );
 };
