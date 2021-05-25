@@ -21,6 +21,7 @@ import polsMango from '../../assets/polsMango.svg'
 import polsPopcorn from '../../assets/polsPopcorn.svg'
 import { Sticks } from '../../components/Sticks';
 import { Row, Col } from 'reactstrap';
+import { history } from '../../_library';
 
 
 export const Home = () => {
@@ -36,7 +37,7 @@ export const Home = () => {
                     <ToyReview />
                 </Col>
                 <Col xs={{ size: 3, offset: 3 }} className={HomePageStyle.registreCodeBtn}>
-                    <Button className={HomePageStyle['registerBtn']}>
+                    <Button className={HomePageStyle['registerBtn']} onClick={() => history.push('/profile')}>
                         <Text label="pols.register.button" />
                     </Button>
                 </Col>
