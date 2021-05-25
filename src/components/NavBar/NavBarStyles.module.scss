@@ -3,12 +3,12 @@
 .wrapper {
     background-image: url("../../assets/header_bg.svg");
     background-repeat: no-repeat no-repeat;
-    background-size: 100%;
-    background-position: left top;
+    background-size: cover;
+    background-position: 10% top;
     z-index: 10;
     margin-top: 0;
     position: relative;
-    height: 185px;
+    height: 130px;
     padding-right: 10%;
     padding-left: 10%;
     display: flex;
@@ -114,6 +114,25 @@
   margin-top: 40px;
 }
 
+.navBarToggleIconOpenWrapper {
+  height: 100px;
+  margin-top: 10px;
+  padding-top: 0;
+  padding-left: 31px;
+  padding-right: 31px;
+  //padding: 29px 31px 29px 31px;
+  border: 2px solid #0840A3;
+  border-bottom: 2px solid $pols-white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.navBarToggleIconOpen {
+  margin-top: 31px;
+  //border: 2px solid #0840A3;
+  //border-bottom: 2px solid $pols-white;
+}
+
 .navBarItemMargin {
   margin-left: 0 !important;
   margin-right: 0.5rem !important;
@@ -129,8 +148,30 @@
   margin-top: -15px;
 }
 
+.mobileNav {
+  border-top: 2px solid #0840A3;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: $pols-white;
+  margin-top: -25px;
+  z-index: 10;
+  position: relative;
+
+  .icon {
+    margin-top: 0 !important;
+  }
+}
+
 @media (min-width: 1200px) {
-  margin-right: 1rem !important;
+  .navBarItemMargin {
+    margin-right: 1rem !important;
+  }
+  .wrapper {
+    //height: 100px;
+    //background-position: -10% top;
+    background-position: left top;
+    height: 185px;
+  }
 }
 
 @media (min-width: 1395px) {

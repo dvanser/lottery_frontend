@@ -10,6 +10,7 @@ import config from '../../config';
 import { ReactComponent as InstagramIcon } from '../../assets/instagram.svg'
 import { ReactComponent as FacebookIcon } from '../../assets/facebook.svg'
 import { ReactComponent as NavIcon } from '../../assets/nav.svg'
+import { ReactComponent as CloseNavIcon } from '../../assets/close.svg'
 
 
 const NavBar = props => {
@@ -53,42 +54,107 @@ const NavBar = props => {
     );
 
     return (
+        <>
         <div className={navBarStyle.wrapper}>
             <Link className={'navbar-brand d-inline-block ' + navBarStyle.navBarLogo} to="/">
                 <PolsLogo />
             </Link>
-            <Navbar expand="xl" className={'flex-grow-1 align-self-start ' + navBarStyle.navBar}>
-                <Collapse isOpen={isOpen} navbar>
-                    <Nav navbar className="w-100">
-                        <div className="d-flex w-100">
-                            <div className={'flex-grow-1 ' + navBarStyle.navBarMenu }>
-                                <Link className={'navbar-brand ml-5 ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin} to="/faq">
-                                    <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.maq'/></div>
-                                </Link>
-                                <Link className={'navbar-brand ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin} to="/rules">
-                                    <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.rules'/></div>
-                                </Link>
-                                <Link className={'navbar-brand ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin} to="/profile">
-                                    <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.myProfile' /></div>
-                                </Link>
-                                <Link className={'navbar-brand ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin} to="/contacts">
-                                    <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.contacts' /></div>
-                                </Link>
-                            </div>
-                            <span className="d-none d-xl-inline-block">
-                                {renderLangs(true)}
-                            </span>
-                            <InstagramIcon className={'ml-4 ' + navBarStyle.icon} />
-                            <FacebookIcon className={'ml-2 ' + navBarStyle.icon} />
+            <div className={'flex-grow-1 align-self-start ' + navBarStyle.navBar}>
+                <div className="d-none d-xl-inline-block">
+                    <div className="d-flex w-100">
+                        <div className={'flex-grow-1 ' + navBarStyle.navBarMenu }>
+                            <Link className={'navbar-brand ml-5 ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin} to="/faq">
+                                <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.maq'/></div>
+                            </Link>
+                            <Link className={'navbar-brand ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin} to="/rules">
+                                <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.rules'/></div>
+                            </Link>
+                            <Link className={'navbar-brand ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin} to="/profile">
+                                <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.myProfile' /></div>
+                            </Link>
+                            <Link className={'navbar-brand ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin} to="/contacts">
+                                <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.contacts' /></div>
+                            </Link>
                         </div>
-                    </Nav>
-                </Collapse>
-            </Navbar>
+                        <span className="d-none d-xl-inline-block">
+                            {renderLangs(true)}
+                        </span>
+                        <InstagramIcon className={'ml-4 ' + navBarStyle.icon} />
+                        <FacebookIcon className={'ml-2 ' + navBarStyle.icon} />
+                    </div>
+                </div>
+            </div>
+
+            {/*<Navbar expand="xl" className={'flex-grow-1 align-self-start ' + navBarStyle.navBar}>*/}
+            {/*    <Collapse isOpen={isOpen} navbar>*/}
+            {/*        <Nav navbar className="w-100">*/}
+            {/*            <div className="d-flex w-100">*/}
+            {/*                <div className={'flex-grow-1 ' + navBarStyle.navBarMenu }>*/}
+            {/*                    <Link className={'navbar-brand ml-5 ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin} to="/faq">*/}
+            {/*                        <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.maq'/></div>*/}
+            {/*                    </Link>*/}
+            {/*                    <Link className={'navbar-brand ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin} to="/rules">*/}
+            {/*                        <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.rules'/></div>*/}
+            {/*                    </Link>*/}
+            {/*                    <Link className={'navbar-brand ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin} to="/profile">*/}
+            {/*                        <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.myProfile' /></div>*/}
+            {/*                    </Link>*/}
+            {/*                    <Link className={'navbar-brand ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin} to="/contacts">*/}
+            {/*                        <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.contacts' /></div>*/}
+            {/*                    </Link>*/}
+            {/*                </div>*/}
+            {/*                <span className="d-none d-xl-inline-block">*/}
+            {/*                    {renderLangs(true)}*/}
+            {/*                </span>*/}
+            {/*                <InstagramIcon className={'ml-4 ' + navBarStyle.icon} />*/}
+            {/*                <FacebookIcon className={'ml-2 ' + navBarStyle.icon} />*/}
+            {/*            </div>*/}
+            {/*        </Nav>*/}
+            {/*    </Collapse>*/}
+            {/*</Navbar>*/}
             <span className={'d-inline-block d-xl-none mr-5 ' + navBarStyle.langDropdownWrapper}>
                 {renderLangs()}
             </span>
-            <NavIcon className={'d-inline-block d-xl-none ' + navBarStyle.navBarToggleIcon} onClick={toggle} />
+            {!isOpen &&
+                <NavIcon className={'d-inline-block d-xl-none ' + navBarStyle.navBarToggleIcon} onClick={toggle} />
+            }
+            {isOpen &&
+                <div className={'d-inline-block d-xl-none ' + navBarStyle.navBarToggleIconOpenWrapper}>
+                <CloseNavIcon className={'d-inline-block d-xl-none ' + navBarStyle.navBarToggleIcon + ' ' +
+                navBarStyle.navBarToggleIconOpen} onClick={toggle} />
+                </div>
+            }
         </div>
+        {isOpen &&
+            <div className={'d-block d-xl-none ' + navBarStyle.mobileNav}>
+                <div className="d-flex align-items-center justify-content-center w-100">
+                    <div className="text-center">
+                        <Link
+                            className={'navbar-brand ml-5 ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin}
+                            to="/faq">
+                            <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.maq'/></div>
+                        </Link>
+                        <Link className={'navbar-brand ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin}
+                              to="/rules">
+                            <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.rules'/></div>
+                        </Link>
+                        <Link className={'navbar-brand ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin}
+                              to="/profile">
+                            <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.myProfile'/>
+                            </div>
+                        </Link>
+                        <Link className={'navbar-brand ' + navBarStyle.navBarItem + ' ' + navBarStyle.navBarItemMargin}
+                              to="/contacts">
+                            <div className={navBarStyle['navBarText']}><FormattedMessage id='pols.navbar.contacts'/>
+                            </div>
+                        </Link>
+                    </div>
+                    <InstagramIcon className={'ml-4 ' + navBarStyle.icon}/>
+                    <FacebookIcon className={'ml-2 ' + navBarStyle.icon}/>
+                </div>
+            </div>
+        }
+        </>
     );
 };
 

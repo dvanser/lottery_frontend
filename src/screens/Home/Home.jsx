@@ -21,6 +21,7 @@ import polsMango from '../../assets/polsMango.svg'
 import polsPopcorn from '../../assets/polsPopcorn.svg'
 import { Sticks } from '../../components/Sticks';
 import { Row, Col } from 'reactstrap';
+import { history } from '../../_library';
 
 
 export const Home = () => {
@@ -32,32 +33,33 @@ export const Home = () => {
         <NavBar className={HomePageStyle['navBar']}/>
         <div className={HomePageStyle['wrapper']}>
             <Row>
-                <Col xs={5}>
-                    <Text h3 className={HomePageStyle['h3']}>Kod salčukam, sakrāj lāčukam</Text>
+                <Col xs={4}>
+                    <ToyReview />
+                </Col>
+                <Col xs={{ size: 3, offset: 3 }} className={HomePageStyle.registreCodeBtn}>
+                    <Button className={HomePageStyle['registerBtn']} onClick={() => history.push('/profile')}>
+                        <Text label="pols.register.button" />
+                    </Button>
                 </Col>
             </Row>
-            <Text h4 className={HomePageStyle['h4']}>Krāj Pols saldējuma kociņus, reģistrējies pols.lv un apmaini tos pret lieliskām balvām! </Text>
-            <Button className={HomePageStyle['registerBtn']}>
-                <Text label="pols.register.button" />
-            </Button>
-            <div className={HomePageStyle['toyReview']}>
-                <ToyReview />
+        </div>
+            <div>
+            <div className={HomePageStyle.steps}>
+                <div className={HomePageStyle['step1']} >
+                    <div className={'d-flex align-items-center justify-content-center ' + HomePageStyle['stepNo']}>1</div>
+                    <div className={HomePageStyle['stepDesc']}>Krāj pols saldējuma<br/>kociņus, saglabājot čeku</div>
+                </div>
+                <div className={HomePageStyle['step2']} >
+                    <Sticks />
+                    <div className={'d-flex align-items-center justify-content-center ' + HomePageStyle['stepNo']}>2</div>
+                    <div className={HomePageStyle['stepDesc']}>Reģistrējies pols.lv</div>
+                </div>
+                <div className={HomePageStyle['step3']} >
+                    <div className={'d-flex align-items-center justify-content-center ' + HomePageStyle['stepNo']}>3</div>
+                    <div className={HomePageStyle['stepDesc']}>Reģistrē kociņus un<br/>apmaini tos pret balvām</div>
+                </div>
             </div>
-            <div className={HomePageStyle['steps']}>
-            <div className={HomePageStyle['step1']} >
-                <div className={HomePageStyle['stepNo']}>1</div> 
-                <div className={HomePageStyle['stepDesc']}>Krāj pols saldējuma kociņus, saglabājot čeku</div>
-            </div>
-            <div className={HomePageStyle['step2']} >
-                <Sticks />
-                <div className={HomePageStyle['stepNo']}>2</div> 
-                <div className={HomePageStyle['stepDesc']}>Reģistrējies pols.lv</div>
-            </div>
-            <div className={HomePageStyle['step3']} >
-                <div className={HomePageStyle['stepNo']}>3</div> 
-                <div className={HomePageStyle['stepDesc']}>Reģistrē kociņus un apmaini tos pret balvām</div>
-            </div>
-            </div>
+
 
 
             <div className={HomePageStyle['products']}>
