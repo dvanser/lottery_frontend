@@ -1,16 +1,18 @@
-.wrapper {
-    position: static;
-}
+//.wrapper {
+//    position: static;
+//}
 .stick {
     position: absolute;
     z-index: 3;
-    top: 160%;
+    top: 250px;
+    //top: 160%;
     left: 53%;
     transform: rotate(5.65deg);
 }
 .stick2 {
     position: absolute;
-    top: 157%;
+    //top: 157%;
+    top: 250px;
     left: 71%;
     z-index: 3;
     transform: rotate(270deg);
@@ -18,19 +20,22 @@
 .stick3 {
     position: absolute;
     z-index: 2;
-    top: 160%;
+    //top: 160%;
+    top: 250px;
     left: 53%;
 }
 .stick4 {
     position: absolute;
-    top: 157%;
+    //top: 157%;
+    top: 250px;
     left: 61%;
     z-index: 2;
     transform: rotate(25deg);
 }
 .stick5 {
     position: absolute;
-    top: 153%;
+    //top: 153%;
+    top: 250px;
     left: 72%;
     z-index: 2;
     transform: rotate(60deg);
