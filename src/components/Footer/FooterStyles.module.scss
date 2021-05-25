@@ -1,7 +1,7 @@
 @import "../../assets/scss/pols_variables";
 
 .white {
-  background: $pols-white-background;
+  background: transparent;
   color: $pols-blue;
 
   .footerDelimiter {
@@ -11,7 +11,7 @@
   }
 }
 
-.blue{
+.blue {
   background: transparent;
   border-top: 2px solid $pols-white;
   color: $pols-white;

@@ -98,7 +98,20 @@
     background-image: url(../../assets/splitHomeScreen.svg);
     background-position: 0px -550px;
     background-size: cover;
-    padding-top: 300px;
+    padding-top: 500px;
+    padding-bottom: 700px;
+    z-index: 5;
+    padding-right: 10%;
+    padding-left: 10%;
+    margin-top: -100px;
+    position: relative;
+}
+
+.stepsBlock {
+    background-image: url(../../assets/splitHomeScreen.svg);
+    background-position: 0px -550px;
+    background-size: cover;
+    padding-top: 500px;
     padding-bottom: 700px;
     z-index: 5;
     padding-right: 10%;
@@ -155,16 +168,13 @@
     position: absolute;
     bottom: -220%;
     left: 0%;
-    height: 100vh;
     margin: auto;
     z-index: 1;
     transform: scaleX(2.4);
 }
 
 .products {
-    justify-self: center;
-    position: static;
-    justify-content: space-around;
+   margin-top: -300px;
 }
 
 .productsHeader {
@@ -192,6 +202,4 @@
     justify-self: center;
     align-items: flex-start;
     position: relative;
-    width: 170vh;
-    height:100vh;
 }

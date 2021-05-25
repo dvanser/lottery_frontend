@@ -12,7 +12,7 @@ export const Footer = props => {
     }
 
     return (
-        <Row className={"pt-3 pb-3 text-center footer " + FooterStyles[props.background ? props.background : 'white']}>
+        <Row className={"pt-3 pb-3 text-center footer " + FooterStyles[props.background ? props.background : "white"]}>
             <Col>
                 <Text extraSmall className={FooterStyles['footerDelimiter']} label="pols.footer.term" />
                 <Text onClick={() => openFile(PrivacyFile)} extraSmall className={"cursor-pointer " + FooterStyles['footerDelimiter']} label="pols.footer.privacy" />
