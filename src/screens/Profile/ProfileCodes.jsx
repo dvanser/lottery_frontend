@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Text, Button} from '../../components';
+import {Text, Button, Footer} from '../../components';
 import { Col, Container, Row } from 'reactstrap';
 import { history } from '../../_library';
 import { connect } from 'react-redux';
@@ -7,6 +7,7 @@ import config from '../../config';
 import { NavBar } from '../../components/NavBar';
 import { ToyReview } from '../../components/ToyReview';
 import profileCodesStyle from './ProfileCodesStyle.module.scss';
+import styles from "./ProfilePageStyle.module.scss";
 
 
 const ProfileCodes = props => {
@@ -15,10 +16,10 @@ const ProfileCodes = props => {
 
     return (
         <>
-            <NavBar />
-            <Container>
+            <NavBar/>
+            <div className={styles.wrapper}>
                 <Row>
-                    <Col md={6}>
+                    <Col md={6} className="mb-5 pr-5">
                         <ToyReview />
                     </Col>
                     <Col md={6}>
@@ -46,7 +47,8 @@ const ProfileCodes = props => {
                         <Text cursorPointer className="mt-2" center underline onClick={() => {history.push('/profile/edit')}} label="pols.profile.btn.edit" />
                     </Col>
                 </Row>
-            </Container>
+            </div>
+            <Footer background="blue" />
         </>
     );
 };

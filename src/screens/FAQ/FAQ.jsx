@@ -4,6 +4,7 @@ import { Collapse } from '../../components/Collapse';
 import { ToyReview } from '../../components/ToyReview';
 import {Col, Container, Row} from 'reactstrap';
 import {NavBar} from "../../components/NavBar";
+import styles from "./FAQStyle.module.scss";
 
 
 export const FAQ = props => {
@@ -36,8 +37,8 @@ export const FAQ = props => {
 
     return (
         <>
-            <NavBar />
-            <Container>
+            <NavBar/>
+            <div className={styles.wrapper}>
                 <Row>
                     <Col md={6}>
                         <ToyReview />
@@ -47,7 +48,7 @@ export const FAQ = props => {
                         <Collapse items={faqItems} />
                     </Col>
                 </Row>
-            </Container>
+            </div>
         </>
     );
 }

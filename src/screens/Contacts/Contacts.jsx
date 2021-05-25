@@ -7,14 +7,15 @@ import { connect } from 'react-redux';
 import { Col, Container, Row } from 'reactstrap';
 import { NavBar } from '../../components/NavBar';
 import { ToyReview } from '../../components/ToyReview';
+import styles from "./ContactsStyle.module.scss";
 
 
 export const Contacts = () => {
 
     return (
         <>
-            <NavBar />
-            <Container>
+            <NavBar/>
+            <div className={styles.wrapper}>
                 <Row>
                     <Col md={6}>
                         <ToyReview />
@@ -28,7 +29,7 @@ export const Contacts = () => {
                         <Text className="mb-2" left label="pols.contacts.time" />
                     </Col>
                 </Row>
-            </Container>
+            </div>
             <Footer background="blue" />
         </>
     );

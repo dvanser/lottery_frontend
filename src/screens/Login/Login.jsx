@@ -3,13 +3,14 @@ import { authActions, userActions } from '../../_actions'
 import { connect } from 'react-redux';
 import config from '../../config';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { Form, Text } from '../../components/';
+import {Footer, Form, Text} from '../../components/';
 import * as Yup from 'yup';
 import { postRequest, store } from '../../_library';
 import loginPageStyle from './LoginPageStyle.module.scss';
 import  {Col, Container, Row } from 'reactstrap';
 import { ToyReview } from '../../components/ToyReview';
 import {NavBar} from '../../components/NavBar';
+import styles from "./LoginPageStyle.module.scss";
 
 
 const Login = props => {
@@ -37,10 +38,10 @@ const Login = props => {
 
     return(
         <>
-            <NavBar />
-            <Container>
+            <NavBar/>
+            <div className={styles.wrapper}>
                 <Row>
-                    <Col md={6}>
+                    <Col md={6} className="mb-5 pr-5">
                         <ToyReview />
                     </Col>
                     <Col md={6}>
@@ -55,7 +56,8 @@ const Login = props => {
                         />
                     </Col>
                 </Row>
-            </Container>
+            </div>
+            <Footer background="blue" />
         </>
     );
 };

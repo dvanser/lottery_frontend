@@ -1,0 +1,9 @@
+@import "./src/assets/scss/pols_variables";
+
+.wrapper {
+  margin-top: 100px;
+  background-color: $pols-blue;
+  padding-right: 10%;
+  padding-left: 10%;
+  min-height: 100vh;
+}
