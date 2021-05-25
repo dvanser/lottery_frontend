@@ -41,7 +41,7 @@ export const ProfileEdit = props => {
         age: Yup.number()
             .required(<FormattedMessage
                 id={'pols.signup.validation.age_required'}/>)
-            .min(1, <FormattedMessage id="pols.signup.validation.age_min" />)
+            .min(18, <FormattedMessage id="pols.signup.validation.age_min" />)
             .max(120, <FormattedMessage id="pols.signup.validation.age_max" />)
             .typeError(<FormattedMessage id="pols.signup.validation.number" />),
     });

@@ -64,7 +64,7 @@ export const Home = () => {
             </Row>
 
             <div className={HomePageStyle['products']}>
-                <div className={HomePageStyle['productsHeader']}>Produkti, kas piedalās loterijā</div>
+                <div className={"mb-4 " + HomePageStyle['productsHeader']}>Produkti, kas piedalās loterijā</div>
                 <div className={HomePageStyle['productsIMGs']}>
                     <div>
                         <img src={polsClassic} alt='polsClassic' className={HomePageStyle['lotteryProd']} />
