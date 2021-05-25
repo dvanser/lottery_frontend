@@ -1,22 +1,22 @@
 import React, { useEffect } from 'react';
-import { Text, Button} from '../../components';
+import {Text, Button, Footer} from '../../components';
 import { Col, Container, Row } from 'reactstrap';
 import {history, postRequest} from '../../_library';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import {NavBar} from "../../components/NavBar";
 import {ToyReview} from "../../components/ToyReview";
-import config from "../../config";
+import styles from "./ProfilePageStyle.module.scss";
 
 
 const ProfileStep1 = props => {
 
     return (
         <>
-            <NavBar />
-            <Container>
+            <NavBar/>
+            <div className={styles.wrapper}>
                 <Row>
-                    <Col md={6}>
+                    <Col md={6} className="mb-5 pr-5">
                         <ToyReview />
                     </Col>
                     <Col md={6}>
@@ -31,7 +31,8 @@ const ProfileStep1 = props => {
                         </Button>
                     </Col>
                 </Row>
-            </Container>
+            </div>
+            <Footer background="blue" />
         </>
     );
 };

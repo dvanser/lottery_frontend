@@ -6,6 +6,7 @@ import { Form, Footer, Text, CheckBox } from '../../components';
 import * as Yup from 'yup';
 import { NavBar}  from '../../components/NavBar';
 import { ToyReview } from '../../components/ToyReview';
+import styles from "../Profile/RegisterCode.module.scss";
 
 
 export const Signup = props => {
@@ -86,10 +87,10 @@ export const Signup = props => {
 
     return(
         <>
-            <NavBar />
-            <Container>
+            <NavBar/>
+            <div className={styles.wrapper}>
                 <Row>
-                    <Col md={6}>
+                    <Col md={6} className="mb-5 pr-5">
                         <ToyReview />
                     </Col>
                     <Col xs={6}>
@@ -135,7 +136,7 @@ export const Signup = props => {
                         }
                     </Col>
                 </Row>
-            </Container>
+            </div>
         </>
     );
 };

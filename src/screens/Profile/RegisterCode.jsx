@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Col, Row } from 'reactstrap';
 import styles from './RegisterCode.module.scss';
-import { NavBar, Text, Input, Button } from '../../components';
+import {NavBar, Text, Input, Button, Footer} from '../../components';
 import { FormattedMessage, useIntl } from 'react-intl';
 import Select from 'react-select';
 import { postFileRequest, postRequest } from '../../_library';
+import {ToyReview} from "../../components/ToyReview";
 
 
 export const FileFrom = props => {
@@ -175,7 +176,9 @@ export const RegisterCode = () => {
             <NavBar/>
             <div className={styles.wrapper}>
                 <Row>
-                    <Col md={6}/>
+                    <Col md={6} className="mb-5 pr-5">
+                        <ToyReview />
+                    </Col>
                     <Col md={6} className="pb-3">
                         <div className="text-center">
                             <Text h1 label="pols.profile.register_code.register_code" />
@@ -209,6 +212,7 @@ export const RegisterCode = () => {
                     </Col>
                 </Row>
             </div>
+            <Footer background="blue" />
         </>
     );
 

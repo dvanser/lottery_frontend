@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, Form, Button} from '../../components';
+import {Text, Form, Button, Footer} from '../../components';
 import { Col, Container, Row } from 'reactstrap';
 import { FormattedMessage, useIntl } from 'react-intl';
 import * as Yup from 'yup';
@@ -8,6 +8,7 @@ import profilePageStyle from './ProfilePageStyle.module.scss';
 import { history } from '../../_library';
 import {NavBar} from "../../components/NavBar";
 import {ToyReview} from "../../components/ToyReview";
+import styles from "./ProfilePageStyle.module.scss";
 
 
 export const ProfileEdit = props => {
@@ -72,17 +73,16 @@ export const ProfileEdit = props => {
     useEffect(() => {
         getRequest('/users/profile')
             .then(data => {
-                console.log(data);
                 setInitValues(Object.assign({}, initValues, data));
             }).catch(() => {});
     }, []);
 
     return (
         <>
-            <NavBar />
-            <Container>
+            <NavBar/>
+            <div className={styles.wrapper}>
                 <Row>
-                    <Col md={6}>
+                    <Col md={6} className="mb-5 pr-5">
                         <ToyReview />
                     </Col>
                     <Col md={6}>
@@ -103,7 +103,8 @@ export const ProfileEdit = props => {
                         </Button>
                     </Col>
                 </Row>
-            </Container>
+            </div>
+            <Footer background="blue" />
         </>
     );
 };

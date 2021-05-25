@@ -1,10 +1,8 @@
 {
   "lv": {
-    "pols.small.kocini" : "25 kociņi",
     "pols.small.description" : "Atslēgas piekariņš",
-    "pols.medium.kocini" : "30 kociņi",
     "pols.medium.description" : "Soma",
-    "pols.big.kocini" : "50 kociņi",
+    "pols.toy.sticks" : "kociņi",
     "pols.big.description" : "Spilvens",
     "pols.toy.left" : "Palika: ",
     "pols.navbar.rules" : "Noteikumi",
@@ -160,16 +158,20 @@
     "pols.contacts.email": "E-pasts: bsms@bsms.lv",
     "pols.contacts.time": "Darba laiks: darba dienās no 9:00 - 18:00",
     "pols.rules.title": "Noteikumi",
-    "pols.rules.1": "1. Akcijas norises laiks: no 2021. gada 1. jūnija līdz 2021. gada 31. jūlijam.",
-    "pols.rules.2": "2. Lai reģistrētos loterijai mājaslapā www.pols.lv, dalībniekam jāizveido profils, ievadot vārdu, uzvārdu, telefona numuru un e-pasta adresi. ",
-    "pols.rules.3": "3. Pēc profila izveides dalībnieks mājaslapā ievada unikālos kodus, kas atrodami uz akcijas saldējuma kociņiem, un atbilstošo pirkuma čeka attēlu vai numuru. Vienā pirkuma reizē var iegādāties vairākus akcijas saldējumus. Ja sakrātie saldējumu kociņi iegādāti vairākās pirkumu reizēs, tad jābūt ievadītam atbilstošam pirkuma čeka attēlam vai čeka numuram. Pilni loterijas noteikumi pieejami ŠEIT."
+    "pols.rules.1": "Akcijas norises laiks: no 2021. gada 1. jūnija līdz 2021. gada 31. jūlijam.",
+    "pols.rules.2": "Lai reģistrētos loterijai mājaslapā www.pols.lv, dalībniekam jāizveido profils, ievadot vārdu, uzvārdu, telefona numuru un e-pasta adresi. ",
+    "pols.rules.3": "Pēc profila izveides dalībnieks mājaslapā ievada unikālos kodus, kas atrodami uz akcijas saldējuma kociņiem, un atbilstošo pirkuma čeka attēlu vai numuru. Vienā pirkuma reizē var iegādāties vairākus akcijas saldējumus. Ja sakrātie saldējumu kociņi iegādāti vairākās pirkumu reizēs, tad jābūt ievadītam atbilstošam pirkuma čeka attēlam vai čeka numuram. Pilni loterijas noteikumi pieejami ŠEIT.",
+    "pols.toy.title": "Kod salčukam, sakrāj lāčukam",
+    "pols.toy.text": "Krāj Pols saldējuma kociņus, reģistrējies pols.lv un apmaini tos pret lieliskām balvām!",
+    "pols.login.error.wrong_data_supplied": "Nepareizi dati",
+    "pols.footer.term": "Loterijas Nr. XXXX Loterijas periods: 01.06.-31.07.2021",
+    "pols.footer.privacy": "Privātuma politika",
+    "pols.footer.prize_count": "Balvu skaits ir ierobežots"
   },
   "ru": {
-    "pols.small.kocini" : "25 палочек",
+    "pols.toy.sticks" : "палочек",
     "pols.small.description" : "Брелок на ключи",
-    "pols.medium.kocini" : "30 палочек",
     "pols.medium.description" : "Сумка",
-    "pols.big.kocini" : "50 палочек",
     "pols.big.description" : "Подушка",
     "pols.toy.left" : "Осталось: ",
     "pols.navbar.rules" : "Правила",
