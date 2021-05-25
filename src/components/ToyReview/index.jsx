@@ -5,6 +5,7 @@ import  BigToy  from '../../assets/bigToy.svg'
 import { FormattedMessage } from 'react-intl';
 import toyReviewStyle from './ToyReview.module.scss'
 import { connect } from 'react-redux';
+import {Text} from "../Text";
 
 
 const ToyReview = props => {
@@ -26,6 +27,19 @@ const ToyReview = props => {
             <div className={toyReviewStyle['mediumToy']}><img className={toyReviewStyle['hidden']} src={MediumToy} alt='' /></div><img className={toyReviewStyle['mediumToyImg']} src={MediumToy} alt='' />
             <div className={toyReviewStyle['bigToy']}><img className={toyReviewStyle['invisible']} src={BigToy} alt='' /></div><img className={toyReviewStyle['bigToyImg']} src={BigToy} alt='' />
         </div>
+
+        // <div className={toyReviewStyle['wrapper']}>
+        //     <div className={toyReviewStyle['smallToy']}>
+        //         <div className={toyReviewStyle['topText']}>
+        //             {props.prize.small.prizesCount} <Text id='pols.toy.sticks' />
+        //             <Text center id='pols.toy.name.small' />
+        //         </div>
+        //         <div className={toyReviewStyle['rightBottomText']}>
+        //             <Text left id='pols.toy.left' />
+        //             {props.prize.small.prizesCount}
+        //         </div>
+        //     </div>
+        // </div>
     );
 }
 

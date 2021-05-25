@@ -3,7 +3,7 @@ import InputStyles from './InputStyle.module.scss';
 import { Text } from '../Text';
 
 
-export const Input = ({className, placeholder, label, onChange, successful, value, type, name, disabled, ...classes}) => {
+export const Input = ({className, placeholder, label, onChange, successful, value, type, name, disabled, onClick, ...classes}) => {
 
     const inputClass = Object.entries(classes).map(([key]) =>
     InputStyles[key] !== undefined ? InputStyles[key] : '').join(' ') + ' ' + (className ? className : '');
@@ -38,6 +38,7 @@ export const Input = ({className, placeholder, label, onChange, successful, valu
                 type={type}
                 name={name}
                 disabled={disabled}
+               onClick={onClick}
             />
         </div>
     );

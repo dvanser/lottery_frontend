@@ -1,0 +1,24 @@
+@import "../../assets/scss/pols_variables";
+
+.white {
+  background: $pols-white-background;
+  color: $pols-blue;
+
+  .footerDelimiter {
+    padding-right: 20px;
+    margin-right: 20px;
+    border-right: 2px solid $pols-blue;
+  }
+}
+
+.blue{
+  background: transparent;
+  border-top: 2px solid $pols-white;
+  color: $pols-white;
+
+  .footerDelimiter {
+    padding-right: 20px;
+    margin-right: 20px;
+    border-right: 2px solid $pols-white;
+  }
+}

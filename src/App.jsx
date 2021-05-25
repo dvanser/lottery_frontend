@@ -22,6 +22,8 @@ const ProfileStep1 = React.lazy(() => import(/* webpackChunkName: "profile_step_
 const ProfileEdit = React.lazy(() => import(/* webpackChunkName: "profile_edit" */ './screens/Profile/ProfileEdit').then(module => ({default: module.ProfileEdit})));
 const ProfileCodes = React.lazy(() => import(/* webpackChunkName: "profile_codes" */ './screens/Profile/ProfileCodes').then(module => ({default: module.ProfileCodes})));
 const RequestPrize = React.lazy(() => import(/* webpackChunkName: "request_prize" */ './screens/Profile/RequestPrize').then(module => ({default: module.RequestPrize})));
+const Contacts = React.lazy(() => import(/* webpackChunkName: "contacts" */ './screens/Contacts/Contacts').then(module => ({default: module.Contacts})));
+const Rules = React.lazy(() => import(/* webpackChunkName: "rules" */ './screens/Rules/Rules').then(module => ({default: module.Rules})));
 
 
 class App extends Component {
@@ -45,6 +47,8 @@ class App extends Component {
                     <Route exact path="/faq" render={(props) => LoadingWithSuspense(FAQ, props)} />
                     <Route exact path="/profile" render={(props) => LoadingWithSuspense(Profile, props)} />
                     <Route exact path="/users/email/confirm/:token" render={(props) => LoadingWithSuspense(ConfirmEmail, props)} />
+                    <Route exact path="/contacts" render={(props) => LoadingWithSuspense(Contacts, props)} />
+                    <Route exact path="/rules" render={(props) => LoadingWithSuspense(Rules, props)} />
                     <PrivateRoute exact path="/profile/welcome" render={(props) => LoadingWithSuspense(ProfileStep1, props)}
                                   exactRole={config.userRoles['user']} />
                     <PrivateRoute exact path="/profile/edit" render={(props) => LoadingWithSuspense(ProfileEdit, props)}

@@ -39,7 +39,7 @@ const ProfileCodes = props => {
                             <Text label="pols.profile_codes.btn.continue" />
                         </Button>
                         {props.user.sticksCount >= config.codesRequiredForPrize.small &&
-                            <Button blue className="mt-2" onClick={() => history.push('/profile/request')}>
+                            <Button blue className="mt-2" onClick={() => history.push('/request/prize')}>
                                 <Text label="pols.profile.btn.request"/>
                             </Button>
                         }
