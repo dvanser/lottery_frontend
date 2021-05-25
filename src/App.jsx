@@ -4,7 +4,7 @@ import { history } from './_library';
 import { LoadingWithSuspense } from './components';
 import { connect } from 'react-redux';
 import { PrivateRoute } from './components';
-import { userActions } from './_actions/';
+import { userActions, prizeActions } from './_actions/';
 import config from './config';
 
 
@@ -17,6 +17,13 @@ const RegisterCode = React.lazy(() => import(/* webpackChunkName: "register_code
 const PasswordChange = React.lazy(() => import(/* webpackChunkName: "password_change" */ './screens/PasswordChange/PasswordChange').then(module => ({default: module.PasswordChange})));
 const PageNotFound = React.lazy(() => import(/* webpackChunkName: "page_not_found" */ './screens/PageNotFound/PageNotFound').then(module => ({default: module.PageNotFound})));
 const FAQ = React.lazy(() => import(/* webpackChunkName: "faq" */ './screens/FAQ/FAQ').then(module => ({default: module.FAQ})));
+const ConfirmEmail = React.lazy(() => import(/* webpackChunkName: "confirm_email" */ './screens/ConfirmEmail/ConfirmEmail').then(module => ({default: module.ConfirmEmail})));
+const ProfileStep1 = React.lazy(() => import(/* webpackChunkName: "profile_step_1" */ './screens/Profile/ProfileStep1').then(module => ({default: module.ProfileStep1})));
+const ProfileEdit = React.lazy(() => import(/* webpackChunkName: "profile_edit" */ './screens/Profile/ProfileEdit').then(module => ({default: module.ProfileEdit})));
+const ProfileCodes = React.lazy(() => import(/* webpackChunkName: "profile_codes" */ './screens/Profile/ProfileCodes').then(module => ({default: module.ProfileCodes})));
+const RequestPrize = React.lazy(() => import(/* webpackChunkName: "request_prize" */ './screens/Profile/RequestPrize').then(module => ({default: module.RequestPrize})));
+const Contacts = React.lazy(() => import(/* webpackChunkName: "contacts" */ './screens/Contacts/Contacts').then(module => ({default: module.Contacts})));
+const Rules = React.lazy(() => import(/* webpackChunkName: "rules" */ './screens/Rules/Rules').then(module => ({default: module.Rules})));
 
 
 class App extends Component {
@@ -24,6 +31,7 @@ class App extends Component {
     componentDidMount() {
         if (!this.props.user.synchronized) {
             this.props.loadSettings();
+            this.props.getPrizes();
         }
     }
 
@@ -37,11 +45,21 @@ class App extends Component {
                     <Route exact path="/signup" render={(props) => LoadingWithSuspense(Signup, props)} />
                     <Route exact path="/" render={(props) => LoadingWithSuspense(Home, props)} />
                     <Route exact path="/faq" render={(props) => LoadingWithSuspense(FAQ, props)} />
-                    <PrivateRoute exact path="/profile" render={(props) => LoadingWithSuspense(Profile, props)}
+                    <Route exact path="/profile" render={(props) => LoadingWithSuspense(Profile, props)} />
+                    <Route exact path="/users/email/confirm/:token" render={(props) => LoadingWithSuspense(ConfirmEmail, props)} />
+                    <Route exact path="/contacts" render={(props) => LoadingWithSuspense(Contacts, props)} />
+                    <Route exact path="/rules" render={(props) => LoadingWithSuspense(Rules, props)} />
+                    <PrivateRoute exact path="/profile/welcome" render={(props) => LoadingWithSuspense(ProfileStep1, props)}
+                                  exactRole={config.userRoles['user']} />
+                    <PrivateRoute exact path="/profile/edit" render={(props) => LoadingWithSuspense(ProfileEdit, props)}
                                   exactRole={config.userRoles['user']} />
                     <Route exact path="/register/code" render={(props) => LoadingWithSuspense(RegisterCode, props)}
                            exactRole={config.userRoles['user']} />
                     <PrivateRoute exact path="/password/change" render={(props) => LoadingWithSuspense(PasswordChange, props)}
+                                  exactRole={config.userRoles['user']} />
+                    <PrivateRoute exact path="/profile/codes" render={(props) => LoadingWithSuspense(ProfileCodes, props)}
+                                  exactRole={config.userRoles['user']} />
+                    <PrivateRoute exact path="/request/prize" render={(props) => LoadingWithSuspense(RequestPrize, props)}
                                   exactRole={config.userRoles['user']} />
                     <Route render={(props) => LoadingWithSuspense(PageNotFound, props)} />
                 </Switch>
@@ -52,9 +70,10 @@ class App extends Component {
 
 
 function mapStateToProps(state) {
-    const { user } = state;
+    const { user, prize } = state;
     return {
-        user
+        user,
+        prize
     };
 }
 
@@ -62,6 +81,9 @@ function mapDispatchToProps(dispatch) {
     return({
         loadSettings: () => {
             dispatch(userActions.loadSettings())
+        },
+        getPrizes: () => {
+            dispatch(prizeActions.getPrizes())
         }
     })
 }

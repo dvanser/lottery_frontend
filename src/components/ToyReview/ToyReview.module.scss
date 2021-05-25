@@ -1,4 +1,4 @@
-
+@import "./src/assets/scss/pols_variables.scss";
 
 .wrapper {
     display: grid;
@@ -12,7 +12,7 @@
 
 .smallSticks {
     position: absolute;
-    background-color: #1AA0E1;
+    background-color: $pols-blue;
     --tw-text-opacity: 1;
     color: rgba(255, 255, 255, var(--tw-text-opacity));
     left: 4%;
@@ -21,7 +21,7 @@
 
 .mediumSticks {
     position: absolute;
-    background-color: #1AA0E1;
+    background-color: $pols-blue;
     --tw-text-opacity: 1;
     color: rgba(255, 255, 255, var(--tw-text-opacity));
     right: 15%;
@@ -53,7 +53,7 @@
     --tw-text-opacity: 1;
     color: #10316C;
     right: 0%;
-    top: 35%;
+    top: 34%;
     z-index: 40;
 }
 
@@ -132,10 +132,14 @@
     visibility: hidden;
 }
 
+.smallToyImg > svg {
+    width: 174px;
+    height: 303px;
+}
+
 .smallToyImg {
     position: absolute;
     transform-origin: center;
-    transform: scale(1.05);
     bottom: 45%;
     left: -17%;
 }

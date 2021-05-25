@@ -1,14 +1,12 @@
 import React from 'react';
-import { i18nActions } from '../../_actions'
-import { connect } from 'react-redux';
-import { FormattedMessage, useIntl } from 'react-intl';
-import { BrowserRouter } from 'react-router-dom';
-import { NavBar } from '../../components/NavBar';
-import {Text} from "../../components/Text";
-import {Collapse} from "../../components/Collapse";
+import { Text } from '../../components/Text';
+import { Collapse } from '../../components/Collapse';
+import { ToyReview } from '../../components/ToyReview';
+import {Col, Container, Row} from 'reactstrap';
+import {NavBar} from "../../components/NavBar";
 
 
-const FAQ = props => {
+export const FAQ = props => {
 
     const faqItems = [
         {heading: 'pols.faq.heading.how_long', text: 'pols.faq.text.how_long'},
@@ -38,8 +36,18 @@ const FAQ = props => {
 
     return (
         <>
-            <Text h1 label="pols.faq.title" />
-            <Collapse items={faqItems} />
+            <NavBar />
+            <Container>
+                <Row>
+                    <Col md={6}>
+                        <ToyReview />
+                    </Col>
+                    <Col md={6}>
+                        <Text h1 left label="pols.faq.title" />
+                        <Collapse items={faqItems} />
+                    </Col>
+                </Row>
+            </Container>
         </>
     );
 }

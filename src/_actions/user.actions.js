@@ -9,7 +9,7 @@ export const userActions = {
 
 function loadSettings() {
     return dispatch => {
-        getRequest('/admins/profile')
+        getRequest('/users/profile')
             .then(data => {
                 dispatch(success(data));
                 dispatch(loggedInData(data));

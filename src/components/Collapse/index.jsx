@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './index.scss';
 import { Text } from '../Text';
 import { Icon } from '../Icons';
 import { Col, Row } from 'reactstrap';
 import { useIntl } from 'react-intl';
+import collapseStyles from './CollapseStyle.module.scss';
 
 
 export const Collapse = props => {
@@ -13,19 +13,19 @@ export const Collapse = props => {
 
     return <>
         {props.items && props.items.map((item, idx) => (
-            <div key={idx} className="tribe-collapse-block mt-8">
-                <Row className={"tribe-collapse-heading pb-18 pt-18 pr-38 pl-38 tribe-cursor-pointer no-gutters" + (collapsedElementId === idx ? " active" : "")}
+            <div key={idx}>
+                <Row className={collapseStyles['polsCollapseHeading'] + " no-gutters" + (collapsedElementId === idx ? " active" : "")}
                      onClick={() => setCollapsedElementId(collapsedElementId !== null ? null : idx)}>
                     <Col xs={10}>
-                        <Text left label={item.heading} />
+                        <Text blue left label={item.heading} />
                     </Col>
-                    <Col xs={2} className="tribe-text-right">
+                    <Col xs={2} className="text-right">
                         <Icon type={collapsedElementId === idx ? "minus" : "plus"} />
                     </Col>
                 </Row>
-                <Row className={"pt-38 pb-38 mt-8 no-gutters pr-38 pl-38 tribe-collapsed" + (collapsedElementId === idx ? " collapse show" : " collapse")}>
+                <Row className={collapseStyles['polsCollapsed'] + " no-gutters" + (collapsedElementId === idx ? " collapse show" : " collapse")}>
                     <Col>
-                        <Text left light >
+                        <Text small left light >
                             <div dangerouslySetInnerHTML={{__html: intl.formatMessage({ id: item.text})}} />
                         </Text>
                     </Col>

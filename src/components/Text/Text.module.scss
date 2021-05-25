@@ -14,7 +14,7 @@
 }
 
 .h2 {
-    @include txtmixin(bold,60px,80px,-1.5px);
+    @include txtmixin(bold, 35px, 60px, 0.02em);
     
 }
 
@@ -83,6 +83,29 @@
     color: rgb(249, 56,34);
 }
 
+.huge {
+    font-size: 140px;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.center {
+    text-align: center;
+}
+
+.cursorPointer {
+    cursor: pointer;
+}
+
 .caps {
     text-transform: uppercase;
+}
+
+.extraSmall {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
 }

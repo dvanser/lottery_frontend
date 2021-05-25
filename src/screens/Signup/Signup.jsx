@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Alert, Col, Container, Row } from 'reactstrap';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { postRequest } from '../../_library';
-import { Form, Footer, Text, CheckBox, SocialLinks } from '../../components';
+import { Form, Footer, Text, CheckBox } from '../../components';
 import * as Yup from 'yup';
-import SignupPageStyles from "./SignupPageStyle.module.scss";
+import { NavBar}  from '../../components/NavBar';
+import { ToyReview } from '../../components/ToyReview';
 
 
 export const Signup = props => {
@@ -73,6 +74,7 @@ export const Signup = props => {
 
         postRequest(`/signup`, values)
             .then(() => {
+                setSignedUp(true);
                 actions.resetForm();
             }).catch(response => {
             actions.setSubmitting(false);
@@ -83,49 +85,57 @@ export const Signup = props => {
     };
 
     return(
-        <Container>
-            <Row>
-                <Col xs={6}></Col>
-                <Col xs={6}>
-                    {!signedUp &&
-                        <>
-                            <Text left h1 label="pols.signup.title" />
-                            <Form
-                                formEnableReinitialize={true}
-                                initialValues={initValues}
-                                validationSchema={validationSchema}
-                                inputFields={inputFields}
-                                handleSubmit={handleSubmit}
-                                buttonText=<Text label="pols.signup.btn.signup" />
-                                nonFullWidthSubmitBtn={true}
-                                formFooter={
-                                    <>
-                                        <Text small label="pols.signup.required_fields"/>
-                                        <div className="mt-3">
-                                            <CheckBox text={<Text left small><FormattedMessage id="pols.singup.checkbox.terms" values={{link: '/terms'}} /></Text>}
-                                                onClickCheckboxOnly={true}
-                                                onChange={setTermsAccepted}
-                                            />
-                                            <div>
-                                                {error && error === 'terms_not_accepted' &&
-                                                    <Text error label="pols.signup.error.accept_terms" />
-                                                }
+        <>
+            <NavBar />
+            <Container>
+                <Row>
+                    <Col md={6}>
+                        <ToyReview />
+                    </Col>
+                    <Col xs={6}>
+                        {!signedUp &&
+                            <>
+                                <Text left h1 label="pols.signup.title" />
+                                <Form
+                                    formEnableReinitialize={true}
+                                    initialValues={initValues}
+                                    validationSchema={validationSchema}
+                                    inputFields={inputFields}
+                                    handleSubmit={handleSubmit}
+                                    buttonText=<Text label="pols.signup.btn.signup" />
+                                    nonFullWidthSubmitBtn={true}
+                                    formFooter={
+                                        <>
+                                            <Text small label="pols.signup.required_fields"/>
+                                            <div className="mt-3">
+                                                <CheckBox text={<Text left small><FormattedMessage id="pols.singup.checkbox.terms" values={{link: '/terms'}} /></Text>}
+                                                    onClickCheckboxOnly={true}
+                                                    onChange={setTermsAccepted}
+                                                />
+                                                <div>
+                                                    {error && error === 'terms_not_accepted' &&
+                                                        <Text left small error label="pols.signup.error.accept_terms" />
+                                                    }
+                                                    {error && error === 'email_in_use' &&
+                                                        <Text left small error label="pols.signup.error.email_in_use" />
+                                                    }
+                                                </div>
                                             </div>
-                                        </div>
-                                    </>
+                                        </>
 
-                                 }
-                            />
-                        </>
-                    }
-                    {signedUp &&
-                        <>
-                            <Text left h1 label="pols.profile.title" />
-                            <Text left label="pols.signup.success_text" />
-                        </>
-                    }
-                </Col>
-            </Row>
-        </Container>
+                                     }
+                                />
+                            </>
+                        }
+                        {signedUp &&
+                            <>
+                                <Text left h1 label="pols.profile.title" />
+                                <Text left label="pols.signup.success_text" />
+                            </>
+                        }
+                    </Col>
+                </Row>
+            </Container>
+        </>
     );
 };

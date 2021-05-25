@@ -3,7 +3,7 @@ import InputStyles from './InputStyle.module.scss';
 import { Text } from '../Text';
 
 
-export const Input = ({className,placeholder,label,onChange,successful,value,type,name, ...classes}) => {
+export const Input = ({className, placeholder, label, onChange, successful, value, type, name, disabled, onClick, ...classes}) => {
 
     const inputClass = Object.entries(classes).map(([key]) =>
     InputStyles[key] !== undefined ? InputStyles[key] : '').join(' ') + ' ' + (className ? className : '');
@@ -25,18 +25,21 @@ export const Input = ({className,placeholder,label,onChange,successful,value,typ
     }
 
     return (
-        <div >
+        <div>
             <label className={`${InputStyles['label']} ${successful && InputStyles['successful']}`}>
-                <Text label={label} /></label>
+                <Text label={label} />
+            </label>
             <input className={ `${InputStyles['input']}` }
                 placeholder={placeholder}
                 value={text}
                 onChange={handleChange}
-                onFocus={changeStyleState} 
+                onFocus={changeStyleState}
                 onBlur={changeStyleState}
                 type={type}
                 name={name}
-                />
+                disabled={disabled}
+               onClick={onClick}
+            />
         </div>
     );
 }

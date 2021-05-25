@@ -1,40 +1,44 @@
 import React, { useEffect } from 'react';
 import { Text, Button} from '../../components';
 import { Col, Container, Row } from 'reactstrap';
-import { history } from '../../_library';
+import {history, postRequest} from '../../_library';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
+import {NavBar} from "../../components/NavBar";
+import {ToyReview} from "../../components/ToyReview";
+import config from "../../config";
 
 
 const ProfileStep1 = props => {
 
-    useEffect(() => {
-
-    }, []);
-
     return (
-        <Container>
-            <Row>
-                <Col md={6}></Col>
-                <Col md={6}>
-                    <Text left primary caps h1 label="pols.profile.title" className="mt-3 ml-2" />
-                    <Text><FormattedMessage id={'pols.profile.welcome'} values={{name: props.user.name}}/></Text>
-                    <Text><FormattedMessage id={'pols.profile.code_count'} values={{count: props.user.codesCount}}/></Text>
-                    <Button onClick={() => history.push('/register/code')} >
-                        <Text label="pols.profile.btn.register_codes" />
-                    </Button>
-                    <Button onClick={() => history.push('/profile/edit')}>
-                        <Text label="pols.profile.btn.edit" />
-                    </Button>
-                </Col>
-            </Row>
-        </Container>
+        <>
+            <NavBar />
+            <Container>
+                <Row>
+                    <Col md={6}>
+                        <ToyReview />
+                    </Col>
+                    <Col md={6}>
+                        <Text left h1 label="pols.profile.title" />
+                        <Text><FormattedMessage id={'pols.profile.welcome'} values={{name: props.user.name}}/></Text>
+                        <Text><FormattedMessage id={'pols.profile.code_count'} values={{count: props.user.sticksCount}}/></Text>
+                        <Button className="mt-5" onClick={() => history.push('/register/code')} >
+                            <Text label="pols.profile.btn.register_codes" />
+                        </Button>
+                        <Button blue className="mt-2" onClick={() => history.push('/profile/edit')}>
+                            <Text label="pols.profile.btn.edit" />
+                        </Button>
+                    </Col>
+                </Row>
+            </Container>
+        </>
     );
 };
 
 function mapStateToProps(state) {
 
-    const { user } = state.authentication;
+    const { user } = state;
 
     return {
         user

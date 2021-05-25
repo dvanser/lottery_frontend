@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import passwordChangePageStyle from './PasswordChangeStyle.module.scss';
-import { Row, Col, Alert, Container } from 'reactstrap';
+import React, { useState } from 'react';
+import { Row, Col, Container } from 'reactstrap';
 import { Text, Form } from '../../components';
 import { history, postRequest } from '../../_library';
 import * as Yup from 'yup';
 import { FormattedMessage, useIntl } from 'react-intl';
+import { NavBar } from '../../components/NavBar';
+import { ToyReview } from '../../components/ToyReview';
 
 
 export const PasswordChange = props => {
@@ -13,15 +14,15 @@ export const PasswordChange = props => {
 
     const [error, setError] = useState('');
     const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    const passwordError = intl.formatMessage({ 'id': 'pols.profile.validation.wrong_password' });
+    const passwordError = intl.formatMessage({ 'id': 'pols.signup.validation.invalid_password' });
 
     const validationSchema = Yup.object().shape({
         password: Yup.string()
             .matches(passwordRegex, passwordError)
             .required(<FormattedMessage id={'pols.profile.validation.current_password_required'}/>),
         newPassword: Yup.string().matches(passwordRegex, passwordError)
-            .max(32, <FormattedMessage id="pols.common.validation.password_max_length" />)
-            .required(<FormattedMessage id={'pols.profile.validation.password_required'}/>).test(
+            .max(32, <FormattedMessage id="pols.signup.validation.password_max_length" />)
+            .required(<FormattedMessage id={'pols.signup.validation.password_required'}/>).test(
                 "match", <FormattedMessage id={'pols.profile.validation.new_password_equal_to_old'}/>,
                 function () {
                     return this.parent.password !== this.parent.newPassword;
@@ -29,8 +30,8 @@ export const PasswordChange = props => {
             ),
         passwordRepeat: Yup.string()
             .oneOf([Yup.ref('newPassword'), null], <FormattedMessage
-                id={'pols.profile.validation.password_dont_much'}/>)
-            .required(<FormattedMessage id={'pols.profile.validation.password_retype_required'}/>)
+                id={'pols.signup.validation.passwords_dont_match'}/>)
+            .required(<FormattedMessage id={'pols.signup.validation.password_retype_required'}/>)
     })
 
     const handleSubmit = (values, actions) => {
@@ -41,6 +42,7 @@ export const PasswordChange = props => {
             newPassword: values.newPassword,
         }).then(() => {
                 actions.resetForm();
+                history.push('/profile/codes');
             }).catch(response => {
                 actions.setSubmitting(false);
                 setError(response.error);
@@ -48,38 +50,47 @@ export const PasswordChange = props => {
     };
 
     return(
-        <div>
-            <Container className="pt-3">
-                <Text left caps h1 label="pols.password_change.title" className="mt-5" />
+        <>
+            <NavBar />
+            <Container>
                 <Row>
-                    <Col xs={12} lg={12} className="text-center">
+                    <Col md={6}>
+                        <ToyReview />
+                    </Col>
+                    <Col md={6}>
+                        <Text left h1 label="pols.password_change.title" />
                         {error && error === 'wrong_data_supplied' &&
                             <>
-                                <Text className="mt-4" label="pols.password_change.error.wrong_data_supplied" />
+                                <Text error small label="pols.password_change.error.wrong_data_supplied" />
                             </>
                         }
                         {error && error === 'previously_used_password' &&
                             <>
-                                <Text className="mt-4" label="pols.password_change.error.previously_used_password"/>
+                                <Text error small className="mt-4" label="pols.password_change.error.previously_used_password"/>
                             </>
                         }
-                        <Form initValues={{password: '', passwordRepeat: ''}}
+                        {error && error === 'incorrect_password' &&
+                            <>
+                                <Text error small className="mt-4" label="pols.password_change.error.incorrect_password"/>
+                            </>
+                        }
+                        <Form initialValues={{password: '', passwordRepeat: ''}}
                               validationSchema={validationSchema}
                               inputFields={
                                   [
-                                      {name: 'password', type: 'password', label: 'pols.profile.placeholder.password'},
+                                      {name: 'password', type: 'password', label: 'pols.profile.password'},
                                       {name: 'newPassword', type: 'password',
-                                          label: 'pols.profile.placeholder.newPassword', hide: true},
+                                          label: 'pols.profile.new_password', hide: true},
                                       {name: 'passwordRepeat', type: 'password',
-                                          label: 'pols.profile.placeholder.passwordRepeat', hide: true}
+                                          label: 'pols.profile.password_repeat', hide: true}
                                   ]
                               }
                               handleSubmit={handleSubmit}
-                              formButton="pols.password_change.btn.change"
+                              buttonText={<FormattedMessage id="pols.password_change.btn.change"/>}
                         />
                     </Col>
                 </Row>
             </Container>
-        </div>
+        </>
     );
 };

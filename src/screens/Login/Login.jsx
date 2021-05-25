@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import { authActions, i18nActions } from '../../_actions'
+import { authActions, userActions } from '../../_actions'
 import { connect } from 'react-redux';
 import config from '../../config';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { Form, Block, Text } from '../../components/';
+import { Form, Text } from '../../components/';
 import * as Yup from 'yup';
-import { postRequest } from '../../_library/request';
-import { store } from '../../_library/store';
+import { postRequest, store } from '../../_library';
 import loginPageStyle from './LoginPageStyle.module.scss';
-import {Col, Container, Row} from "reactstrap";
+import  {Col, Container, Row } from 'reactstrap';
+import { ToyReview } from '../../components/ToyReview';
+import {NavBar} from '../../components/NavBar';
 
 
-const Login = () => {
+const Login = props => {
 
     const [errorMessage,setErrorMessage] = useState('');
 
@@ -27,30 +28,35 @@ const Login = () => {
           .required(intl.formatMessage({id:'pols.login.validation.email_required'})),
       });
 
-    const onSubmit = value => postRequest('/login', value).then(response => { 
+    const onSubmit = value => postRequest('/login', value).then(response => {
         localStorage.setItem(config.accessTokenName, response.accessToken);
-        store.dispatch(authActions.login(response))}  
-     ).catch(error => {
+        props.login('/profile/welcome');
+    }).catch(error => {
          error.error ? setErrorMessage(<FormattedMessage id={`pols.login.error.${error.error}`}/>)  : setErrorMessage(<FormattedMessage id="pols.login.error.something"/>);
      }) 
 
     return(
-        <Container>
-            <Row>
-                <Col xs={6}></Col>
-                <Col xs={6}>
-                    <Text left h1 label="pols.login.title" />
-                    {errorMessage && <Text error className={loginPageStyle.errorMessage}>{errorMessage}</Text> }
-                    <Form initialValues={{email: '', password: ''}}
-                          inputFields={[{name:'email', type:'email', label:intl.formatMessage({id:'pols.login.email'})},
-                                        {name:'password', type:'password', label:intl.formatMessage({id:'pols.login.password'})}]}
-                          onSubmit={value => onSubmit(value)}
-                          validationSchema={validationSchema}
-                          buttonText={<FormattedMessage id="pols.login.btn.submit"/>}
-                    />
-                </Col>
-            </Row>
-        </Container>
+        <>
+            <NavBar />
+            <Container>
+                <Row>
+                    <Col md={6}>
+                        <ToyReview />
+                    </Col>
+                    <Col md={6}>
+                        <Text left h1 label="pols.login.title" />
+                        {errorMessage && <Text error className={loginPageStyle.errorMessage}>{errorMessage}</Text>}
+                        <Form initialValues={{email: '', password: ''}}
+                              inputFields={[{name:'email', type:'email', label:intl.formatMessage({id:'pols.login.email'})},
+                                            {name:'password', type:'password', label:intl.formatMessage({id:'pols.login.password'})}]}
+                              handleSubmit={value => onSubmit(value)}
+                              validationSchema={validationSchema}
+                              buttonText={<FormattedMessage id="pols.login.btn.submit"/>}
+                        />
+                    </Col>
+                </Row>
+            </Container>
+        </>
     );
 };
 
