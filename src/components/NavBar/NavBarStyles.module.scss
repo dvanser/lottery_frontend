@@ -133,9 +133,19 @@
   //border-bottom: 2px solid $pols-white;
 }
 
+.navBarItemMarginNoMargin {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 .navBarItemMargin {
   margin-left: 0 !important;
-  margin-right: 0.5rem !important;
+  margin-right: 0 !important;
+}
+
+.navBarItemMarginMobile {
+  margin-left: 1rem !important;
+  margin-right: 0 !important;
 }
 
 .navBar {
@@ -162,32 +172,96 @@
   }
 }
 
+.mobileNavNoBorderBlock {
+  width: 104px;
+  height: 10px;
+  position: absolute;
+  right: calc(10% + 2px);
+  top: -2px;
+  background-color: $pols-white;
+}
+
+.mobileNavContent {
+  display: flex !important;
+}
+
+.iconInst {
+  margin-left: 1.5rem !important;
+}
+
+.iconFb {
+  margin-left: 0.5rem !important;
+}
+
+@media (max-width: 730px) {
+  .navBarItem {
+    display: block !important;
+  }
+  .mobileNavContent {
+    display: block !important;
+  }
+  .mobileNavIconsBlock {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .navBarItemMarginMobile {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .icon {
+    margin-left: 0 !important;
+  }
+  .iconFb {
+    margin-left: 1rem !important;
+  }
+}
+
 @media (min-width: 1200px) {
   .navBarItemMargin {
-    margin-right: 1rem !important;
+    margin-left: 0.6rem !important;
+  }
+  .navBarText {
+    font-size: 23px;
   }
   .wrapper {
     //height: 100px;
     //background-position: -10% top;
     background-position: left top;
     height: 185px;
+    background-size: contain;
   }
 }
 
-@media (min-width: 1395px) {
+@media (min-width: 1270px) {
   .navBarItemMargin {
     margin-left: 1rem !important;
   }
 }
 
-@media (min-width: 1530px) {
+
+@media (min-width: 1395px) {
   .navBarItemMargin {
+    margin-left: 1.5rem !important;
+  }
+}
+
+@media (min-width: 1530px) {
+  .navBar {
     margin-left: 2rem !important;
   }
 }
 
 @media (min-width: 1680px) {
-  .navBarItemMargin {
+  .navBar {
     margin-left: 3rem !important;
+  }
+}
+
+@media (min-width: 1950px) {
+  .wrapper {
+    background-size: 100%;
+    height: 200px;
   }
 }

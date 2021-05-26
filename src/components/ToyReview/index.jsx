@@ -71,7 +71,14 @@ const ToyReview = props => {
 
     <div className="mb-5">
         <Text left h1 label="pols.toy.title" />
-        <Text left className="mt-3 mb-5" label="pols.toy.text" />
+        <Text left className="mt-3" label="pols.toy.text" />
+        <div className="mt-4 mb-5">
+            {props.button &&
+                <>
+                    {props.button}
+                </>
+            }
+        </div>
         <Row>
             <Col xs={6} className={toyReviewStyle['wrapper']}>
                 <img className={toyReviewStyle['smallToyImg']} src={SmallToy} />
