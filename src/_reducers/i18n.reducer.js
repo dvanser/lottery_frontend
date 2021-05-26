@@ -1,5 +1,6 @@
 import localeData from '../translations/i18n.json';
 import { i18nConstants } from '../_constants';
+import config from '../config';
 
 const language = (navigator.languages && navigator.languages[0]) ||
     navigator.language ||
@@ -25,6 +26,7 @@ export function i18n(state = Object.assign({}, initialState), action) {
                 state.lang = action.data.lang;
             }
 
+            localStorage.setItem(config.language, state.lang);
             state.messages = localeData[action.data.lang];
             return Object.assign({}, state);
         default:

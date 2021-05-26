@@ -13,8 +13,13 @@ export const FileFrom = props => {
     return (
         <div>
             <div>
-                {props.data.error &&
-                    <>{props.data.error}</>
+                {props.data.error && (props.data.error === 'wrong_data_supplied' || props.data.error === 'number_not_provided'
+                    || props.data.error === 'not_allowed_file_extension') &&
+                    <Text error><FormattedMessage id={`pols.add.file.error.${props.data.error}`}/></Text>
+                }
+                {props.data.error && (props.data.error !== 'wrong_data_supplied' && props.data.error !== 'number_not_provided'
+                    && props.data.error !== 'not_allowed_file_extension') &&
+                    <Text error><FormattedMessage id={`pols.add.file.error.unexpected`}/></Text>
                 }
             </div>
             <div>
@@ -65,8 +70,11 @@ export const CodeFrom = props => {
     return (
         <div>
             <div className="mt-3">
-                {props.error &&
-                    <>{props.error}</>
+                {props.error && (props.error === 'wrong_data_supplied' || props.error === 'not_valid_code') &&
+                    <Text error><FormattedMessage id={`pols.add.code.error.${props.error}`}/></Text>
+                }
+                {props.error && (props.error !== 'wrong_data_supplied' && props.error !== 'not_valid_code') &&
+                    <Text error><FormattedMessage id={`pols.add.code.error.unexpected`}/></Text>
                 }
             </div>
             {[...Array(parseInt(props.count))].map((id, idx) => (
@@ -135,7 +143,7 @@ export const RegisterCode = () => {
 
                     const filesData = new FormData();
 
-                    if (file.selected) {
+                    if (file.files) {
                         filesData.append('cheque', file.files[0]);
                     }
 
@@ -176,10 +184,10 @@ export const RegisterCode = () => {
             <NavBar/>
             <div className={styles.wrapper}>
                 <Row>
-                    <Col md={6} className="mb-5 pr-5">
+                    <Col md={{size:6, order: 1}} xs={{size:12, order: 2}}  className="pr-md-5">
                         <ToyReview />
                     </Col>
-                    <Col md={6} className="pb-3">
+                    <Col md={{size:6, order: 2}} xs={{size:12, order: 1}} className="mb-5">
                         <div className="text-center">
                             <Text h1 label="pols.profile.register_code.register_code" />
                         </div>
@@ -195,6 +203,7 @@ export const RegisterCode = () => {
                                             <FileFrom key={idx} id={idx} data={data} onChange={handleFileFormChange} />
                                         )
                                     )}
+                                    <Text small label="pols.profile.register_code.remember" />
                                 </div>
                                 {renderSelect('pols.profile.register_code.select_codes_amount', 100, handleCodesCountChange)}
                                 {step === 2 &&

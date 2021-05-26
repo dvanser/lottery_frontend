@@ -19,10 +19,10 @@ export const Rules = () => {
             <NavBar/>
             <div className={styles.wrapper}>
                 <Row>
-                    <Col md={6} className="mb-5 pr-5">
+                    <Col md={{size:6, order: 1}} xs={{size:12, order: 2}}  className="pr-md-5">
                         <ToyReview />
                     </Col>
-                    <Col md={6}>
+                    <Col md={{size:6, order: 2}} xs={{size:12, order: 1}} className="mb-5">
                         <Text className="mb-4" left h1 label="pols.rules.title" />
                         <div className="mt-3">
                             <div className={"d-inline-block mr-2 " + RulesStyles["numberCircle"]}>1</div><Text small className="mb-2" label="pols.rules.1" />

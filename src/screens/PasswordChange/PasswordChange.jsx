@@ -55,10 +55,10 @@ export const PasswordChange = props => {
             <NavBar/>
             <div className={styles.wrapper}>
                 <Row>
-                    <Col md={6} className="mb-5 pr-5">
+                    <Col md={{size:6, order: 1}} xs={{size:12, order: 2}}  className="pr-md-5">
                         <ToyReview />
                     </Col>
-                    <Col md={6}>
+                    <Col md={{size:6, order: 2}} xs={{size:12, order: 1}} className="mb-5">
                         <Text left h1 label="pols.password_change.title" />
                         {error && error === 'wrong_data_supplied' &&
                             <>
