@@ -81,6 +81,8 @@ export const Signup = props => {
             actions.setSubmitting(false);
             if (response.error) {
                 setError(response.error);
+            } else {
+                setError('unexpected_error');
             }
         });
     };
@@ -119,6 +121,9 @@ export const Signup = props => {
                                                     }
                                                     {error && error === 'email_in_use' &&
                                                         <Text left small error label="pols.signup.error.email_in_use" />
+                                                    }
+                                                    {error && error === 'unexpected_error' &&
+                                                        <Text left small error label="pols.common.error.unexpected" />
                                                     }
                                                 </div>
                                             </div>

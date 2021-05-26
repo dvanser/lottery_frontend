@@ -21,7 +21,7 @@ const Login = props => {
 
     const validationSchema = Yup.object().shape({
         password: Yup.string()
-          .min(2, intl.formatMessage({id:'pols.login.validation.password_min'}))
+          .min(8, intl.formatMessage({id:'pols.login.validation.password_min'}))
           .max(70, intl.formatMessage({id:'pols.login.validation.password_max'}))
           .required(intl.formatMessage({id:'pols.login.validation.password_required'})),
         email: Yup.string()
@@ -32,9 +32,9 @@ const Login = props => {
     const onSubmit = value => postRequest('/login', value).then(response => {
         localStorage.setItem(config.accessTokenName, response.accessToken);
         props.login('/profile/welcome');
-    }).catch(error => {
-         error.error ? setErrorMessage(<FormattedMessage id={`pols.login.error.${error.error}`}/>)  : setErrorMessage(<FormattedMessage id="pols.login.error.something"/>);
-     }) 
+    }).catch(response => {
+        response.error ? setErrorMessage(<FormattedMessage id={`pols.login.error.${response.error}`}/>)  : setErrorMessage(<FormattedMessage id="pols.login.error.something"/>);
+     });
 
     return(
         <>
