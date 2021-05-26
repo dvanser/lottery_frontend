@@ -3,8 +3,8 @@ import sticks from '../../assets/sticks.png'
 
 export const Sticks = () => {
     return (
-        <div className={StickStyle['wrapper']}>
-            <img src={sticks} alt='stick' className={'w-100 ' + StickStyle['stick']} />
+        <div className={'text-center ' + StickStyle['wrapper']}>
+            <img src={sticks} alt='stick' className={StickStyle['stick']} />
         </div>
     )
 }

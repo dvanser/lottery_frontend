@@ -190,8 +190,8 @@
 }
 
 .products {
-    position: absolute;
-    margin-top: 150px;
+    position: relative;
+    margin-top: 50px;
     padding-left: 10%;
     padding-right: 10%;
 }
@@ -209,15 +209,27 @@
 }
 
 .productsTextBlue {
-    color: $pols-dark-blue !important;
+    color: $pols-dark-blue;
+}
+
+.productsTextBlue {
+    padding-left: 20%;
+    margin-top: -70px;
+}
+
+.productsTextBlue img {
+    width: 16%;
 }
 
 .otherNewProductsWrapper {
     margin-top: 85px;
+    padding-left: 0 !important;
 }
 
 .otherNewProductsImg {
-    width: 350px;
+    width: 100%;
+    height: auto;
+  margin-top: -80px;
 }
 
 .lotteryProd {
@@ -226,6 +238,64 @@
     display: inline-block;
     vertical-align: middle;
     z-index: 20;
+}
+
+.lotteryProdClassic {
+    margin-top: 0;
+    margin-left: 0;
+    width: 100%;
+}
+
+.lotteryProdChocolate {
+    margin-top: 0;
+    margin-left: 0;
+    width: 100%;
+}
+
+.lotteryProdPlombirs {
+    margin-top: 0;
+    margin-left: 0;
+    width: 100%;
+}
+
+.lotteryProdCrisps {
+    margin-top: 0;
+    margin-left: 0;
+    width: 100%;
+}
+
+.lotteryProdAvenu {
+    margin-top: 0;
+    margin-left: 0;
+    width: 100%;
+}
+
+.lotteryProdUpenu {
+    margin-top: 0;
+    margin-left: 0;
+    width: 100%;
+}
+
+.lotteryProdMango {
+    margin-top: 0;
+    margin-left: 0;
+    width: 100%;
+}
+
+.lotteryProdPopcorn {
+    margin-top: 0;
+    margin-left: 0;
+    width: 100%;
+}
+
+
+.newProductsMobile {
+    background-image: url("../../assets/footer_white_area.svg");
+    background-position: 0px -300px;
+    background-size: cover;
+    padding-top: 450px;
+    margin-top: -430px;
+    margin-bottom: -100px;
 }
 
 .productsIMGs {
@@ -264,6 +334,30 @@
     .wrapper {
         margin-top: 98px;
     }
+
+    .stepsBlock {
+        background-image: url("../../assets/splitHomeScreenMobile.svg");
+        height: 1200px;
+        padding-top: 103px;
+        background-position: 0 -373px;
+        margin-top: 0;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .stepDesc {
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+    .stepNo {
+        display: block !important;
+        min-width: 25px;
+        height: 25px;
+        font-size: 16px;
+        text-align: center;
+        line-height: 25px;
+    }
 }
 
 @media (min-width: 247px) {
@@ -274,6 +368,30 @@
 
     .wrapper {
         margin-top: 150px;
+    }
+
+    .stepsBlock {
+        background-image: url("../../assets/splitHomeScreenMobile.svg");
+        height: 1200px;
+        padding-top: 103px;
+        background-position: 0 -373px;
+        margin-top: 0;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .stepDesc {
+        font-size: 20px;
+        line-height: 25px;
+    }
+
+    .stepNo {
+        display: block !important;
+        min-width: 50px;
+        text-align: center;
+        line-height: 50px;
+        height: 50px;
+        font-size: 35px;
     }
 }
 
@@ -286,6 +404,28 @@
     .wrapper {
         margin-top: 150px;
     }
+
+    .stepsBlock {
+        background-image: url("../../assets/splitHomeScreenMobile.svg");
+        height: 1200px;
+        padding-top: 103px;
+        background-position: 0 -373px;
+        margin-top: 0;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .stepDesc {
+        font-size: 20px;
+        line-height: 25px;
+    }
+
+    .stepNo {
+        display: block !important;
+        min-width: 50px;
+        text-align: center;
+        line-height: 50px;
+    }
 }
 
 @media (min-width: 392px) {
@@ -296,6 +436,28 @@
 
     .wrapper {
         margin-top: 225px;
+    }
+
+    .stepsBlock {
+        background-image: url("../../assets/splitHomeScreenMobile.svg");
+        height: 1200px;
+        padding-top: 103px;
+        background-position: 0 -373px;
+        margin-top: 0;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .stepDesc {
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+    .stepNo {
+        display: block !important;
+        min-width: 50px;
+        text-align: center;
+        line-height: 50px;
     }
 }
 
@@ -308,6 +470,28 @@
     .wrapper {
         margin-top: 280px;
     }
+
+    .stepsBlock {
+        background-image: url("../../assets/splitHomeScreenMobile.svg");
+        height: 1200px;
+        padding-top: 118px;
+        background-position: 0 -373px;
+        margin-top: 0;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .stepDesc {
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+    .stepNo {
+        display: block !important;
+        min-width: 50px;
+        text-align: center;
+        line-height: 50px;
+    }
 }
 
 @media (min-width: 592px) {
@@ -318,6 +502,40 @@
 
     .wrapper {
         margin-top: 329px;
+    }
+
+    .stepsBlock {
+        background-image: url("../../assets/splitHomeScreenMobile.svg");
+        height: 1200px;
+        padding-top: 118px;
+        background-position: 0 -404px;
+        margin-top: 0;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .stepDesc {
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+    .stepNo {
+        display: block !important;
+        min-width: 50px;
+        text-align: center;
+        line-height: 50px;
+    }
+}
+
+@media (min-width: 625px) {
+    .stepsBlock {
+        padding-top: 150px;
+    }
+}
+
+@media (min-width: 650px) {
+    .stepsBlock {
+        padding-top: 170px;
     }
 }
 
@@ -332,6 +550,40 @@
         padding-left: 20%;
         padding-right: 20%;
     }
+
+    .stepsBlock {
+        background-image: url("../../assets/splitHomeScreenMobile.svg");
+        height: 1200px;
+        padding-top: 140px;
+        background-position: 0 -471px;
+        margin-top: 0;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    .stepDesc {
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+    .stepNo {
+        display: block !important;
+        min-width: 50px;
+        text-align: center;
+        line-height: 50px;
+    }
+}
+
+@media (min-width: 725px) {
+    .stepsBlock {
+        padding-top: 190px;
+    }
+}
+
+@media (min-width: 750px) {
+    .stepsBlock {
+        padding-top: 230px;
+    }
 }
 
 @media (min-width: 792px) {
@@ -345,6 +597,40 @@
         padding-left: 20%;
         padding-right: 20%;
     }
+
+    .stepsBlock {
+        background-image: url("../../assets/splitHomeScreenMobile.svg");
+        height: 1200px;
+        padding-top: 175px;
+        background-position: 0 -514px;
+        margin-top: 0;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    .stepDesc {
+        font-size: 30px;
+        line-height: 35px;
+    }
+
+    .stepNo {
+        display: block !important;
+        min-width: 50px;
+        text-align: center;
+        line-height: 50px;
+    }
+}
+
+@media (min-width: 847px) {
+    .stepsBlock {
+        padding-top: 210px;
+    }
+}
+
+@media (min-width: 887px) {
+    .stepsBlock {
+        padding-top: 280px;
+    }
 }
 
 @media (min-width: 892px) {
@@ -357,6 +643,28 @@
         margin-top: 420px;
         padding-left: 20%;
         padding-right: 20%;
+    }
+
+    .stepsBlock {
+        background-image: url("../../assets/splitHomeScreenMobile.svg");
+        height: 1200px;
+        padding-top: 185px;
+        background-position: 0px -608px;
+        margin-top: 0;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    .stepDesc {
+        font-size: 35px;
+        line-height: 40px;
+    }
+
+    .stepNo {
+        display: block !important;
+        min-width: 50px;
+        text-align: center;
+        line-height: 50px;
     }
 }
 
@@ -384,11 +692,161 @@
     .registerBtn {
         float: right;
     }
+
+    .stepsBlock {
+        background-image: url("../../assets/splitHomeScreen.svg");
+        height: 600px;
+        padding-top: 230px;
+        background-position: 0px -280px;
+        margin-top: -200px;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .stepDesc {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .stepNo {
+        align-items: center !important;
+        justify-content: center !important;
+        display: flex !important;
+    }
+
+    .lotteryProdSecondRow {
+        margin-top: 50px;
+    }
+
+    .products {
+        margin-top: -85px;
+    }
+
+    .footerWhiteAreaWrapper {
+        margin-top: -140px;
+    }
+
+    .products {
+        position: absolute;
+        margin-top: 150px;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .lotteryProdClassic {
+        width: 121%;
+    }
+
+    .lotteryProdChocolate {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .lotteryProdPlombirs {
+        width: 130%;
+        margin-left: -70px;
+        margin-top: -18px;
+    }
+
+    .lotteryProdCrisps {
+        width: 130%;
+        margin-top: -30px;
+        margin-left: -89px;
+    }
+
+    .lotteryProdAvenu {
+        width: 100%;
+        margin-top: -80px;
+        margin-left: 20px;
+    }
+
+    .lotteryProdUpenu {
+        width: 100%;
+        margin-top: -80px;
+        margin-left: -31px;
+    }
+
+    .lotteryProdMango {
+        width: 108%;
+        margin-top: -88px;
+        margin-left: -56px;
+    }
+
+    .lotteryProdPopcorn {
+        width: 130%;
+        margin-top: -110px;
+        margin-left: -84px;
+    }
+
+    .otherNewProductsImg {
+        width: 100%;
+        height: auto;
+        margin-top: -180px;
+    }
+
+    .productsTextBlue {
+        padding-left: 50px;
+        margin-top: -70px;
+    }
+
+    .otherNewProductsWrapper {
+        margin-top: 80px;
+    }
+}
+
+@media (min-width: 1040px) {
+    .stepsBlock {
+        height: 700px;
+        padding-top: 230px;
+        background-position: 0px -300px;
+        margin-top: -200px;
+    }
+
+    .stepDesc {
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+    .lotteryProdSecondRow {
+        margin-top: 50px;
+    }
+
+    .products {
+        margin-top: -210px;
+    }
+
+    .footerWhiteAreaWrapper {
+        margin-top: -210px;
+    }
 }
 
 @media (min-width: 1140px) {
     .headerIceCream {
         top: -365px;
+    }
+
+    .stepsBlock {
+        height: 700px;
+        padding-top: 290px;
+        background-position: 0px -300px;
+        margin-top: -200px;
+    }
+
+    .stepDesc {
+        font-size: 27px;
+        line-height: 35px;
+    }
+
+    .lotteryProdSecondRow {
+        margin-top: 45px;
+    }
+
+    .products {
+        margin-top: -130px;
+    }
+
+    .footerWhiteAreaWrapper {
+        margin-top: -150px;
     }
 }
 
@@ -396,11 +854,59 @@
     .headerIceCream {
         top: -430px;
     }
+
+    .stepsBlock {
+        height: 700px;
+        padding-top: 260px;
+        background-position: 0px -340px;
+        margin-top: -200px;
+    }
+
+    .stepDesc {
+        font-size: 34px;
+        line-height: 36px;
+    }
+
+    .lotteryProdSecondRow {
+        margin-top: 35px;
+    }
+
+    .products {
+        margin-top: -130px;
+    }
+
+    .footerWhiteAreaWrapper {
+        margin-top: -140px;
+    }
 }
 
 @media (min-width: 1340px) {
     .headerIceCream {
         top: -461px;
+    }
+
+    .stepsBlock {
+        height: 900px;
+        padding-top: 320px;
+        background-position: 0px -380px;
+        margin-top: -200px;
+    }
+
+    .lotteryProdSecondRow {
+        margin-top: 30px;
+    }
+
+    .products {
+        padding-top: 108px;
+        margin-top: -108px;
+    }
+
+    .products {
+        margin-top: -300px;
+    }
+
+    .footerWhiteAreaWrapper {
+        margin-top: -300px;
     }
 }
 
@@ -408,11 +914,42 @@
     .headerIceCream {
         top: -501px;
     }
+
+    .stepsBlock {
+        height: 900px;
+        padding-top: 360px;
+        background-position: 0px -412px;
+        margin-top: -200px;
+    }
+
+    .lotteryProdSecondRow {
+        margin-top: 20px;
+    }
+
+    .products {
+        margin-top: -235px;
+    }
+
+    .footerWhiteAreaWrapper {
+        margin-top: -250px;
+    }
 }
 
 @media (min-width: 1540px) {
     .headerIceCream {
         top: -529px;
+    }
+
+    .lotteryProdSecondRow {
+        margin-top: 20px;
+    }
+
+    .products {
+        padding-top: 190px;
+    }
+
+    .footerWhiteAreaWrapper {
+        margin-top: -180px;
     }
 }
 
@@ -420,6 +957,21 @@
     .headerIceCream {
         top: -578px;
         width: 59%;
+    }
+
+    .stepsBlock {
+        height: 880px;
+        padding-top: 400px;
+        background-position: 0px -470px;
+        margin-top: -200px;
+    }
+
+    .products {
+        padding-top: 265px;
+    }
+
+    .footerWhiteAreaWrapper {
+        margin-top: -120px;
     }
 }
 
