@@ -135,7 +135,7 @@ export const RegisterCode = () => {
 
                     const filesData = new FormData();
 
-                    if (file.files[0].selected) {
+                    if (file.selected) {
                         filesData.append('cheque', file.files[0]);
                     }
 
