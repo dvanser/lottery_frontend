@@ -92,7 +92,7 @@ export const PasswordChange = props => {
                     </Col>
                 </Row>
             </div>
-            <Footer background="blue" />
+            <Footer background="whiteWave" />
         </>
     );
 };

@@ -60,7 +60,7 @@ const Login = props => {
                     </Col>
                 </Row>
             </div>
-            <Footer background="blue" />
+            <Footer background="whiteWave" />
         </>
     );
 };

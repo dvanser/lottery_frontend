@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { history, postRequest } from '../../_library';
-import {Button, Footer, Text} from '../../components';
-import config from '../../config';
-import { authActions } from '../../_actions';
-import { connect } from 'react-redux';
-import { Col, Container, Row } from 'reactstrap';
+import React from 'react';
+import { Footer, Text } from '../../components';
+import { Col, Row } from 'reactstrap';
 import { NavBar } from '../../components/NavBar';
 import { ToyReview } from '../../components/ToyReview';
 import styles from "./ContactsStyle.module.scss";
@@ -30,7 +26,7 @@ export const Contacts = () => {
                     </Col>
                 </Row>
             </div>
-            <Footer background="blue" />
+            <Footer background="whiteWave" />
         </>
     );
 };

@@ -28,7 +28,7 @@ export const ProfileStep0 = props => {
                     </Col>
                 </Row>
             </div>
-            <Footer background="blue" />
+            <Footer background="whiteWave" />
         </>
     );
 };

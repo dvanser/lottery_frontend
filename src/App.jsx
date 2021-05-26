@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Route, Switch, Router } from 'react-router-dom';
 import { history } from './_library';
-import {LoadingWithSuspense, Text} from './components';
+import {LoadingWithSuspense} from './components';
 import { connect } from 'react-redux';
 import { PrivateRoute } from './components';
 import { userActions, prizeActions } from './_actions/';
 import config from './config';
 import CookieConsent from "react-cookie-consent";
 import {FormattedMessage} from "react-intl";
+import PrivacyFile from "./privacy.pdf";
 
 
 const Login = React.lazy(() => import(/* webpackChunkName: "login" */ './screens/Login/Login').then(module => ({default: module.Login})));
@@ -29,6 +30,9 @@ const Rules = React.lazy(() => import(/* webpackChunkName: "rules" */ './screens
 const PasswordResetRequest = React.lazy(() => import(/* webpackChunkName: "password_reset_request" */ './screens/PasswordResetRequest/PasswordResetRequest').then(module => ({default: module.PasswordResetRequest})));
 const PasswordReset = React.lazy(() => import(/* webpackChunkName: "password_reset" */ './screens/PasswordReset/PasswordReset').then(module => ({default: module.PasswordReset})));
 
+function openFile(file) {
+    window.open(file, '_blank');
+}
 
 class App extends Component {
 
@@ -39,27 +43,27 @@ class App extends Component {
         }
     }
 
+
+
     render() {
         return (
             <>
                 <CookieConsent
                     location="bottom"
-                    buttonText={<FormattedMessage id="pols.cookie.btn" />}
+                    buttonClasses="pols-cookie-button"
+                    buttonText={
+                    <FormattedMessage id="pols.cookie.btn"/>
+                    }
                     cookieName="polsCookie"
-                    overlayStyle= {{
-                        width: "100%",
-                        height: "100%",
-                        zIndex: "999",
-                        backgroundColor: "rgba(0,0,0,0.3)",
-                    }}
                     style={{ background: "#ffffff" }}
                     buttonStyle={{
-                        color: "№199DDF",
-                        fontSize: "13px",
-                        padding: "5px 10px",}}
+                        color: "№199DDF"}}
                     expires={150}
                 >
-                    <FormattedMessage id="pols.cookie.text" />
+                    <FormattedMessage id="pols.cookie.text1"/>
+                    <span className="cursor-pointer pols-cookie-link" onClick={() => openFile(PrivacyFile)}>
+                    <FormattedMessage onClick={() => window.open("/facebook.com")} id="pols.cookie.text2" values={{link: "/facebook.com"}} />
+                    </span>
                 </CookieConsent>
                 <Router history={history}>
                     <Switch>

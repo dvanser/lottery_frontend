@@ -32,7 +32,7 @@ const ProfileStep1 = props => {
                     </Col>
                 </Row>
             </div>
-            <Footer background="blue" />
+            <Footer background="whiteWave" />
         </>
     );
 };
