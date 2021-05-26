@@ -7,7 +7,7 @@ import { Text } from '../../components/Text';
 import profileCodesStyle from './ProfileCodesStyle.module.scss';
 import { Button } from '../../components/Button';
 import { getRequest, history, postRequest } from '../../_library';
-import Select from 'react-select';
+import Select, { components } from 'react-select';
 import { useIntl } from 'react-intl';
 import { Footer } from '../../components/Footer';
 import { Input } from '../../components/Input';
@@ -27,6 +27,9 @@ const RequestPrize = props => {
     const [selectedParcelsShop, setSelectedParcelShop] = useState({});
     const [showContacts, setShowContacts] = useState(false);
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+    const [errorNotSelectedPrizes, setErrorNotSelectedPrizes] = useState(false);
+    const [errorNotSelectedParcel, setErrorNotSelectedParcel] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handlePrizeCountChange = (type, count) => {
         let newPrizes = Object.assign({}, prizes);
@@ -46,14 +49,17 @@ const RequestPrize = props => {
     };
 
     const handleSmallPrizeCountChange = count => {
+        setErrorNotSelectedPrizes(false);
         handlePrizeCountChange('small', count.value);
     };
 
     const handleMediumPrizeCountChange = count => {
+        setErrorNotSelectedPrizes(false);
         handlePrizeCountChange('medium', count.value);
     };
 
     const handleBigPrizeCountChange = count => {
+        setErrorNotSelectedPrizes(false);
         handlePrizeCountChange('big', count.value);
     };
 
@@ -63,13 +69,13 @@ const RequestPrize = props => {
                 <Text label={label} />
                 <Select className={'mt-2 mb-3 ' } classNamePrefix="pols-select" placeholder={intl.formatMessage({id: placeholderLabelId})} isSearchable={false}
                         options={[...[...Array(count)].map((_, idx) => ({value: idx + 1, label: idx + 1}))]}
-                        onChange={onChange} />
+                        onChange={onChange}  components={{ NoOptionsMessage }} />
             </>
         )
     };
 
     const handleSubmit = () => {
-
+        setLoading(true);
         const data = {
             "name": props.user.name,
             "surname": props.user.surname,
@@ -103,7 +109,22 @@ const RequestPrize = props => {
         }
     }
 
+    const NoOptionsMessage = props => {
+        return (
+            <components.NoOptionsMessage {...props}>
+               <Text label="pols.profile.empty" />
+            </components.NoOptionsMessage>
+        );
+    };
+
+
     const handleShowDpdBlock = () => {
+        if (selectedPrizes.length === 0) {
+            setErrorNotSelectedPrizes(true);
+            return;
+        }
+
+
         getRequest('/prizes/parcelshops')
             .then(response => {
                 setParcelShops(response);
@@ -133,10 +154,10 @@ const RequestPrize = props => {
             <NavBar/>
             <div className={styles.wrapper}>
                 <Row>
-                    <Col md={6} className="mb-5 pr-5">
+                    <Col md={{size:6, order: 1}} xs={{size:12, order: 2}}  className="pr-md-5">
                         <ToyReview />
                     </Col>
-                    <Col md={6}>
+                    <Col md={{size:6, order: 2}} xs={{size:12, order: 1}} className="mb-5">
                         <Text left h1 label="pols.request_prize.title"/>
                         {!showParcelsShops && !showContacts && !showSuccessMessage &&
                             <>
@@ -149,6 +170,9 @@ const RequestPrize = props => {
                                     {renderPrizeList('pols.request_prize.title.small_prize', 'pols.request_prize.choose_count', smallPrizeAvailableCount, handleSmallPrizeCountChange)}
                                     {renderPrizeList('pols.request_prize.title.medium_prize', 'pols.request_prize.choose_count', mediumPrizeAvailableCount, handleMediumPrizeCountChange)}
                                     {renderPrizeList('pols.request_prize.title.big_prize', 'pols.request_prize.choose_count', bigPrizeAvailableCount, handleBigPrizeCountChange)}
+                                    {errorNotSelectedPrizes &&
+                                        <Text error label="pols.request_prize.not_selected_prize" />
+                                    }
                                     <Button blue className="mt-2" onClick={handleShowDpdBlock}>
                                         <Text label="pols.profile.btn.request"/>
                                     </Button>
@@ -158,16 +182,26 @@ const RequestPrize = props => {
                         }
                         {showParcelsShops && !showContacts &&
                             <>
-                                <Text center className="mt-2 mb-4" label="pols.request_prize.parcels_select"/>
+                                <Text left className="mt-2 mb-2" label="pols.request_prize.parcels_select"/>
                                 <Select
                                     placeholder={intl.formatMessage({id: 'pols.request_prize.select_pcode'})}
                                     classNamePrefix="pols-select"
                                     isSearchable={true}
                                     name="company"
-                                    onChange={(val) => {setSelectedParcelShop(parcelsShops.find(p => p.parcelshop_id === val.value))}}
+                                    onChange={(val) => {setSelectedParcelShop(parcelsShops.find(p => p.parcelshop_id === val.value)); setErrorNotSelectedParcel(false);}}
                                     options={parcelsShops.map((shop, idx) => ({value: shop.parcelshop_id, label:shop.company + ' LV' + shop.pcode}))}
                                 />
-                                <Button blue className="mt-2" onClick={() => {setShowContacts(true); setShowParcelsShops(false)}}>
+                                {errorNotSelectedParcel &&
+                                    <Text error label="pols.request_prize.not_selected_parcel" />
+                                }
+                                <Button blue className="mt-2" onClick={() => {
+                                    if (Object.keys(selectedParcelsShop).length === 0) {
+                                        setErrorNotSelectedParcel(true);
+                                        return;
+                                    }
+                                    setShowContacts(true);
+                                    setShowParcelsShops(false);
+                                }}>
                                     <Text label="pols.profile.btn.request"/>
                                 </Button>
                             </>
@@ -177,14 +211,14 @@ const RequestPrize = props => {
                                 <Input disabled={true} label="pols.profile.request_prize.name" placeholder={props.user.name + ' ' + props.user.surname} />
                                 <Input className="mt-2" disabled={true} label="pols.profile.request_prize.phone" placeholder={props.user.phone} />
                                 <Input className="mt-2" disabled={true} label="pols.profile.request_prize.parcels" placeholder={selectedParcelsShop.street + ' ' + selectedParcelsShop.city} />
-                                <Button blue className="mt-3" onClick={handleSubmit}>
+                                <Button blue className="mt-3" disabled={loading} onClick={handleSubmit}>
                                     <Text label="pols.profile.btn.approve"/>
                                 </Button>
                             </>
                         }
                         {showSuccessMessage &&
                             <>
-                                <Text h1 center className="mt-5 mb-5" label="pols.request_prize.success"/>
+                                <Text left className="mt-5 mb-5" label="pols.request_prize.success"/>
                                 <Button white onClick={() => history.push('/')}>
                                     <Text label="pols.profile.btn.main"/>
                                 </Button>

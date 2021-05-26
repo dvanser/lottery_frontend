@@ -1,14 +1,17 @@
 @import "./src/assets/scss/pols_variables";
 
 .numberCircle {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  padding: 8px;
+  border-radius: 100px;
   background: $pols-white-background;
   color: $pols-blue;
   text-align: center;
   font-size: 35px;
+
+
+  padding: 5px;
+
+  width: 52px;
+  height: 50px;
 }
 
 .wrapper {

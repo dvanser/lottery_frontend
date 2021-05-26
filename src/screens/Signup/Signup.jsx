@@ -90,10 +90,10 @@ export const Signup = props => {
             <NavBar/>
             <div className={styles.wrapper}>
                 <Row>
-                    <Col md={6} className="mb-5 pr-5">
+                    <Col md={{size:6, order: 1}} xs={{size:12, order: 2}}  className="pr-md-5">
                         <ToyReview />
                     </Col>
-                    <Col xs={6}>
+                    <Col md={{size:6, order: 2}} xs={{size:12, order: 1}} className="mb-5">
                         {!signedUp &&
                             <>
                                 <Text left h1 label="pols.signup.title" />

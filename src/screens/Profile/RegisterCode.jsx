@@ -176,10 +176,10 @@ export const RegisterCode = () => {
             <NavBar/>
             <div className={styles.wrapper}>
                 <Row>
-                    <Col md={6} className="mb-5 pr-5">
+                    <Col md={{size:6, order: 1}} xs={{size:12, order: 2}}  className="pr-md-5">
                         <ToyReview />
                     </Col>
-                    <Col md={6} className="pb-3">
+                    <Col md={{size:6, order: 2}} xs={{size:12, order: 1}} className="mb-5">
                         <div className="text-center">
                             <Text h1 label="pols.profile.register_code.register_code" />
                         </div>
@@ -195,6 +195,7 @@ export const RegisterCode = () => {
                                             <FileFrom key={idx} id={idx} data={data} onChange={handleFileFormChange} />
                                         )
                                     )}
+                                    <Text small label="pols.profile.register_code.remember" />
                                 </div>
                                 {renderSelect('pols.profile.register_code.select_codes_amount', 100, handleCodesCountChange)}
                                 {step === 2 &&

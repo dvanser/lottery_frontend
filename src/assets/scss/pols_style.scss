@@ -55,3 +55,30 @@ body, html {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.CookieConsent {
+  background-color: rgba(22, 66, 144, 0.5) !important;
+  padding: 30px 10px!important;
+  font-size: 16px;
+}
+
+#rcc-confirm-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 19px 13px;
+  background-color: $pols-white-background !important;
+  color: $pols-blue !important;
+  border-radius: 3px !important;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  width: 100%;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  height: auto !important;
+  margin-right: 20px!important;
+}

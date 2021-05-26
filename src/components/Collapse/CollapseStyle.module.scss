@@ -15,9 +15,10 @@
   align-self: stretch;
   flex-grow: 0;
   margin-top: 17px;
+  cursor: pointer !important;
 }
 
-.polsCollapsed  {
+.polsCollapsed {
   padding: 20px;
   width: 100%;
   border: $pols-white solid 4px;
