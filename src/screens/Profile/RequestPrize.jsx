@@ -92,6 +92,7 @@ const RequestPrize = props => {
                 setShowSuccessMessage(true);
                 setShowParcelsShops(false);
                 setShowContacts(false);
+                setLoading(false);
             }).catch(response => {
 
             if (response.error) {
@@ -206,7 +207,7 @@ const RequestPrize = props => {
                                 </Button>
                             </>
                         }
-                        {showContacts && !showParcelsShops &&
+                        {showContacts && !showParcelsShops && !loading &&
                             <>
                                 <Input disabled={true} label="pols.profile.request_prize.name" placeholder={props.user.name + ' ' + props.user.surname} />
                                 <Input className="mt-2" disabled={true} label="pols.profile.request_prize.phone" placeholder={props.user.phone} />
@@ -216,7 +217,10 @@ const RequestPrize = props => {
                                 </Button>
                             </>
                         }
-                        {showSuccessMessage &&
+                        {loading &&
+                            <Text className="mt-5" center label="pols.loading"/>
+                        }
+                        {showSuccessMessage && !loading &&
                             <>
                                 <Text left className="mt-5 mb-5" label="pols.request_prize.success"/>
                                 <Button white onClick={() => history.push('/')}>

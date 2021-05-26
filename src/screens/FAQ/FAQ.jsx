@@ -5,6 +5,7 @@ import { ToyReview } from '../../components/ToyReview';
 import {Col, Container, Row} from 'reactstrap';
 import {NavBar} from "../../components/NavBar";
 import styles from "./FAQStyle.module.scss";
+import {Footer} from "../../components/Footer";
 
 
 export const FAQ = props => {
@@ -49,6 +50,7 @@ export const FAQ = props => {
                     </Col>
                 </Row>
             </div>
+            <Footer background="whiteWave" />
         </>
     );
 }

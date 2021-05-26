@@ -191,14 +191,18 @@
     "pols.cookie.btn": "Piekrītu",
     "pols.common.error.unexpected": "Kaut kas nogāja greizi! Lūdzu, mēģiniet vēlreiz",
     "pols.add.code.error.wrong_data_supplied": "Nepareizi dati",
-    "pols.add.code.error.not_valid_code": "Nepareizais kods",
+    "pols.add.code.error.not_valid_code": "Kods nav derīgs, ievadi derīgu kodu",
     "pols.add.code.error.unexpected": "Kaut kas nogāja greizi! Lūdzu, mēģiniet vēlreiz",
     "pols.add.file.error.wrong_data_supplied": "Nepareizi dati",
     "pols.add.file.error.number_not_provided": "Pirkuma čeka nr. ir obligāts lauks",
     "pols.add.file.error.not_allowed_file_extension": "Ir atļauts tikai attēlu formāts",
     "pols.add.file.error.unexpected": "Kaut kas nogāja greizi! Lūdzu, mēģiniet vēlreiz",
     "pols.profile.btn.logout": "Iziet",
-    "pols.footer.copyright": "© AS Rīgas piena kombināts"
+    "pols.footer.copyright": "© AS Rīgas piena kombināts",
+    "pols.loading": "Notiek ielāde...",
+    "pols.register_code.success_1": "Esi veiksmīgi reģistrējis {count} kodu",
+    "pols.register_code.success_2": "Esi veiksmīgi reģistrējis {count} kodus",
+    "pols.register_code.success_3": "Esi veiksmīgi reģistrējis {count} kodus"
   },
   "ru": {
     "pols.small.description" : "брелок",
@@ -392,13 +396,17 @@
     "pols.cookie.btn": "Соглашаюсь",
     "pols.common.error.unexpected": "Что-то пошло не так, попробуйте ещё раз",
     "pols.add.code.error.wrong_data_supplied": "Неправильные данные",
-    "pols.add.code.error.not_valid_code": "Неправильный код",
+    "pols.add.code.error.not_valid_code": "Код недействителен, введи действительный код",
     "pols.add.code.error.unexpected": "Что-то пошло не так, попробуйте ещё раз",
     "pols.add.file.error.wrong_data_supplied": "Неправильные данные",
     "pols.add.file.error.number_not_provided": "Номер чека объязателен",
     "pols.add.file.error.not_allowed_file_extension": "Только формат изоброжения разрешен для загрузки",
     "pols.add.file.error.unexpected": "Что-то пошло не так, попробуйте ещё раз",
     "pols.profile.btn.logout": "Выйти",
-    "pols.footer.copyright": "© AS Rīgas piena kombināts"
+    "pols.footer.copyright": "© AS Rīgas piena kombināts",
+    "pols.loading": "Идет загрузка...",
+    "pols.register_code.success_1": "Ты успешно зарегистрировал {count} код",
+    "pols.register_code.success_2": "Ты успешно зарегистрировал {count} кода",
+    "pols.register_code.success_3": "Ты успешно зарегистрировал {count} кодов"
   }
 }

@@ -13,7 +13,7 @@ export const Footer = props => {
 
     return (
         <>
-        <Row className={"pb-md-3 pb-2 text-center " + FooterStyles["footer"] + ' ' +  FooterStyles[ (props.background ? props.background : "whiteWave")]}>
+        <Row noGutters={true} className={"pb-md-3 pb-2 text-center " + FooterStyles["footer"] + ' ' +  FooterStyles[ (props.background ? props.background : "whiteWave")]}>
             <Col className={FooterStyles["desktopFooter"]}>
                 <Text extraSmall className={FooterStyles['footerDelimiter']} label="pols.footer.copyright" />
                 <Text extraSmall className={FooterStyles['footerDelimiter']} label="pols.footer.term" />
