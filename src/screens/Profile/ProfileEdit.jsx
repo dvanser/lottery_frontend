@@ -104,7 +104,7 @@ export const ProfileEdit = props => {
                     </Col>
                 </Row>
             </div>
-            <Footer background="blue" />
+            <Footer background="whiteWave" />
         </>
     );
 };

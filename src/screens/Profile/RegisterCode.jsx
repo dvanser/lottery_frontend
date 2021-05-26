@@ -221,7 +221,7 @@ export const RegisterCode = () => {
                     </Col>
                 </Row>
             </div>
-            <Footer background="blue" />
+            <Footer background="whiteWave" />
         </>
     );
 

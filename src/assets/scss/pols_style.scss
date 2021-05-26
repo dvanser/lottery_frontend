@@ -6,9 +6,14 @@
   src: url("../fonts/CUKIER-Bold.otf") format('opentype');
 }
 
+@font-face {
+  font-family: 'Gilray-Bold';
+  src: url("../fonts/Gilroy-Bold.ttf") format('opentype');
+}
+
 body, html {
   text-align: left;
-  font-family: "Cukier-bold" !important;
+  font-family: "Cukier-bold", "Gilray-Bold", Arial !important;
   font-size: 28px !important;
   letter-spacing: 0.09px;
   color: $pols-white;
@@ -57,8 +62,7 @@ body, html {
 }
 
 .CookieConsent {
-  background-color: rgba(22, 66, 144, 0.5) !important;
-  padding: 30px 10px!important;
+  background-color: rgba(22, 66, 144, 0.8) !important;
   font-size: 16px;
 }
 
@@ -81,4 +85,28 @@ body, html {
   border: none !important;
   height: auto !important;
   margin-right: 20px!important;
+}
+
+.pols-cookie-link  {
+  text-decoration: underline;
+}
+
+.CookieConsent > div {
+  //margin-left: auto;
+  margin-right: 50px;
+}
+
+.pols-cookie-button {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 692px) {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+.text-underline {
+  text-decoration: underline;
 }

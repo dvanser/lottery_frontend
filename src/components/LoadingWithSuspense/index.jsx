@@ -4,7 +4,7 @@ import React, { Suspense } from 'react';
 export const LoadingWithSuspense = (Component, props) => {
 
     return <Suspense fallback={
-        <div>Loading...</div>
+        <div>Notiek ielāde...</div>
     }>
         <Component {...props} match={props.match} />
     </Suspense>;
