@@ -13,8 +13,13 @@ export const FileFrom = props => {
     return (
         <div>
             <div>
-                {props.data.error &&
-                    <>{props.data.error}</>
+                {props.data.error && (props.data.error === 'wrong_data_supplied' || props.data.error === 'number_not_provided'
+                    || props.data.error === 'not_allowed_file_extension') &&
+                    <Text error><FormattedMessage id={`pols.add.file.error.${props.data.error}`}/></Text>
+                }
+                {props.data.error && (props.data.error !== 'wrong_data_supplied' && props.data.error !== 'number_not_provided'
+                    && props.data.error !== 'not_allowed_file_extension') &&
+                    <Text error><FormattedMessage id={`pols.add.file.error.unexpected`}/></Text>
                 }
             </div>
             <div>
@@ -65,8 +70,11 @@ export const CodeFrom = props => {
     return (
         <div>
             <div className="mt-3">
-                {props.error &&
-                    <>{props.error}</>
+                {props.error && (props.error === 'wrong_data_supplied' || props.error === 'not_valid_code') &&
+                    <Text error><FormattedMessage id={`pols.add.code.error.${props.error}`}/></Text>
+                }
+                {props.error && (props.error !== 'wrong_data_supplied' && props.error !== 'not_valid_code') &&
+                    <Text error><FormattedMessage id={`pols.add.code.error.unexpected`}/></Text>
                 }
             </div>
             {[...Array(parseInt(props.count))].map((id, idx) => (
@@ -135,7 +143,7 @@ export const RegisterCode = () => {
 
                     const filesData = new FormData();
 
-                    if (file.files[0].selected) {
+                    if (file.files) {
                         filesData.append('cheque', file.files[0]);
                     }
 
