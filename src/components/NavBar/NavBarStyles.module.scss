@@ -17,6 +17,7 @@
 .navBarLogo {
     margin-top: -6px;
     margin-left: -18px;
+    margin-right: 0.5rem !important;
 }
 
 .navBarItem {
@@ -108,6 +109,7 @@
 }
 
 .navBarToggleIcon {
+  min-width: 42px;
   width: 42px;
   height: 26px;
   cursor: pointer;
@@ -115,11 +117,11 @@
 }
 
 .navBarToggleIconOpenWrapper {
-  height: 100px;
-  margin-top: 10px;
+  height: 70px;
+  margin-top: 40px;
   padding-top: 0;
-  padding-left: 31px;
-  padding-right: 31px;
+  padding-left: 15px;
+  padding-right: 15px;
   //padding: 29px 31px 29px 31px;
   border: 2px solid #0840A3;
   border-bottom: 2px solid $pols-white;
@@ -128,7 +130,7 @@
 }
 
 .navBarToggleIconOpen {
-  margin-top: 31px;
+  margin-top: 20px;
   //border: 2px solid #0840A3;
   //border-bottom: 2px solid $pols-white;
 }
@@ -156,6 +158,7 @@
 
 .langDropdownWrapper {
   margin-top: -15px;
+  margin-right: 1rem !important;
 }
 
 .mobileNav {
@@ -173,7 +176,7 @@
 }
 
 .mobileNavNoBorderBlock {
-  width: 104px;
+  width: 72px;
   height: 10px;
   position: absolute;
   right: calc(10% + 2px);
@@ -191,6 +194,35 @@
 
 .iconFb {
   margin-left: 0.5rem !important;
+}
+
+@media (min-width: 538px) {
+  .navBarToggleIconOpenWrapper {
+    height: 100px;
+    margin-top: 10px;
+    padding-top: 0;
+    padding-left: 31px;
+    padding-right: 31px;
+  }
+
+  .navBarToggleIconOpen {
+    margin-top: 31px;
+  }
+
+  .mobileNavNoBorderBlock {
+    width: 104px;
+    height: 10px;
+    right: calc(10% + 2px);
+    top: -2px;
+  }
+
+  .langDropdownBtn {
+    margin-top: 0;
+  }
+
+  .navBarLogo {
+    margin-right: 1rem;
+  }
 }
 
 @media (max-width: 730px) {
@@ -215,6 +247,12 @@
   }
   .iconFb {
     margin-left: 1rem !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .langDropdownWrapper {
+    margin-right: 3rem !important;
   }
 }
 
