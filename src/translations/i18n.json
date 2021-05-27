@@ -27,7 +27,7 @@
     "pols.signup.validation.password_retype_required": "Atkārtot paroli ir obligāts",
     "pols.signup.validation.invalid_email": "Nepareizs e-pasts",
     "pols.signup.validation.phone_invalid": "Nepareizs tālruņa numurs",
-    "pols.signup.validation.invalid_password": "Nepareiza parole",
+    "pols.signup.validation.invalid_password": "Nepareiza parole. Parolei jāiekļauj vismaz 1 lielu burtu, 1 mazu burtu un 1 ciparu. Paroles garumam jābūt vismaz 8 simboli.",
     "pols.signup.validation.passwords_dont_match": "Paroles nesakrīt",
     "pols.signup.validation.max_length_255": "Maksimāli 255 simboli",
     "pols.signup.validation.max_length_50": "Maksimāli 50 simboli",
@@ -202,11 +202,16 @@
     "pols.loading": "Notiek ielāde...",
     "pols.register_code.success_1": "Esi veiksmīgi reģistrējis {count} kodu",
     "pols.register_code.success_2": "Esi veiksmīgi reģistrējis {count} kodus",
-    "pols.register_code.success_3": "Esi veiksmīgi reģistrējis {count} kodus"
+    "pols.register_code.success_3": "Esi veiksmīgi reģistrējis {count} kodus",
+    "pols.home.steps.1": "Krāj „Pols” saldējuma kociņus, saglabā čeku",
+    "pols.home.steps.2": "Reģistrējies pols.lv",
+    "pols.home.steps.3": "Reģistrē kociņus un apmaini pret balvām",
+    "pols.home.products.title": "Produkti, kas piedalās loterijā",
+    "pols.home.other.title": "Pagaršo arī citus Pols jaunumus!"
   },
   "ru": {
     "pols.small.description" : "брелок",
-    "pols.medium.description" : "сумка",
+    "pols.medium.description" : "подушка",
     "pols.toy.sticks" : "палочек",
     "pols.big.description" : "подушка",
     "pols.toy.left" : "Остаток:",
@@ -232,7 +237,7 @@
     "pols.signup.validation.password_retype_required": "Повторный пароль обязательно",
     "pols.signup.validation.invalid_email": "Неправильный э-майл",
     "pols.signup.validation.phone_invalid": "Неправильный номер  телефона",
-    "pols.signup.validation.invalid_password": "Неправильный пароль",
+    "pols.signup.validation.invalid_password": "Неправильный пароль. Пароль должен содержать как минимум 1 заглавную букву, 1 строчную букву и 1 цифру. Минимальная длина - 8 символов.",
     "pols.signup.validation.passwords_dont_match": "Пароли не совпадают",
     "pols.signup.validation.max_length_255": "Максимально 255  символов",
     "pols.signup.validation.max_length_50": "Максимально 50  символов",
@@ -259,7 +264,7 @@
     "pols.login.btn.submit": "Войти",
     "pols.login.error.something": "Попробуйте  еще раз",
     "pols.profile.welcome": "Привет, {name}! ",
-    "pols.profile.code_count": "У тебя собрано {count} палочекы",
+    "pols.profile.code_count": "У тебя собрано {count} палочек",
     "pols.profile.btn.edit": "Редактировать профиль",
     "pols.profile.btn.register_codes": "Регистрировать еще",
     "pols.faq.heading.how_long": "Как долго проходит лотерея?",
@@ -407,6 +412,11 @@
     "pols.loading": "Идет загрузка...",
     "pols.register_code.success_1": "Ты успешно зарегистрировал {count} код",
     "pols.register_code.success_2": "Ты успешно зарегистрировал {count} кода",
-    "pols.register_code.success_3": "Ты успешно зарегистрировал {count} кодов"
+    "pols.register_code.success_3": "Ты успешно зарегистрировал {count} кодов",
+    "pols.home.steps.1": "Собирай палочки от мороженого \"Pols\", сохраняй чек",
+    "pols.home.steps.2": "Регистрируйся на сайте pols.lv",
+    "pols.home.steps.3": "Регистрируй палочки и обменивай их на призы",
+    "pols.home.products.title": "Продукты, участвующие в лотерее",
+    "pols.home.other.title": "Попробуй и другие новинки \"Pols\"!"
   }
 }

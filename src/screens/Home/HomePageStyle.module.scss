@@ -149,12 +149,13 @@
 
 .stepNo {
     width: 50px;
-    height: 50px;
+    height: 52px;
     border-radius: 50%;
     position: relative;
     background: #1AA1E2;
     font-size: 35px;
     z-index: 5;
+    padding-bottom: 9px;
 }
 
 .stepDesc {
