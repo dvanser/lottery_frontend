@@ -118,10 +118,10 @@
 
 .navBarToggleIconOpenWrapper {
   height: 70px;
-  margin-top: 40px;
+  margin-top: 19px;
   padding-top: 0;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
   //padding: 29px 31px 29px 31px;
   border: 2px solid #0840A3;
   border-bottom: 2px solid $pols-white;
@@ -166,7 +166,7 @@
   padding-top: 60px;
   padding-bottom: 60px;
   background-color: $pols-white;
-  margin-top: -25px;
+  margin-top: -46px;
   z-index: 10;
   position: relative;
 
@@ -196,7 +196,95 @@
   margin-left: 0.5rem !important;
 }
 
+.langDropdownWrapperMobile {
+  position: absolute;
+  top: 0;
+  z-index: 100;
+}
+
+@media (min-width: 292px) {
+  .navBarLogo svg {
+    width: 100px;
+  }
+
+  .langDropdownWrapperMobile {
+    position: absolute;
+    z-index: 100;
+    top: -131px;
+    right: 32%;
+  }
+}
+
+@media (min-width: 320px) {
+  .navBarLogo svg {
+    width: 130px;
+  }
+
+  .langDropdownWrapperMobile {
+    position: absolute;
+    z-index: 100;
+    top: -131px;
+    right: 30%;
+  }
+}
+
+@media (min-width: 396px) {
+
+  .navBarLogo svg {
+    width: 180px;
+  }
+
+  .langDropdownWrapperMobile {
+    position: absolute;
+    z-index: 100;
+    top: -131px;
+    right: 24%;
+  }
+
+  .navBarToggleIconOpenWrapper {
+    height: 70px;
+    margin-top: 40px;
+    padding-top: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .mobileNav {
+    margin-top: -25px;
+  }
+}
+
+@media (min-width: 486px) {
+
+  .navBarLogo svg {
+    width: 190px;
+  }
+
+  .langDropdownWrapperMobile {
+    position: absolute;
+    z-index: 100;
+    top: -131px;
+    right: 22%;
+  }
+}
+
 @media (min-width: 538px) {
+
+  .langDropdownBtn {
+    margin-top: 0;
+  }
+
+  .navBarLogo {
+    margin-right: 1rem;
+  }
+
+  .langDropdownWrapperMobile {
+    position: absolute;
+    z-index: 100;
+    top: -130px;
+    right: 25%;
+  }
+
   .navBarToggleIconOpenWrapper {
     height: 100px;
     margin-top: 10px;
@@ -214,14 +302,6 @@
     height: 10px;
     right: calc(10% + 2px);
     top: -2px;
-  }
-
-  .langDropdownBtn {
-    margin-top: 0;
-  }
-
-  .navBarLogo {
-    margin-right: 1rem;
   }
 }
 
@@ -253,6 +333,13 @@
 @media (min-width: 992px) {
   .langDropdownWrapper {
     margin-right: 3rem !important;
+  }
+
+  .langDropdownWrapperMobile {
+    position: absolute;
+    z-index: 100;
+    top: -130px;
+    right: 13%;
   }
 }
 
