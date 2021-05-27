@@ -26,6 +26,9 @@
 .smallToyTopText {
     text-align: center;
     position: absolute;
+    background-color: $pols-blue;
+    padding-left: 2px;
+    padding-right: 2px;
     top: -20px;
     //left: 21%;
     right: 24%;
@@ -35,6 +38,9 @@
 .mediumToyTopText {
     text-align: center;
     position: absolute;
+    background-color: $pols-blue;
+    padding-left: 2px;
+    padding-right: 2px;
     top: -20px;
     right: 43%;
     font-size: 18px;
@@ -43,6 +49,9 @@
 .bigToyTopText {
     text-align: center;
     position: absolute;
+    background-color: $pols-blue;
+    padding-left: 2px;
+    padding-right: 2px;
     top: 4%;
     left: -4%;
     font-size: 18px;
