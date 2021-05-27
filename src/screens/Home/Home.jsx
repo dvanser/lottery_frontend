@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { BrowserRouter } from 'react-router-dom';
 import { NavBar } from '../../components/NavBar';
-import { ToyReview } from '../../components/ToyReview';
+import { ToyReview } from '../../components/ToyReview2';
 import config from '../../config';
 import HomePageStyle from './HomePageStyle.module.scss'
 import {Button, Footer, Text} from '../../components';
