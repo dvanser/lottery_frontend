@@ -92,19 +92,28 @@ const ToyReview = props => {
         {/*    </Col>*/}
         {/*</Row>*/}
 
+        {/*<Row className={toyReviewStyle.toysWrapper}>*/}
+        {/*    <Col>*/}
+        {/*        ss*/}
+        {/*    </Col>*/}
+        {/*    <Col>*/}
+        {/*        s*/}
+        {/*    </Col>*/}
+        {/*</Row>*/}
+
         {/*<div className={toyReviewStyle.toysWrapper}>*/}
         {/*    <img src={ToysImg} />*/}
-        {/*    <div className={toyReviewStyle['smallToyTopText']}>*/}
+        {/*    <div className={toyReviewStyle.smallToyTopText}>*/}
         {/*        <Text small>{props.prize.small.sticksNeeded} <Text label='pols.toy.sticks' /></Text>*/}
-        {/*        <Text center  className={toyReviewStyle['extraSmallText']} label='pols.small.description' />*/}
+        {/*        <Text center  className={toyReviewStyle.extraSmallText} label='pols.small.description' />*/}
         {/*    </div>*/}
-        {/*    <div className={toyReviewStyle['rightSmallBottomText']}>*/}
+        {/*    <div className={toyReviewStyle.smallToyAmount}>*/}
         {/*        <Text left label='pols.toy.left' />*/}
         {/*        {props.prize.small.prizesCount}*/}
         {/*    </div>*/}
         {/*</div>*/}
 
-
+        {/*<div></div>*/}
         <Row>
             <Col xs={6} className={toyReviewStyle['wrapper']}>
                 <img className={toyReviewStyle['smallToyImg']} src={SmallToy} />

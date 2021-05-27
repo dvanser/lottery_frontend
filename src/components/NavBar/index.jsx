@@ -84,7 +84,7 @@ const NavBar = props => {
                     </div>
                 </div>
             </div>
-            <span className={'d-inline-block d-xl-none mr-5 ' + navBarStyle.langDropdownWrapper}>
+            <span className={'d-inline-block d-xl-none ' + navBarStyle.langDropdownWrapper}>
                 {renderLangs()}
             </span>
             {!isOpen &&
