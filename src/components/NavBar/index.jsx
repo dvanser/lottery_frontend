@@ -17,6 +17,9 @@ const NavBar = props => {
     const [isOpen, setIsOpen] = useState(false);
     const [langDropdownOpen, setLangDropdownOpen] = useState(false);
     const toggleLangDropdown = () => setLangDropdownOpen(!langDropdownOpen);
+    const [mobileLangDropdownOpen, setMobileLangDropdownOpen] = useState(false);
+    const toggleMobileLangDropdown = () => setMobileLangDropdownOpen(!mobileLangDropdownOpen);
+
 
     const toggle = () => setIsOpen(!isOpen);
 
@@ -26,32 +29,63 @@ const NavBar = props => {
         </span>
     );
 
-    const renderLangs = (inNavbar = false) => (
-        <Dropdown inNavbar={inNavbar} isOpen={langDropdownOpen} toggle={toggleLangDropdown} className={navBarStyle.langDropdown}>
-            <DropdownToggle caret tag="div" className={navBarStyle.langDropdownBtn}>
-                {props.i18n.lang.toUpperCase()}
-            </DropdownToggle>
-            <DropdownMenu className={navBarStyle.langDropdownMenu}>
-                {config.supportedLangs.map((lang, idx) => {
+    const renderLangs = (inNavbar = false, mobile = false) => {
 
-                        if (props.i18n.lang === lang) {
-                            return null;
+        if (mobile) {
+            return(
+                <div className={'dropdown ' + navBarStyle.langDropdown}>
+                    <div className={'dropdown-toggle ' + navBarStyle.langDropdownBtn} onClick={toggleMobileLangDropdown}>
+                        {props.i18n.lang.toUpperCase()}
+                    </div>
+                    <div className={'dropdown-menu ' + navBarStyle.langDropdownMenu + ' ' + (mobileLangDropdownOpen ? ' show' : ' hide')}>
+                        {config.supportedLangs.map((lang, idx) => {
+                                if (props.i18n.lang === lang) {
+                                    return null;
+                                }
+
+                                return (
+                                    <button className={'dropdown-item ' + navBarStyle.langDropdownItem + ' ' +
+                                    (config.supportedLangs.length === 2 || idx === 0 ? navBarStyle.langDropdownItemFirst : '') + ' ' +
+                                    (config.supportedLangs.length === 2 || config.supportedLangs.length === idx + 1 ? navBarStyle.langDropdownItemLast : '')}
+                                         onClick={() => props.changeLanguage(lang)}>
+                                        {renderLangItem(lang)}
+                                    </button>
+                                );
+                            })
                         }
+                    </div>
+                </div>
+            );
+        }
 
-                        return (
-                            <DropdownItem key={idx} className={navBarStyle.langDropdownItem + ' ' +
-                            (config.supportedLangs.length === 2 || idx === 0 ? navBarStyle.langDropdownItemFirst : '') + ' ' +
-                            (config.supportedLangs.length === 2 || config.supportedLangs.length === idx + 1 ? navBarStyle.langDropdownItemLast : '')}
-                                onClick={() => props.changeLanguage(lang)}
-                            >
-                                {renderLangItem(lang)}
-                            </DropdownItem>
-                        );
-                    }
-                )}
-            </DropdownMenu>
-        </Dropdown>
-    );
+        return(
+            <Dropdown inNavbar={inNavbar} isOpen={langDropdownOpen} toggle={toggleLangDropdown}
+                      className={navBarStyle.langDropdown}>
+                <DropdownToggle caret tag="div" className={navBarStyle.langDropdownBtn}>
+                    {props.i18n.lang.toUpperCase()}
+                </DropdownToggle>
+                <DropdownMenu className={navBarStyle.langDropdownMenu}>
+                    {config.supportedLangs.map((lang, idx) => {
+
+                            if (props.i18n.lang === lang) {
+                                return null;
+                            }
+
+                            return (
+                                <DropdownItem key={idx} className={navBarStyle.langDropdownItem + ' ' +
+                                (config.supportedLangs.length === 2 || idx === 0 ? navBarStyle.langDropdownItemFirst : '') + ' ' +
+                                (config.supportedLangs.length === 2 || config.supportedLangs.length === idx + 1 ? navBarStyle.langDropdownItemLast : '')}
+                                              onClick={() => props.changeLanguage(lang)}
+                                >
+                                    {renderLangItem(lang)}
+                                </DropdownItem>
+                            );
+                        }
+                    )}
+                </DropdownMenu>
+            </Dropdown>
+        );
+    };
 
     return (
         <>
@@ -84,9 +118,9 @@ const NavBar = props => {
                     </div>
                 </div>
             </div>
-            <span className={'d-inline-block d-xl-none ' + navBarStyle.langDropdownWrapper}>
-                {renderLangs()}
-            </span>
+            {/*<span className={'d-inline-block d-xl-none ' + navBarStyle.langDropdownWrapper}>*/}
+            {/*    {renderLangs()}*/}
+            {/*</span>*/}
             {!isOpen &&
                 <NavIcon className={'d-inline-block d-xl-none ' + navBarStyle.navBarToggleIcon} onClick={toggle} />
             }
@@ -96,6 +130,11 @@ const NavBar = props => {
                     navBarStyle.navBarToggleIconOpen} onClick={toggle} />
                 </div>
             }
+        </div>
+        <div className="position-relative">
+            <span className={'d-inline-block d-xl-none ' + navBarStyle.langDropdownWrapper + ' ' + navBarStyle.langDropdownWrapperMobile}>
+                {renderLangs(false, true)}
+            </span>
         </div>
         {isOpen &&
             <div className={'d-block d-xl-none ' + navBarStyle.mobileNav}>
