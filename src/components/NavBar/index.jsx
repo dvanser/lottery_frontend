@@ -123,8 +123,8 @@ const NavBar = props => {
                         </Link>
                     </div>
                     <span className={navBarStyle.mobileNavIconsBlock}>
-                        <InstagramIcon className={navBarStyle.icon +  ' '  + navBarStyle.iconInst}/>
-                        <FacebookIcon className={navBarStyle.icon + ' '  + navBarStyle.iconFb}/>
+                        <a href="https://instagram.com/polssaldejums" target="_blank"><InstagramIcon className={navBarStyle.icon +  ' '  + navBarStyle.iconInst}/></a>
+                        <a href="https://lv-lv.facebook.com/PolsIceCream" target="_blank"><FacebookIcon className={navBarStyle.icon + ' '  + navBarStyle.iconFb}/></a>
                     </span>
                 </div>
             </div>
