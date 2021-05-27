@@ -324,3 +324,18 @@
     height: 235px;
   }
 }
+
+@media (max-width: 384px) {
+  .navBarLogo {
+    margin-right: -10px !important;
+  }
+  .langDropdownWrapper {
+    margin-right: 0px!important;
+  }
+}
+
+@media (max-width: 474px) {
+  .mobileNavNoBorderBlock {
+    display: none;
+  }
+}
