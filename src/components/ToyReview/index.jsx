@@ -6,6 +6,9 @@ import toyReviewStyle from './ToyReview.module.scss'
 import { connect } from 'react-redux';
 import {Text} from "../Text";
 import { Row, Col } from "reactstrap";
+import SmallToyImg  from '../../assets/small_toy.png'
+import MediumToyImg  from '../../assets/medium_toy.png'
+import ToysImg  from '../../assets/toys.png'
 
 
 const ToyReview = props => {
@@ -79,6 +82,29 @@ const ToyReview = props => {
                 </>
             }
         </div>
+
+        {/*<Row>*/}
+        {/*    <Col xs={6} className={toyReviewStyle.smallToyWrapper}>*/}
+        {/*        <img src={SmallToyImg} />*/}
+        {/*    </Col>*/}
+        {/*    <Col xs={6} className={toyReviewStyle.mediumToyWrapper}>*/}
+        {/*        <img src={MediumToyImg} />*/}
+        {/*    </Col>*/}
+        {/*</Row>*/}
+
+        {/*<div className={toyReviewStyle.toysWrapper}>*/}
+        {/*    <img src={ToysImg} />*/}
+        {/*    <div className={toyReviewStyle['smallToyTopText']}>*/}
+        {/*        <Text small>{props.prize.small.sticksNeeded} <Text label='pols.toy.sticks' /></Text>*/}
+        {/*        <Text center  className={toyReviewStyle['extraSmallText']} label='pols.small.description' />*/}
+        {/*    </div>*/}
+        {/*    <div className={toyReviewStyle['rightSmallBottomText']}>*/}
+        {/*        <Text left label='pols.toy.left' />*/}
+        {/*        {props.prize.small.prizesCount}*/}
+        {/*    </div>*/}
+        {/*</div>*/}
+
+
         <Row>
             <Col xs={6} className={toyReviewStyle['wrapper']}>
                 <img className={toyReviewStyle['smallToyImg']} src={SmallToy} />
@@ -92,7 +118,9 @@ const ToyReview = props => {
                 </div>
             </Col>
             <Col xs={6}>
+                <div>
                 <img  className={toyReviewStyle['mediumToyImg']} src={MediumToy} />
+                </div>
                 <div className={toyReviewStyle['mediumToyTopText']}>
                     <Text small>{props.prize.medium.sticksNeeded} <Text label='pols.toy.sticks' /></Text>
                     <Text center  className={toyReviewStyle['extraSmallText']} label='pols.medium.description' />

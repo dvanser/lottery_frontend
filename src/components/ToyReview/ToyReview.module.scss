@@ -80,3 +80,22 @@
     bottom: 7% !important;
 }
 
+
+.smallToyWrapper img {
+    width: 100%;
+    //background-image: url("../../assets/small_toy.png");
+    //height: 400px;
+}
+
+.mediumToyWrapper img {
+    width: 100%;
+    //background-image: url("../../assets/medium_toy.png");
+}
+
+.toysWrapper {
+    position: relative;
+
+    img {
+        width: 100%;
+    }
+}

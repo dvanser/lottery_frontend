@@ -61,14 +61,14 @@ export const Home = () => {
                 <Row>
                     <Col lg={4}>
                         <ToyReview button={
-                            <Button className={'d-inline-block d-xl-none ' + HomePageStyle['registerBtn'] + ' ' +
+                            <Button className={'d-inline-block d-lg-none ' + HomePageStyle['registerBtn'] + ' ' +
                             HomePageStyle.registerBtnMobile}
                                     onClick={() => history.push('/profile')}>
                                 <Text label="pols.register.button" />
                             </Button>
                         } />
                     </Col>
-                    <Col lg={{ size: 8 }} className={'d-none d-xl-inline-block ' + HomePageStyle.registreCodeBtn}>
+                    <Col lg={{ size: 8 }} className={'d-none d-lg-inline-block ' + HomePageStyle.registreCodeBtn}>
                         <Button className={HomePageStyle['registerBtn']} onClick={() => history.push('/profile')}>
                             <Text label="pols.register.button" />
                         </Button>

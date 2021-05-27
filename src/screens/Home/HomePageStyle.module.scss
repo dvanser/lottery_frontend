@@ -247,9 +247,8 @@
 }
 
 .lotteryProdChocolate {
-    margin-top: 0;
-    margin-left: 0;
-    width: 100%;
+    margin: -90px auto 0;
+    width: 80%;
 }
 
 .lotteryProdPlombirs {
@@ -259,35 +258,31 @@
 }
 
 .lotteryProdCrisps {
-    margin-top: 0;
+    margin-top: -180px;
     margin-left: 0;
     width: 100%;
 }
 
 .lotteryProdAvenu {
-    margin-top: 0;
-    margin-left: 0;
-    width: 100%;
+    margin: -160px auto 0;
+    width: 88%;
 }
 
 .lotteryProdUpenu {
-    margin-top: 0;
-    margin-left: 0;
-    width: 100%;
+    margin: -130px auto 0;
+    width: 84%;
 }
 
 .lotteryProdMango {
-    margin-top: 0;
-    margin-left: 0;
-    width: 100%;
+    margin: -120px auto 0;
+    width: 88%;
 }
 
 .lotteryProdPopcorn {
-    margin-top: 0;
+    margin-top: -150px;
     margin-left: 0;
     width: 100%;
 }
-
 
 .newProductsMobile {
     background-image: url("../../assets/footer_white_area.svg");
@@ -426,6 +421,59 @@
         text-align: center;
         line-height: 50px;
     }
+
+    .newProductsMobile {
+        background-position: 0px -91px;
+        padding-top: 180px;
+        margin-top: -130px;
+        margin-bottom: -150px;
+    }
+
+    .products {
+        margin-top: -570px;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .lotteryProdClassic {
+        margin-top: 0;
+    }
+
+    .lotteryProdChocolate {
+        margin: -30px auto 0;
+    }
+
+    .lotteryProdPlombirs {
+        margin-top: 0;
+    }
+
+    .lotteryProdCrisps {
+        margin-top: -50px;
+    }
+
+    .lotteryProdAvenu {
+        margin: -40px auto 0;
+    }
+
+    .lotteryProdUpenu {
+        margin: -30px auto 0;
+    }
+
+    .lotteryProdMango {
+        margin: -30px auto 0;
+    }
+
+    .lotteryProdPopcorn {
+        margin-top: -40px;
+    }
+
+    .otherNewProductsImg {
+        margin-top: -20px;
+    }
+
+    .otherNewProductsWrapper {
+        margin-top: 25px;
+    }
 }
 
 @media (min-width: 392px) {
@@ -458,6 +506,59 @@
         min-width: 50px;
         text-align: center;
         line-height: 50px;
+    }
+
+    .newProductsMobile {
+        background-position: 0px -123px;
+        padding-top: 220px;
+        margin-top: -175px;
+        margin-bottom: -200px;
+    }
+
+    .products {
+        margin-top: -550px;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .lotteryProdClassic {
+        margin-top: 0;
+    }
+
+    .lotteryProdChocolate {
+        margin: -50px auto 0;
+    }
+
+    .lotteryProdPlombirs {
+        margin-top: -10px;
+    }
+
+    .lotteryProdCrisps {
+        margin-top: -80px;
+    }
+
+    .lotteryProdAvenu {
+        margin: -70px auto 0;
+    }
+
+    .lotteryProdUpenu {
+        margin: -50px auto 0;
+    }
+
+    .lotteryProdMango {
+        margin: -50px auto 0;
+    }
+
+    .lotteryProdPopcorn {
+        margin-top: -70px;
+    }
+
+    .otherNewProductsImg {
+        margin-top: -20px;
+    }
+
+    .otherNewProductsWrapper {
+        margin-top: 55px;
     }
 }
 
@@ -492,6 +593,59 @@
         text-align: center;
         line-height: 50px;
     }
+
+    .newProductsMobile {
+        background-position: 0px -154px;
+        padding-top: 250px;
+        margin-top: -220px;
+        margin-bottom: -200px;
+    }
+
+    .products {
+        margin-top: -550px;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .lotteryProdClassic {
+        margin-top: 0;
+    }
+
+    .lotteryProdChocolate {
+        margin: -50px auto 0;
+    }
+
+    .lotteryProdPlombirs {
+        margin-top: 0;
+    }
+
+    .lotteryProdCrisps {
+        margin-top: -90px;
+    }
+
+    .lotteryProdAvenu {
+        margin: -80px auto 0;
+    }
+
+    .lotteryProdUpenu {
+        margin: -50px auto 0;
+    }
+
+    .lotteryProdMango {
+        margin: -50px auto 0;
+    }
+
+    .lotteryProdPopcorn {
+        margin-top: -80px;
+    }
+
+    .otherNewProductsImg {
+        margin-top: -20px;
+    }
+
+    .otherNewProductsWrapper {
+        margin-top: 55px;
+    }
 }
 
 @media (min-width: 592px) {
@@ -524,6 +678,59 @@
         min-width: 50px;
         text-align: center;
         line-height: 50px;
+    }
+
+    .newProductsMobile {
+        background-position: 0px -185px;
+        padding-top: 300px;
+        margin-top: -270px;
+        margin-bottom: -200px;
+    }
+
+    .products {
+        margin-top: -500px;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .lotteryProdClassic {
+        margin-top: 0;
+    }
+
+    .lotteryProdChocolate {
+        margin: -70px auto 0;
+    }
+
+    .lotteryProdPlombirs {
+        margin-top: 0;
+    }
+
+    .lotteryProdCrisps {
+        margin-top: -100px;
+    }
+
+    .lotteryProdAvenu {
+        margin: -100px auto 0;
+    }
+
+    .lotteryProdUpenu {
+        margin: -70px auto 0;
+    }
+
+    .lotteryProdMango {
+        margin: -70px auto 0;
+    }
+
+    .lotteryProdPopcorn {
+        margin-top: -100px;
+    }
+
+    .otherNewProductsImg {
+        margin-top: -20px;
+    }
+
+    .otherNewProductsWrapper {
+        margin-top: 85px;
     }
 }
 
@@ -572,6 +779,49 @@
         text-align: center;
         line-height: 50px;
     }
+
+    .newProductsMobile {
+        background-position: 0px -215px;
+        padding-top: 360px;
+        margin-top: -310px;
+        margin-bottom: -200px;
+    }
+
+    .products {
+        margin-top: -350px;
+    }
+
+    .lotteryProdClassic {
+        margin-top: 0;
+    }
+
+    .lotteryProdChocolate {
+        margin: -90px auto 0;
+    }
+
+    .lotteryProdPlombirs {
+        margin-top: -20px;
+    }
+
+    .lotteryProdCrisps {
+        margin-top: -140px;
+    }
+
+    .lotteryProdAvenu {
+        margin: -120px auto 0;
+    }
+
+    .lotteryProdUpenu {
+        margin: -90px auto 0;
+    }
+
+    .lotteryProdMango {
+        margin: -90px auto 0;
+    }
+
+    .lotteryProdPopcorn {
+        margin-top: -120px;
+    }
 }
 
 @media (min-width: 725px) {
@@ -619,6 +869,49 @@
         text-align: center;
         line-height: 50px;
     }
+
+    .newProductsMobile {
+        background-position: 0px -239px;
+        padding-top: 400px;
+        margin-top: -370px;
+        margin-bottom: -200px;
+    }
+
+    .products {
+        margin-top: -220px;
+    }
+
+    .lotteryProdClassic {
+        margin-top: 0;
+    }
+
+    .lotteryProdChocolate {
+        margin: -90px auto 0;
+    }
+
+    .lotteryProdPlombirs {
+        margin-top: 0;
+    }
+
+    .lotteryProdCrisps {
+        margin-top: -180px;
+    }
+
+    .lotteryProdAvenu {
+        margin: -160px auto 0;
+    }
+
+    .lotteryProdUpenu {
+        margin: -130px auto 0;
+    }
+
+    .lotteryProdMango {
+        margin: -120px auto 0;
+    }
+
+    .lotteryProdPopcorn {
+        margin-top: -150px;
+    }
 }
 
 @media (min-width: 847px) {
@@ -665,6 +958,19 @@
         min-width: 50px;
         text-align: center;
         line-height: 50px;
+    }
+
+    .newProductsMobile {
+        background-image: url("../../assets/footer_white_area.svg");
+        background-position: 0px -279px;
+        background-size: cover;
+        padding-top: 450px;
+        margin-top: -400px;
+        margin-bottom: -200px;
+    }
+
+    .products {
+        margin-top: -120px;
     }
 }
 
@@ -724,11 +1030,12 @@
 
     .footerWhiteAreaWrapper {
         margin-top: -140px;
+        margin-bottom: -200px;
     }
 
     .products {
         position: absolute;
-        margin-top: 150px;
+        margin-top: -80px;
         padding-left: 10%;
         padding-right: 10%;
     }
@@ -781,16 +1088,16 @@
     .otherNewProductsImg {
         width: 100%;
         height: auto;
-        margin-top: -180px;
+        margin-top: -100px;
     }
 
     .productsTextBlue {
         padding-left: 50px;
-        margin-top: -70px;
+        margin-top: 0;
     }
 
     .otherNewProductsWrapper {
-        margin-top: 80px;
+        margin-top: 50px;
     }
 }
 
@@ -812,11 +1119,13 @@
     }
 
     .products {
-        margin-top: -210px;
+        //margin-top: -210px;
+        margin-top: -150px;
     }
 
     .footerWhiteAreaWrapper {
         margin-top: -210px;
+        margin-bottom: -200px;
     }
 }
 
@@ -842,11 +1151,13 @@
     }
 
     .products {
-        margin-top: -130px;
+        //margin-top: -130px;
+        margin-top: -70px;
     }
 
     .footerWhiteAreaWrapper {
         margin-top: -150px;
+        margin-bottom: -200px;
     }
 }
 
@@ -872,11 +1183,13 @@
     }
 
     .products {
-        margin-top: -130px;
+        //margin-top: -130px;
+        margin-top: -40px;
     }
 
     .footerWhiteAreaWrapper {
         margin-top: -140px;
+        margin-bottom: -200px;
     }
 }
 
@@ -907,6 +1220,7 @@
 
     .footerWhiteAreaWrapper {
         margin-top: -300px;
+        margin-bottom: -200px;
     }
 }
 
@@ -932,6 +1246,7 @@
 
     .footerWhiteAreaWrapper {
         margin-top: -250px;
+        margin-bottom: -200px;
     }
 }
 
@@ -950,6 +1265,7 @@
 
     .footerWhiteAreaWrapper {
         margin-top: -180px;
+        margin-bottom: -200px;
     }
 }
 
@@ -972,6 +1288,7 @@
 
     .footerWhiteAreaWrapper {
         margin-top: -120px;
+        margin-bottom: -200px;
     }
 }
 
