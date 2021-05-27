@@ -157,7 +157,6 @@ export const RegisterCode = () => {
 
                     postFileRequest(`/cheque`, filesData)
                         .then(response => {
-                            console.log(idx, response);
                             setSuccessUpload(true);
                             setLoading(false);
                             setTimeout(function(){ history.push("/profile") }, 3000);

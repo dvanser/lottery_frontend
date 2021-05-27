@@ -7,8 +7,9 @@ import config from '../../config';
 import { NavBar } from '../../components/NavBar';
 import { ToyReview } from '../../components/ToyReview';
 import profileCodesStyle from './ProfileCodesStyle.module.scss';
-import styles from "./ProfilePageStyle.module.scss";
-import { authActions, userActions } from "../../_actions";
+import styles from './ProfilePageStyle.module.scss';
+import { authActions, userActions } from '../../_actions';
+import { FormattedMessage } from 'react-intl';
 
 
 const ProfileCodes = props => {
@@ -28,7 +29,8 @@ const ProfileCodes = props => {
                         <ToyReview />
                     </Col>
                     <Col md={{size:6, order: 2}} xs={{size:12, order: 1}} className="mb-5">
-                        <Text left h1 label="pols.profile_codes.title" />
+                        <Text left h1><FormattedMessage id={'pols.profile.welcome'} values={{name: props.user.name}}/></Text>
+                        <Text left label="pols.profile_codes.title" />
                         <div className={profileCodesStyle['codesCountContainers'] + " mt-2 w-100 text-center"}>
                             <Text huge>{props.user.sticksCount}</Text>
                         </div>

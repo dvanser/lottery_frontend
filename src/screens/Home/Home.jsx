@@ -81,15 +81,15 @@ export const Home = () => {
                 <Col lg={6}>
                     <div className={HomePageStyle['step1']} >
                         <div className={'d-flex align-items-center justify-content-center ' + HomePageStyle['stepNo']}>1</div>
-                        <div className={HomePageStyle['stepDesc']}>Krāj pols saldējuma kociņus, saglabājot čeku</div>
+                        <div className={HomePageStyle['stepDesc']}><Text label="pols.home.steps.1" /></div>
                     </div>
                     <div className={HomePageStyle['step2']} >
                         <div className={'d-flex align-items-center justify-content-center ' + HomePageStyle['stepNo']}>2</div>
-                        <div className={HomePageStyle['stepDesc']}>Reģistrējies pols.lv</div>
+                        <div className={HomePageStyle['stepDesc']}><Text label="pols.home.steps.2" /></div>
                     </div>
                     <div className={HomePageStyle['step3']} >
                         <div className={'d-flex align-items-center justify-content-center ' + HomePageStyle['stepNo']}>3</div>
-                        <div className={HomePageStyle['stepDesc']}>Reģistrē kociņus un apmaini tos pret balvām</div>
+                        <div className={HomePageStyle['stepDesc']}><Text label="pols.home.steps.3" /></div>
                     </div>
                 </Col>
                 <Col lg={6}>
@@ -98,7 +98,9 @@ export const Home = () => {
             </Row>
             <div className="position-relative">
                 <div className={HomePageStyle['products']}>
-                    <div className={"mb-4 " + HomePageStyle['productsHeader']}>Produkti, kas piedalās loterijā</div>
+                    <div className={"mb-4 " + HomePageStyle['productsHeader']}>
+                        <Text label="pols.home.products.title" />
+                    </div>
                     {/*<div className={HomePageStyle['productsIMGs']}>*/}
                     <div className="position-relative w-100">
                         <Row>
@@ -139,7 +141,7 @@ export const Home = () => {
                         {/*<div>#50vasaras</div>*/}
                     </div>
                     <div className={'d-none d-lg-block text-center ' + HomePageStyle.productsTextBlue + ' ' + HomePageStyle.otherNewProductsWrapper}>
-                        <Text>Pagaršo arī citus Pols jaunumus!</Text>
+                        <Text label="pols.home.other.title" />
                     </div>
                     <div className="d-none d-lg-block">
                         <div className="d-flex justify-content-center">
