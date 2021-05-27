@@ -188,6 +188,7 @@
 
 .footer {
     background-color: $pols-white;
+    margin-top: 50px!important;
 }
 
 .products {
@@ -229,7 +230,8 @@
 }
 
 .otherNewProductsImg {
-    width: 100%;
+    width: 70%;
+    margin-left: 15%;
     height: auto;
   margin-top: -80px;
 }
@@ -1121,7 +1123,8 @@
     }
 
     .otherNewProductsImg {
-        width: 100%;
+        width: 70%;
+        margin-left: 15%;
         height: auto;
         margin-top: -100px;
     }
@@ -1516,7 +1519,7 @@
     }
 
     .otherNewProductsImg {
-        margin-top: -250px;
+        margin-top: -210px;
     }
 }
 
@@ -1543,7 +1546,7 @@
     }
 
     .otherNewProductsImg {
-        margin-top: -260px;
+        margin-top: -210px;
     }
 
     .registreCodeBtn {
