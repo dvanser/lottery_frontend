@@ -230,8 +230,8 @@
 }
 
 .otherNewProductsImg {
-    width: 70%;
-    margin-left: 15%;
+    width: 88%;
+    margin-left: 6%;
     height: auto;
   margin-top: -80px;
 }
@@ -247,12 +247,12 @@
 .lotteryProdClassic {
     margin-top: 0;
     margin-left: 0;
-    width: 100%;
+    width: 98%;
 }
 
 .lotteryProdChocolate {
     margin: -90px auto 0;
-    width: 80%;
+    width: 78%;
 }
 
 .lotteryProdPlombirs {
@@ -1034,7 +1034,7 @@
     }
 
     .registreCodeBtn {
-        padding-top: 448px;
+        padding-top: 250px;
     }
 
     .registerBtn {
@@ -1083,12 +1083,12 @@
     }
 
     .lotteryProdClassic {
-        width: 121%;
+        width: 123%;
     }
 
     .lotteryProdChocolate {
         margin-top: 10px;
-        width: 100%;
+        width: 102%;
     }
 
     .lotteryProdPlombirs {
@@ -1310,6 +1310,10 @@
         margin-top: -180px;
         margin-bottom: -200px;
     }
+
+    .registreCodeBtn {
+        padding-top: 400px;
+    }
 }
 
 @media (min-width: 1640px) {
@@ -1444,6 +1448,10 @@
 
     .otherNewProductsImg {
         margin-top: -191px;
+    }
+
+    .registreCodeBtn {
+        padding-top: 500px;
     }
 }
 
