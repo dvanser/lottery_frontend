@@ -47,16 +47,16 @@ const Login = props => {
                     <Col md={{size:6, order: 2}} xs={{size:12, order: 1}} className="mb-5">
                         <Text left h1 label="pols.login.title" />
                         {errorMessage && <Text error className={loginPageStyle.errorMessage}>{errorMessage}</Text>}
-                        <Form initialValues={{email: '', password: ''}}
-                              inputFields={[{name:'email', type:'email', label:intl.formatMessage({id:'pols.login.email'})},
-                                            {name:'password', type:'password', label:intl.formatMessage({id:'pols.login.password'})}]}
-                              handleSubmit={value => onSubmit(value)}
-                              validationSchema={validationSchema}
-                              buttonText={<FormattedMessage id="pols.login.btn.submit"/>}
-                              formFooter={
-                                <Text small className="mt-3 cursor-pointer" label="pols.login.reset_password" onClick={() => history.push("/reset/password/request")}/>
-                              }
-                        />
+                            <Form initialValues={{email: '', password: ''}}
+                                  inputFields={[{name:'email', type:'email', label:intl.formatMessage({id:'pols.login.email'})},
+                                                {name:'password', type:'password', label:intl.formatMessage({id:'pols.login.password'})}]}
+                                  handleSubmit={value => onSubmit(value)}
+                                  validationSchema={validationSchema}
+                                  buttonText={<FormattedMessage id="pols.login.btn.submit"/>}
+                                  formFooter={
+                                    <Text left small className="mt-2 cursor-pointer" label="pols.login.reset_password" onClick={() => history.push("/reset/password/request")}/>
+                                  }
+                            />
                     </Col>
                 </Row>
             </div>
