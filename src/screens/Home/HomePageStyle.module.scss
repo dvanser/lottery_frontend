@@ -210,7 +210,8 @@
 }
 
 .productsTextBlue {
-    color: $pols-dark-blue;
+    color: $pols-blue;
+    font-size: 35px;
 }
 
 .productsTextBlue {
@@ -457,6 +458,7 @@
         margin-top: -50px;
     }
 
+
     .lotteryProdAvenu {
         margin: -40px auto 0;
     }
@@ -494,7 +496,7 @@
     }
 
     .wrapper {
-        margin-top: 225px;
+        margin-top: 125px;
     }
 
     .stepsBlock {
@@ -575,6 +577,13 @@
     .registerBtn {
         font-size: 24px;
         line-height: 40px;
+    }
+}
+
+@media (min-width: 459px) {
+
+    .wrapper {
+        margin-top: 200px;
     }
 }
 
@@ -1018,7 +1027,7 @@
     }
 
     .registreCodeBtn {
-        padding-top: 496px;
+        padding-top: 448px;
     }
 
     .registerBtn {

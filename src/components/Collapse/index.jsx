@@ -17,7 +17,7 @@ export const Collapse = props => {
                 <Row className={collapseStyles['polsCollapseHeading'] + " no-gutters" + (collapsedElementId === idx ? " active" : "")}
                      onClick={() => setCollapsedElementId(collapsedElementId !== null ? null : idx)}>
                     <Col xs={10}>
-                        <Text blue left label={item.heading} />
+                        <Text small blue left label={item.heading} />
                     </Col>
                     <Col xs={2} className="text-right">
                         <Icon type={collapsedElementId === idx ? "minus" : "plus"} />

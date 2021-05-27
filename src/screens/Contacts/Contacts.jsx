@@ -18,11 +18,11 @@ export const Contacts = () => {
                     </Col>
                     <Col md={{size:6, order: 2}} xs={{size:12, order: 1}} className="mb-5">
                         <Text className="mb-3" left h1 label="pols.contacts.title" />
-                        <Text className="mb-2" left label="pols.contacts.company" />
-                        <Text className="mb-2" left label="pols.contacts.address" />
-                        <Text className="mb-2" left label="pols.contacts.phone" />
-                        <Text className="mb-2" left label="pols.contacts.email" />
-                        <Text className="mb-2" left label="pols.contacts.time" />
+                        <Text small className="mb-2" left label="pols.contacts.company" />
+                        <Text small className="mb-2" left label="pols.contacts.address" />
+                        <Text small className="mb-2" left label="pols.contacts.phone" />
+                        <Text small className="mb-2" left label="pols.contacts.email" />
+                        <Text small className="mb-2" left label="pols.contacts.time" />
                     </Col>
                 </Row>
             </div>

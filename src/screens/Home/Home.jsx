@@ -157,8 +157,8 @@ export const Home = () => {
                     <img src={vasras50} />
                     {/*<div>#50vasaras</div>*/}
                 </div>
-                <div className={'text-center ' + HomePageStyle.productsTextBlue + ' ' + HomePageStyle.otherNewProductsWrapper}>
-                    <Text>Pagaršo arī citus Pols jaunumus!</Text>
+                <div className={'text-center ' + HomePageStyle.otherNewProductsWrapper + ' ' + HomePageStyle.productsTextBlue}>
+                    <Text label="pols.home.other.title"/>
                 </div>
                 <div>
                     <div className="d-flex justify-content-center">
