@@ -145,7 +145,7 @@ const ToyReview = props => {
                 <img  className={toyReviewStyle['bigToyImg']} src={BigToy} />
                 <div className={toyReviewStyle['bigToyTopText']}>
                     <Text small className={toyReviewStyle.amountText}>{props.prize.big.sticksNeeded} <Text label='pols.toy.sticks' /></Text>
-                    <Text center  className={toyReviewStyle['extraSmallText']} label='pols.medium.description' />
+                    <Text center  className={toyReviewStyle['extraSmallText']} label='pols.big.description' />
                 </div>
                 <div className={toyReviewStyle.rightBigBottomText + ' ' + toyReviewStyle.bigToyRightSmallBottomText}>
                     <Text left label='pols.toy.left' />

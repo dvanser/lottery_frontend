@@ -116,6 +116,12 @@
     //background-image: url("../../assets/medium_toy.png");
 }
 
+.toyImg {
+    margin-left: -34px;
+    width: 111% !important;
+    margin-top: 30px;
+}
+
 @media (min-width: 292px) {
     .smallToyRightSmallBottomText {
         bottom: 7%;
@@ -242,6 +248,12 @@
 
     .amountText {
         font-size: 16px !important;
+    }
+
+    .toyImg {
+        margin-left: -66px;
+        width: 111% !important;
+        margin-top: 30px;
     }
 }
 
@@ -844,5 +856,17 @@
 
     .amountText {
         font-size: 22px !important;
+    }
+}
+
+@media (max-width: 1300px) {
+    body {
+        font-size: 25px !important;
+    }
+}
+
+@media (max-width: 1170px) {
+    body {
+        font-size: 21px !important;
     }
 }

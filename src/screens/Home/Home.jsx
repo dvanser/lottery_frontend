@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18nActions } from '../../_actions'
+import {authActions, i18nActions, userActions} from '../../_actions'
 import { connect } from 'react-redux';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { BrowserRouter } from 'react-router-dom';
 import { NavBar } from '../../components/NavBar';
-import { ToyReview } from '../../components/ToyReview2';
+import { ToyReview } from '../../components/ToyReview';
 import config from '../../config';
 import HomePageStyle from './HomePageStyle.module.scss'
 import {Button, Footer, Text} from '../../components';
@@ -35,10 +35,17 @@ import polsUpenu from '../../assets/pols_upenu.png';
 import polsAvenu from '../../assets/pols_avenu.png';
 import polsAvenuMobile from '../../assets/pols_avenu_mobile.png';
 import polsCrisps from '../../assets/pols_crisps.png';
+import polsCrispsRu from '../../assets/pols_crisps_ru.png';
 import polsCrispsMobile from '../../assets/pols_crisps_mobile.png';
+import polsCrispsMobileRu from '../../assets/pols_crisps_mobile_ru.png';
 import polsMango from '../../assets/pols_mango.png';
+import polsMangoRu from '../../assets/pols_mango_ru.png';
 import polsMangoMobile from '../../assets/pols_mango_mobile.png';
+import polsMangoMobileRu from '../../assets/pols_mango_mobile_ru.png';
+import polsPopcornMobile from '../../assets/pols_popcorn_mobile.png';
 import polsPopcorn from '../../assets/pols_popcorn.png';
+import polsPopcornMobileRu from '../../assets/pols_popcorn_mobile_ru.png';
+import polsPopcornRu from '../../assets/pols_popcorn_ru.png';
 import polsPlombirs from '../../assets/pols_plombirs.png';
 import polsMorozhko from '../../assets/morozhko.png';
 import polsMorozhkoMobile from '../../assets/morozhko_mobile.png';
@@ -49,7 +56,7 @@ import { Row, Col } from 'reactstrap';
 import { history } from '../../_library';
 
 
-export const Home = () => {
+const Home = props => {
 
     const intl = useIntl();
 
@@ -59,7 +66,7 @@ export const Home = () => {
             <img src={headerIceCream} alt='Ice Cream' className={HomePageStyle['headerIceCream']} />
             <div className={HomePageStyle['wrapper']}>
                 <Row>
-                    <Col lg={4}>
+                    <Col lg={5}>
                         <ToyReview button={
                             <Button className={'d-inline-block d-lg-none ' + HomePageStyle['registerBtn'] + ' ' +
                             HomePageStyle.registerBtnMobile}
@@ -68,7 +75,7 @@ export const Home = () => {
                             </Button>
                         } />
                     </Col>
-                    <Col lg={{ size: 8 }} className={'d-none d-lg-inline-block ' + HomePageStyle.registreCodeBtn}>
+                    <Col lg={{ size: 7 }} className={'d-none d-lg-inline-block ' + HomePageStyle.registreCodeBtn}>
                         <Button className={HomePageStyle['registerBtn']} onClick={() => history.push('/profile')}>
                             <Text label="pols.register.button" />
                         </Button>
@@ -108,18 +115,37 @@ export const Home = () => {
                                 <img src={polsClassic} alt='polsClassic' className={HomePageStyle.lotteryProdClassic} />
                             </Col>
                             <Col lg={3} className="text-center">
-                                <img src={polsChocolate} alt='polsChocolate' className={'d-none d-lg-block ' + HomePageStyle.lotteryProdChocolate} />
+                                <img src={polsChocolate} alt='polsChocolate' className={'d-none d-lg-block ml-1 ' + HomePageStyle.lotteryProdChocolate} />
                                 <img src={polsChocolateMobile} alt='polsChocolate' className={'d-block d-lg-none ' + HomePageStyle.lotteryProdChocolate} />
                             </Col>
                             <Col lg={3} className="text-center">
                                 <img src={polsPlombirs} alt='polsPlombirs' className={HomePageStyle.lotteryProdPlombirs} />
                             </Col>
                             <Col lg={3}>
-                                <img src={polsCrisps} alt='polsCrisps' className={'d-none d-lg-block ' + HomePageStyle.lotteryProdCrisps} />
-                                <img src={polsCrispsMobile} alt='polsCrisps' className={'d-block d-lg-none ' + HomePageStyle.lotteryProdCrisps} />
+                                {props.i18n.lang === 'lv' &&
+                                    <>
+                                        <img src={polsCrisps} alt='polsCrisps' className={'d-none d-lg-block ' + HomePageStyle.lotteryProdCrisps} />
+                                        <img src={polsCrispsMobile} alt='polsCrisps' className={'d-block d-lg-none ' + HomePageStyle.lotteryProdCrisps} />
+                                    </>
+
+                                }
+                                {props.i18n.lang === 'ru' &&
+                                    <>
+                                        <img src={polsCrispsRu} alt='polsCrisps' className={'d-none d-lg-block ' + HomePageStyle.lotteryProdCrisps} />
+                                        <img src={polsCrispsMobileRu} alt='polsCrisps' className={'d-block d-lg-none ' + HomePageStyle.lotteryProdCrisps} />
+                                    </>
+                                }
                             </Col>
                         </Row>
                         <Row className={HomePageStyle.lotteryProdSecondRow}>
+                            <Col lg={3} className={'d-block d-lg-none'}>
+                                {props.i18n.lang === 'lv' &&
+                                    <img src={polsPopcornMobile} alt='polsPopcorn' className={'d-block d-lg-none ' + HomePageStyle.lotteryProdPopcorn} />
+                                }
+                                {props.i18n.lang === 'ru' &&
+                                    <img src={polsPopcornMobileRu} alt='polsPopcorn' className={'d-block d-lg-none ' + HomePageStyle.lotteryProdPopcorn} />
+                                }
+                            </Col>
                             <Col lg={3} className="text-center">
                                 <img src={polsAvenu} alt='polsAvenu' className={'d-none d-lg-block ' + HomePageStyle.lotteryProdAvenu} />
                                 <img src={polsAvenuMobile} alt='polsAvenu' className={'d-block d-lg-none ' + HomePageStyle.lotteryProdAvenu} />
@@ -128,11 +154,27 @@ export const Home = () => {
                                 <img src={polsUpenu} alt='polsUpenu' className={HomePageStyle.lotteryProdUpenu} />
                             </Col>
                             <Col lg={3} className="text-center">
-                                <img src={polsMango} alt='polsMango' className={'d-none d-lg-block ' + HomePageStyle.lotteryProdMango} />
-                                <img src={polsMangoMobile} alt='polsMango' className={'d-block d-lg-none ' + HomePageStyle.lotteryProdMango} />
+                                {props.i18n.lang === 'lv' &&
+                                <>
+                                    <img src={polsMango} alt='polsMango' className={'d-none d-lg-block ' + HomePageStyle.lotteryProdMango} />
+                                    <img src={polsMangoMobile} alt='polsMango' className={'d-block d-lg-none ' + HomePageStyle.lotteryProdMango} />
+                                </>
+
+                                }
+                                {props.i18n.lang === 'ru' &&
+                                <>
+                                    <img src={polsMangoRu} alt='polsMango' className={'d-none d-lg-block ' + HomePageStyle.lotteryProdMango} />
+                                    <img src={polsMangoMobileRu} alt='polsMango' className={'d-block d-lg-none ' + HomePageStyle.lotteryProdMango} />
+                                </>
+                                }
                             </Col>
-                            <Col lg={3}>
-                                <img src={polsPopcorn} alt='polsPopcorn' className={HomePageStyle.lotteryProdPopcorn} />
+                            <Col lg={3} className={'d-none d-lg-block'}>
+                                {props.i18n.lang === 'lv' &&
+                                    <img src={polsPopcorn} alt='polsPopcorn' className={'d-none d-lg-block ' + HomePageStyle.lotteryProdPopcorn} />
+                                }
+                                {props.i18n.lang === 'ru' &&
+                                    <img src={polsPopcornRu} alt='polsPopcorn' className={'d-none d-lg-block ' + HomePageStyle.lotteryProdPopcorn} />
+                                }
                             </Col>
                         </Row>
                     </div>
@@ -177,3 +219,15 @@ export const Home = () => {
     </>
     );
 }
+
+function mapStateToProps(state) {
+
+    const { i18n } = state;
+
+    return {
+        i18n
+    };
+}
+
+const connectedHome = connect(mapStateToProps)(Home);
+export {connectedHome as Home};

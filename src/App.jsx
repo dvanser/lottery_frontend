@@ -39,7 +39,6 @@ class App extends Component {
     componentDidMount() {
         if (!this.props.user.synchronized) {
             this.props.loadSettings();
-            this.props.getPrizes();
         }
     }
 
@@ -102,10 +101,9 @@ class App extends Component {
 
 
 function mapStateToProps(state) {
-    const { user, prize } = state;
+    const { user } = state;
     return {
-        user,
-        prize
+        user
     };
 }
 
@@ -113,9 +111,6 @@ function mapDispatchToProps(dispatch) {
     return({
         loadSettings: () => {
             dispatch(userActions.loadSettings())
-        },
-        getPrizes: () => {
-            dispatch(prizeActions.getPrizes())
         }
     })
 }

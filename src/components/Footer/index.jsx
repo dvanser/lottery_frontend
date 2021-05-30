@@ -15,13 +15,27 @@ export const Footer = props => {
         <>
             <Row noGutters={true} className={"pb-md-3 pb-2 text-center " + FooterStyles["footer"] + ' ' +  FooterStyles[ (props.background ? props.background : "whiteWave")]}>
                 <Col className={FooterStyles["desktopFooter"]}>
-                    <Text extraSmall className={FooterStyles['footerDelimiter']} label="pols.footer.copyright" />
+                    <Text extraSmall className={FooterStyles['footerDelimiter']} label="pols.footer.lottery" />
                     <Text extraSmall className={FooterStyles['footerDelimiter']} label="pols.footer.term" />
-                    <Text onClick={() => openFile(PrivacyFile)} extraSmall className={"text-underline cursor-pointer " + FooterStyles['footerDelimiter']} label="pols.footer.privacy" />
+                    <Text extraSmall label="pols.footer.prize_count" />
+                    <Row className="mt-1">
+                        <Col>
+                            <Text extraSmall className={FooterStyles['footerDelimiter']} label="pols.footer.copyright" />
+                            <Text onClick={() => openFile(PrivacyFile)} extraSmall className={"text-underline cursor-pointer "} label="pols.footer.privacy" />
+
+                        </Col>
+                    </Row>
+                </Col>
+                <Col className={FooterStyles["bigDesktopFooter"]}>
+                    <Text extraSmall className={FooterStyles['footerDelimiter']} label="pols.footer.copyright" />
+                    <Text extraSmall className={FooterStyles['footerDelimiter']} label="pols.footer.lottery" />
+                    <Text extraSmall className={FooterStyles['footerDelimiter']} label="pols.footer.term" />
+                    <Text onClick={() => openFile(PrivacyFile)} extraSmall className={"text-underline cursor-pointer " + ' ' + FooterStyles['footerDelimiter']} label="pols.footer.privacy" />
                     <Text extraSmall label="pols.footer.prize_count" />
                 </Col>
                 <Col className={FooterStyles["mobileFooter"]}>
                     <Text extraSmall label="pols.footer.copyright" />
+                    <Text center extraSmall label="pols.footer.lottery" />
                     <Text center extraSmall label="pols.footer.term" />
                     <Text center onClick={() => openFile(PrivacyFile)} extraSmall className={"text-underline cursor-pointer "} label="pols.footer.privacy" />
                     <Text center extraSmall label="pols.footer.prize_count" />
