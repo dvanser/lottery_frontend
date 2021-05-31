@@ -4,7 +4,7 @@ import { history } from './_library';
 import {LoadingWithSuspense} from './components';
 import { connect } from 'react-redux';
 import { PrivateRoute } from './components';
-import { userActions, prizeActions } from './_actions/';
+import { userActions } from './_actions/';
 import config from './config';
 import CookieConsent from "react-cookie-consent";
 import {FormattedMessage} from "react-intl";

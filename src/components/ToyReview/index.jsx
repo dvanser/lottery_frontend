@@ -21,7 +21,6 @@ const ToyReview = props => {
         getRequest('/prizes')
             .then(response => {
                 setToyImage(response.image)
-                console.log(response.image);
             })
             .catch(error => {
         });
@@ -31,7 +30,6 @@ const ToyReview = props => {
         getRequest('/prizes')
             .then(response => {
                 setToyImage(response.image)
-                console.log(response.image);
             })
             .catch(error => {
             });

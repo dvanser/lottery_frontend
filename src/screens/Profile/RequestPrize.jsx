@@ -143,7 +143,14 @@ const RequestPrize = props => {
     }, [prizes, userSticks]);
 
     useEffect(() => {
-        setPrizes(props.prize);
+        getRequest('/prizesCount')
+            .then(response => {
+                setPrizes(response);
+            }).catch(response => {
+            if (response.error) {
+            }
+        });
+
     }, []);
 
     useEffect(() => {
