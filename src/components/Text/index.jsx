@@ -23,4 +23,4 @@ export const Text = ({children, className, type, label, onClick, ...classes}) =>
             {children}
         </ComponentType>
     );
-}
+};

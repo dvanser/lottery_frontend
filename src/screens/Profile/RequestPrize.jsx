@@ -29,6 +29,9 @@ const RequestPrize = props => {
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
     const [errorNotSelectedPrizes, setErrorNotSelectedPrizes] = useState(false);
     const [errorNotSelectedParcel, setErrorNotSelectedParcel] = useState(false);
+    const [errorNotSelectedDeliveryType, setErrorNotSelectedDeliveryType] = useState(false);
+    const deliveryTypes = [{type: 'DPD', label: 'pols.request_prize.choose_delivery_type_dpd'}, {type:'pick_up', label: 'pols.request_prize.choose_delivery_type_pick_up'}];
+    const [selectedDeliveryType, setSelectedDeliveryType] = useState('');
     const [loading, setLoading] = useState(false);
 
     const handlePrizeCountChange = (type, count) => {
@@ -63,6 +66,11 @@ const RequestPrize = props => {
         handlePrizeCountChange('big', count.value);
     };
 
+    const handleDeliveryTypeChange = type => {
+        setErrorNotSelectedDeliveryType(false);
+        setSelectedDeliveryType(type.value);
+    };
+
     const renderPrizeList = (label, placeholderLabelId, count, onChange) => {
         return (
             <>
@@ -70,6 +78,23 @@ const RequestPrize = props => {
                 <Select className={'mt-2 mb-3 ' } classNamePrefix="pols-select" placeholder={intl.formatMessage({id: placeholderLabelId})} isSearchable={false}
                         options={[...[...Array(count)].map((_, idx) => ({value: idx + 1, label: idx + 1}))]}
                         onChange={onChange}  components={{ NoOptionsMessage }} />
+            </>
+        )
+    };
+
+    const renderDeliveryType = (label, placeholderLabelId, onChange) => {
+        return (
+            <>
+                <Text label={label} />
+                <Select
+                    className={'mt-2 mb-3 ' }
+                    placeholder={intl.formatMessage({id: placeholderLabelId})}
+                    classNamePrefix="pols-select"
+                    isSearchable={false}
+                    name="deliveryType"
+                    onChange={onChange}
+                    options={deliveryTypes.map((delivery, idx) => ({value: delivery.type, label: intl.formatMessage({id: delivery.label})}))}
+                />
             </>
         )
     };
@@ -84,8 +109,9 @@ const RequestPrize = props => {
             "street": selectedParcelsShop.street,
             "phone": props.user.phone,
             "prizes": selectedPrizes,
-            "parcelshopId": selectedParcelsShop.parcelshop_id
-        }
+            "parcelshopId": selectedParcelsShop.parcelshop_id,
+            "shippingType": "DPD"
+        };
 
         postRequest('/prizes/request', data)
             .then(response => {
@@ -108,7 +134,7 @@ const RequestPrize = props => {
         } else {
             return 0;
         }
-    }
+    };
 
     const NoOptionsMessage = props => {
         return (
@@ -125,16 +151,43 @@ const RequestPrize = props => {
             return;
         }
 
+        if (selectedDeliveryType === '') {
+            setErrorNotSelectedDeliveryType(true);
+            return;
+        }
 
-        getRequest('/prizes/parcelshops')
-            .then(response => {
-                setParcelShops(response);
-                setShowParcelsShops(true);
-            }).catch(response => {
-            if (response.error) {
-            }
-        });
-    }
+        if (selectedDeliveryType === 'pick_up') {
+            setLoading(true);
+            const data = {
+                "name": props.user.name,
+                "surname": props.user.surname,
+                "phone": props.user.phone,
+                "prizes": selectedPrizes,
+                "shippingType": "PICK_UP"
+            };
+
+            postRequest('/prizes/request', data)
+                .then(response => {
+                    setShowSuccessMessage(true);
+                    setShowParcelsShops(false);
+                    setShowContacts(false);
+                    setLoading(false);
+                }).catch(response => {
+
+                if (response.error) {
+                }
+            });
+        } else {
+            getRequest('/prizes/parcelshops')
+                .then(response => {
+                    setParcelShops(response);
+                    setShowParcelsShops(true);
+                }).catch(response => {
+                if (response.error) {
+                }
+            });
+        }
+    };
 
     useEffect(() => {
         setSmallPrizeAvailableCount(calculateAvailablePrizes("small"));
@@ -178,8 +231,12 @@ const RequestPrize = props => {
                                     {renderPrizeList('pols.request_prize.title.small_prize', 'pols.request_prize.choose_count', smallPrizeAvailableCount, handleSmallPrizeCountChange)}
                                     {renderPrizeList('pols.request_prize.title.medium_prize', 'pols.request_prize.choose_count', mediumPrizeAvailableCount, handleMediumPrizeCountChange)}
                                     {renderPrizeList('pols.request_prize.title.big_prize', 'pols.request_prize.choose_count', bigPrizeAvailableCount, handleBigPrizeCountChange)}
+                                    {renderDeliveryType('pols.request_prize.delivery_type', 'pols.request_prize.choose_delivery_type', handleDeliveryTypeChange)}
                                     {errorNotSelectedPrizes &&
                                         <Text error label="pols.request_prize.not_selected_prize" />
+                                    }
+                                    {errorNotSelectedDeliveryType &&
+                                        <Text error label="pols.request_prize.not_selected_delivery_type" />
                                     }
                                     <Button blue className="mt-2" onClick={handleShowDpdBlock}>
                                         <Text label="pols.profile.btn.request"/>

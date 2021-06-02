@@ -208,7 +208,12 @@
     "pols.home.steps.2": "Reģistrējies pols.lv",
     "pols.home.steps.3": "Reģistrē kociņus un apmaini pret balvām",
     "pols.home.products.title": "Produkti, kas piedalās loterijā",
-    "pols.home.other.title": "Pagaršo arī citus Pols jaunumus!"
+    "pols.home.other.title": "Pagaršo arī citus Pols jaunumus!",
+    "pols.request_prize.delivery_type": "Piegādes veids",
+    "pols.request_prize.choose_delivery_type": "Izvēlējies piegādes veidu",
+    "pols.request_prize.choose_delivery_type_dpd": "DPD pakomāts",
+    "pols.request_prize.choose_delivery_type_pick_up": "Saņem balvu Rīgā, Dēļu ielā 4-T.",
+    "pols.request_prize.not_selected_delivery_type": "Izvēlējies piegādes veidu"
   },
   "ru": {
     "pols.small.description" : "брелок",
@@ -419,6 +424,11 @@
     "pols.home.steps.2": "Регистрируйся на сайте pols.lv",
     "pols.home.steps.3": "Регистрируй палочки и обменивай их на призы",
     "pols.home.products.title": "Продукты, участвующие в лотерее",
-    "pols.home.other.title": "Попробуй и другие новинки Pols!"
+    "pols.home.other.title": "Попробуй и другие новинки Pols!",
+    "pols.request_prize.delivery_type": "Вид доставки",
+    "pols.request_prize.choose_delivery_type": "Выбери вид доставки",
+    "pols.request_prize.choose_delivery_type_dpd": "DPD",
+    "pols.request_prize.choose_delivery_type_pick_up": "Получи приз по адресу: ул. Делю 4-Т, Рига, Латвия",
+    "pols.request_prize.not_selected_delivery_type": "Выберите вид доставки"
   }
 }
