@@ -9,6 +9,7 @@ import config from './config';
 import CookieConsent from "react-cookie-consent";
 import {FormattedMessage} from "react-intl";
 import PrivacyFile from "./privacy.pdf";
+import {i18nActions} from "./_actions";
 
 
 const Login = React.lazy(() => import(/* webpackChunkName: "login" */ './screens/Login/Login').then(module => ({default: module.Login})));
@@ -40,8 +41,10 @@ class App extends Component {
         if (!this.props.user.synchronized) {
             this.props.loadSettings();
         }
-    }
 
+        // console.log(localStorage.getItem(config.language));
+        // if (localStorage.getItem(config.language)) this.props.changeLanguage(localStorage.getItem(config.language));
+    }
 
 
     render() {
@@ -101,9 +104,10 @@ class App extends Component {
 
 
 function mapStateToProps(state) {
-    const { user } = state;
+    const { user, i18n } = state;
     return {
-        user
+        user,
+        i18n
     };
 }
 
@@ -111,6 +115,9 @@ function mapDispatchToProps(dispatch) {
     return({
         loadSettings: () => {
             dispatch(userActions.loadSettings())
+        },
+        changeLanguage: () => {
+            dispatch(i18nActions.changeLanguage())
         }
     })
 }
