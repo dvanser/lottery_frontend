@@ -42,8 +42,9 @@ class App extends Component {
             this.props.loadSettings();
         }
 
-        // console.log(localStorage.getItem(config.language));
-        // if (localStorage.getItem(config.language)) this.props.changeLanguage(localStorage.getItem(config.language));
+        if (localStorage.getItem(config.language)) {
+            this.props.changeLanguage(localStorage.getItem(config.language));
+        }
     }
 
 
@@ -116,8 +117,8 @@ function mapDispatchToProps(dispatch) {
         loadSettings: () => {
             dispatch(userActions.loadSettings())
         },
-        changeLanguage: () => {
-            dispatch(i18nActions.changeLanguage())
+        changeLanguage: lang => {
+            dispatch(i18nActions.changeLanguage(lang))
         }
     })
 }
