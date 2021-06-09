@@ -57,7 +57,7 @@ export const FileFrom = props => {
 
 export const CodeFrom = props => {
 
-    const [codes, setCodes] = useState({});
+    const [codes, setCodes] = useState(props.data);
 
 
     const handleOnChange = (id, value) => {
@@ -78,7 +78,7 @@ export const CodeFrom = props => {
             )}
             <div className="mt-3">
                 {props.error && (props.error === 'wrong_data_supplied' || props.error === 'not_valid_code') &&
-                    <Text error><FormattedMessage id={`pols.add.code.error.${props.error}`}/></Text>
+                    <Text error>{props.wrongCode ? props.wrongCode : ''}&nbsp;<FormattedMessage id={`pols.add.code.error.${props.error}`}/></Text>
                 }
                 {props.error && (props.error !== 'wrong_data_supplied' && props.error !== 'not_valid_code') &&
                     <Text error><FormattedMessage id={`pols.add.code.error.unexpected`}/></Text>
@@ -98,9 +98,11 @@ export const RegisterCode = () => {
     ]);
     const [codesData, setCodesData] = useState({});
     const [codesError, setCodesError] = useState('');
+    const [wrongCode, setWrongCode] = useState('');
     const [codesCount, setCodesCount] = useState(1);
     const [loading, setLoading] = useState(false);
     const [successUpload, setSuccessUpload] = useState(false);
+    const [codesSuccessUpload, setCodesSuccessUpload] = useState(false);
 
     const intl = useIntl();
 
@@ -137,51 +139,72 @@ export const RegisterCode = () => {
         setCodesData(codes);
     };
 
-    const handleSubmit = () => {
+    const handleSubmitCodes = () => {
 
         setLoading(true);
         setSuccessUpload(false);
         setCodesError('');
+        setWrongCode('');
 
         postRequest('/codes', {codes: Object.values(codesData)})
             .then(response => {
-                requestsData.forEach((file, idx) => {
+                setCodesSuccessUpload(true);
+            }).catch(response => {
+            setLoading(false);
 
-                    const filesData = new FormData();
+            if (response.error) {
+                setCodesError(response.error);
+                if (response.error === "not_valid_code") {
+                    setWrongCode(response.code);
+                }
+            }
+        });
 
-                    if (file.files) {
-                        filesData.append('cheque', file.files[0]);
+    }
+
+    const handleSubmitCheque = () => {
+
+        setLoading(true);
+        setSuccessUpload(false);
+        setCodesError('');
+        setWrongCode('');
+
+        requestsData.forEach((file, idx) => {
+
+            const filesData = new FormData();
+
+            if (file.files) {
+                filesData.append('cheque', file.files[0]);
+            }
+
+            filesData.append('number', file.cheque);
+
+            postFileRequest(`/cheque`, filesData)
+                .then(response => {
+                    setSuccessUpload(true);
+                    setLoading(false);
+                    setTimeout(function(){ history.push("/profile") }, 3000);
+                }).catch(response => {
+
+                    let newRequestsData = [...requestsData];
+
+                    if (response.error) {
+                        newRequestsData[idx]['error'] = response.error
+                    } else {
+                        newRequestsData[idx]['error'] = response.error
                     }
 
-                    filesData.append('number', file.cheque);
-
-                    postFileRequest(`/cheque`, filesData)
-                        .then(response => {
-                            setSuccessUpload(true);
-                            setLoading(false);
-                            setTimeout(function(){ history.push("/profile") }, 3000);
-                        }).catch(response => {
-
-                            let newRequestsData = [...requestsData];
-
-                            if (response.error) {
-                                newRequestsData[idx]['error'] = response.error
-                            } else {
-                                newRequestsData[idx]['error'] = response.error
-                            }
-
-                            setRequestsData(newRequestsData);
-                            setLoading(false);
-                        });
+                    setRequestsData(newRequestsData);
+                    setLoading(false);
                 });
-            }).catch(response => {
-                setLoading(false);
-
-                if (response.error) {
-                    setCodesError(response.error);
-                }
-            });
+        });
     };
+
+    const handleSubmit = () => {
+        if (codesSuccessUpload) {
+            handleSubmitCheque();
+        }
+    }
 
     const renderSelect = (labelId, count, onChange) => (
         <Select className={'mt-3 ' } classNamePrefix="pols-select" placeholder={intl.formatMessage({id: labelId})} isSearchable={false}
@@ -219,7 +242,7 @@ export const RegisterCode = () => {
                                 {step === 2 &&
                                     <>
                                         <div>
-                                            <CodeFrom error={codesError} count={codesCount} data={codesData} onChange={handleCodeFormChange} />
+                                            <CodeFrom wrongCode={wrongCode} error={codesError} count={codesCount} data={codesData} onChange={handleCodeFormChange} />
                                         </div>
                                         <Button className="mt-3" onClick={handleSubmit}>
                                             <FormattedMessage id="pols.profile.register_code.btn.submit" />
