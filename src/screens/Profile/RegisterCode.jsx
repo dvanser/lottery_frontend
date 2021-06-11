@@ -201,10 +201,53 @@ export const RegisterCode = () => {
     };
 
     const handleSubmit = () => {
-        if (codesSuccessUpload) {
-            handleSubmitCheque();
-        }
-    }
+
+        setLoading(true);
+        setSuccessUpload(false);
+        setCodesError('');
+
+        postRequest('/codes', {codes: Object.values(codesData)})
+            .then(response => {
+                requestsData.forEach((file, idx) => {
+
+                    const filesData = new FormData();
+
+                    if (file.files) {
+                        filesData.append('cheque', file.files[0]);
+                    }
+
+                    filesData.append('number', file.cheque);
+
+                    postFileRequest(`/cheque`, filesData)
+                        .then(response => {
+                            setSuccessUpload(true);
+                            setLoading(false);
+                            setTimeout(function(){ history.push("/profile") }, 3000);
+                        }).catch(response => {
+
+                        let newRequestsData = [...requestsData];
+
+                        if (response.error) {
+                            newRequestsData[idx]['error'] = response.error
+                        } else {
+                            newRequestsData[idx]['error'] = response.error
+                        }
+
+                        setRequestsData(newRequestsData);
+                        setLoading(false);
+                    });
+                });
+            }).catch(response => {
+            setLoading(false);
+
+            if (response.error) {
+                setCodesError(response.error);
+                if (response.error === "not_valid_code") {
+                    setWrongCode(response.code);
+                }
+            }
+        });
+    };
 
     const renderSelect = (labelId, count, onChange) => (
         <Select className={'mt-3 ' } classNamePrefix="pols-select" placeholder={intl.formatMessage({id: labelId})} isSearchable={false}
