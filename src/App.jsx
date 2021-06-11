@@ -11,7 +11,6 @@ import {FormattedMessage} from "react-intl";
 import PrivacyFile from "./privacy.pdf";
 import {i18nActions} from "./_actions";
 import ReactPixel from 'react-facebook-pixel';
-import TagManager from 'react-gtm-module'
 
 
 const Login = React.lazy(() => import(/* webpackChunkName: "login" */ './screens/Login/Login').then(module => ({default: module.Login})));
@@ -37,10 +36,6 @@ function openFile(file) {
     window.open(file, '_blank');
 }
 
-const tagManagerArgs = {
-    gtmId: 'UA-139151129-1'
-}
-
 class App extends Component {
 
     componentDidMount() {
@@ -54,7 +49,6 @@ class App extends Component {
 
         ReactPixel.init('783331765708955');
         ReactPixel.pageView();
-        TagManager.initialize(tagManagerArgs)
     }
 
 
